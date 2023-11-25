@@ -1,0 +1,52 @@
+export default `
+# src/graphql/types/DevisAsset.graphql.js
+
+type DevisAsset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+  devisAssetID: ID!
+  uniqRef: String
+  slug: String!
+  legend: String
+  asset: Asset
+  devis: Devis
+  author: User
+  state: ObjectStatus
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+input DevisAssetInput {
+  devisAssetID: ID
+  legend: String
+  assetID: ID
+  devisID: ID
+  authorID: ID!
+  state: ObjectStatus
+}
+
+type DevisAssetResponse implements FallibleResponse {
+  data: [DevisAsset!]
+  errors: [MutationError!]
+}
+
+extend type Query {
+  devisAsset(devisAssetID: ID!): DevisAssetResponse
+  devisAssets(
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): DevisAssetResponse
+}
+
+type Mutation {
+  createDevisAsset(input: DevisAssetInput!): DevisAssetResponse!
+  updateDevisAsset(devisAssetID: ID!, input: DevisAssetInput!): DevisAssetResponse!
+  deleteDevisAsset(devisAssetID: ID!): MutationResponse!
+}
+
+type Subscription {
+  devisAssetAdded: DevisAsset!
+  devisAssetUpdated: DevisAsset!
+  devisAssetDeleted: DevisAsset!
+}
+`;
