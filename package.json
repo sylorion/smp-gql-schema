@@ -1,0 +1,31 @@
+{
+  "name": "smp-gql-schema",
+  "version": "1.0.0",
+  "description": "GraphQL general schema types and scalar for the Services Market Place platform\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha './tests/**/*.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sylorion/smp-gql-schema.git"
+  },
+  "keywords": [
+    "graphql",
+    "api",
+    "services",
+    "types",
+    "schema",
+    "scalar",
+    "tools",
+    "utils",
+    "lib",
+    "core"
+  ],
+  "author": "Sylorion SAS",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sylorion/smp-gql-schema/issues"
+  },
+  "homepage": "https://github.com/sylorion/smp-gql-schema#readme"
+}
