@@ -41,10 +41,6 @@ extend type User {
   ): [UserToken!]
 }
 
-extend type Media {
-  author: User!
-}
-
 input UserInput {
   userID: ID
   username: String
