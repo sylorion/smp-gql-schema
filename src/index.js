@@ -24,16 +24,13 @@ async function loadFiles(basePath, extension) {
     directory = basePath.replace('/**/', '/');
   }
 
-  async function load(directory) {
-    console.log(directory)
+  async function load(directory) { 
     let modules = [];
     const items = await fs.readdir(directory, { withFileTypes: true });
 
     for (const item of items) {
-      const itemPath = join(directory, item.name);
-      console.log(itemPath)
-      if (item.isDirectory() && recursive) {
-        console.log("Faire une recherche pour " + itemPath)
+      const itemPath = join(directory, item.name); 
+      if (item.isDirectory() && recursive) { 
         modules = modules.concat(await load(itemPath));
       } else if (item.isFile() && itemPath.endsWith(extension)) {
         const module = await import(resolve(itemPath));
