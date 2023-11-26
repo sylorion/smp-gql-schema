@@ -1,7 +1,5 @@
 export default `
 # src/graphql/types/Media.graphql.js
-scalar File
-scalar DateTime
 
 type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   mediaID: ID!

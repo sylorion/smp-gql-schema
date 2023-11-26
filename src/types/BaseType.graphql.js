@@ -3,6 +3,9 @@ export default `
 
 scalar Date
 scalar JSON
+scalar File
+scalar DateTime
+scalar Date
 
 interface ServicesEntity {
   uniqRef: String # Mostly hand generated ID except for mongodb data
