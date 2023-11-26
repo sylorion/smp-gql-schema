@@ -1,6 +1,5 @@
 export default `
 # src/graphql/types/Profile.graphql.js
-scalar Date
 
 type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  {
   profileID: ID

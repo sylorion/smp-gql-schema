@@ -1,16 +1,11 @@
 export default `
 # src/graphql/types/Follow.graphql.js
 
-enum EntityType {
-  SERVICE
-  ORGANIZATION
-}
-
 type Follow {
   followID: ID!
   authorID: ID
   author: User
-  followedEntity: EntityType!
+  followedEntity: FollowableEntity!
   followedID: ID! # Organization or Service
   state: ObjectStatus
   createdAt: DateTime
@@ -21,7 +16,7 @@ type Follow {
 input FollowInput {
   followID: ID!
   followedID: ID!
-  followedEntity: EntityType!
+  followedEntity: FollowableEntity!
   state: ObjectStatus
 }
 

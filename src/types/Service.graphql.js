@@ -1,18 +1,6 @@
 export default `
 # src/graphql/types/Service.graphql.js
 
-interface ServicesEntity {
-  uniqRef: String # Mostly hand generated ID except for mongodb data
-}
-
-interface ServicesNavigableEntity{
-  slug: String
-}
-
-interface ServicesStatable {
-  state: ObjectStatus
-}
-
 type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   serviceID: ID!
   uniqRef: String

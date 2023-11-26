@@ -1,6 +1,6 @@
 export default `
 # src/graphql/types/Application.graphql.js
-scalar JSON
+
 type Application {
   applicationID: ID!
   uniqRef: String
