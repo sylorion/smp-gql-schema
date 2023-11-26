@@ -6,6 +6,14 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+function currentFile(url) {
+  return fileURLToPath(url)
+}
+
+function currentDirname(filename) {
+  return dirname(filename)
+}
+
 async function loadFiles(basePath, extension) {
   let recursive = false;
   let directory = basePath;
@@ -22,9 +30,9 @@ async function loadFiles(basePath, extension) {
     const items = await fs.readdir(directory, { withFileTypes: true });
 
     for (const item of items) {
-      const itemPath = join(directory, item.name );
-      console.log(itemPath) 
-      if (item.isDirectory()  && recursive) { 
+      const itemPath = join(directory, item.name);
+      console.log(itemPath)
+      if (item.isDirectory() && recursive) {
         console.log("Faire une recherche pour " + itemPath)
         modules = modules.concat(await load(itemPath));
       } else if (item.isFile() && itemPath.endsWith(extension)) {
@@ -35,7 +43,6 @@ async function loadFiles(basePath, extension) {
     return modules;
   }
   const modules = load(resolve(__dirname, directory))
-  console.log(modules)
   return modules //.map(m => m.default);
 }
 
@@ -48,4 +55,4 @@ async function loadGraphQLComponents() {
   return { types, resolvers };
 }
 
-export { loadGraphQLComponents };
+export { loadGraphQLComponents, currentDirname, currentFile, loadFiles };
