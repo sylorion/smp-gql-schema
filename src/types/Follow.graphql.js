@@ -20,6 +20,8 @@ type Follow {
 
 input FollowInput {
   followID: ID!
+  followedID: ID!
+  followedEntity: EntityType!
   state: ObjectStatus
 }
 

@@ -3,6 +3,8 @@ import { promises as fs } from 'fs';
 import { dirname, join, extname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
+export { default as Comment } from "./src/types/Comment.graphql.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
