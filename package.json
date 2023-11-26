@@ -1,6 +1,7 @@
 {
   "name": "smp-gql-schema",
   "version": "1.0.0",
+  "type": "module",
   "description": "GraphQL general schema types and scalar for the Services Market Place platform\"",
   "main": "index.js",
   "scripts": {
