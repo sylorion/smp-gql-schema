@@ -5,7 +5,7 @@ type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   placeID: ID!
   uniqRef: String!
   slug: String!
-  author: User
+  authorID: ID
   country: String
   region: String
   pstate: String

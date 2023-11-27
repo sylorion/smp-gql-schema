@@ -4,7 +4,6 @@ export default `
 type Follow {
   followID: ID!
   authorID: ID
-  author: User
   followedEntity: FollowableEntity!
   followedID: ID! # Organization or Service
   state: ObjectStatus

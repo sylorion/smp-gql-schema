@@ -4,8 +4,8 @@ type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & Service
   paymentMethodID: ID!
   uniqRef: String!
   slug: String!
-  author: User
-  organization: Organization
+  authorID: ID
+  organizationID: ID
   paymentMethodKind: PaymentMethodType
   isActive: Boolean
   accountHolderName: String

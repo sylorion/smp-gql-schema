@@ -4,9 +4,9 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
   serviceMediaID: ID!
   uniqRef: String
   slug: String
-  author: User
-  media: Media
-  service: Service
+  authorID: ID!
+  mediaID: ID!
+  serviceID: ID!
   legend: String
   listingPosition: Int
   state: ObjectStatus

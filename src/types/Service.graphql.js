@@ -10,7 +10,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   description: String
   mediaBannerID: ID
   termsAndConditionsID: ID
-  parentID: ID
+  parentServiceID: ID
   parent: Service
   topicID: ID
   organizationID: ID

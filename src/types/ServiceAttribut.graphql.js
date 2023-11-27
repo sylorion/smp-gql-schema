@@ -4,7 +4,7 @@ type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & Serv
   attributeID: ID!
   uniqRef: String
   slug: String
-  author: User
+  authorID: ID!
   attributeName: String
   attributeValue: String
   serviceID: ID

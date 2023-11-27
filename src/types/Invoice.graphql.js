@@ -5,7 +5,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   invoiceID: ID!
   uniqRef: String
   slug: String
-  devis: Devis
+  devisID: ID
   thirdPartyFees: Int
   servicesFees: Int
   servicesVatPercent: Int

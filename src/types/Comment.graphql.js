@@ -5,12 +5,9 @@ type Comment implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   commentID: ID!
   uniqRef: String
   slug: String
-  content: String
-  author: User
-  authorID: ID!
-  service: Service
+  content: String 
+  authorID: ID
   serviceID: ID
-  organization: Organization
   organizationID: ID
   feedback: Int
   state: ObjectStatus

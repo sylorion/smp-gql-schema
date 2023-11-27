@@ -4,9 +4,9 @@ type OrganizationMedia implements ServicesEntity & ServicesNavigableEntity & Ser
   organizationMediaID: ID!
   uniqRef: String
   slug: String
-  author: User
-  media: Media
-  organization: Organization
+  authorID: ID
+  mediaID: ID
+  organizationID: ID
   legend: String
   listingPosition: Int
   state: ObjectStatus

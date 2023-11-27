@@ -6,11 +6,11 @@ type AuditLog implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   uniqRef: String
   slug: String
   actionType: AuditLogActionType
-  user: User
+  userID: ID
   userIP: String
   userOS: String
   machineName: String
-  application: Application
+  applicationID: ID
   applicationVersion: String
   actionDetails: String
   clientDetails: String

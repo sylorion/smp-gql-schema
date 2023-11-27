@@ -6,7 +6,7 @@ type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & Se
   uniqRef: String!
   slug: String!
   author: User
-  organization: Organization
+  organizationID: ID
   tacContent: String
   state: ObjectStatus
   createdAt: DateTime

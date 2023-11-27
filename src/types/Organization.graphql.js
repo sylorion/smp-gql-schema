@@ -6,18 +6,16 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   organizationID: ID!
   uniqRef: String
   slug: String
-  authorID: ID!
-  ownerID: ID!
-  author: User
-  owner: User
+  authorID: Int
+  ownerID: Int
   orgRef: String
-  sectorID: ID! 
+  sectorID: Int
   legalName: String
   brand: String
   sigle: String
-  smallLogo: Media
-  bigLogo: Media
-  banner: Media
+  smallLogoID: ID
+  bigLogoID: ID
+  bannerID: ID
   oSize: OrganizationEconomicSizeKind
   juridicForm: String
   juridicCatLabel: String

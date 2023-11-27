@@ -6,9 +6,9 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   uniqRef: String
   slug: String
   title: String
-  author: User
-  organizationID: Organization
-  media: Media
+  authorID: ID
+  organizationID: ID
+  mediaID: ID
   description: String
   price: Int
   legalVatPercent: Int

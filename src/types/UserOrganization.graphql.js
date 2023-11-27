@@ -4,11 +4,11 @@ type UserOrganization implements ServicesEntity & ServicesNavigableEntity & Serv
   userOrganizationID: ID!
   uniqRef: String
   slug: String
+  authorID: ID
   legend: String
-  author: User
-  user: User
-  role: Role
-  organization: Organization
+  userID: ID
+  roleID: ID
+  organizationID: ID
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

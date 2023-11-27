@@ -6,9 +6,9 @@ type DevisAsset implements ServicesEntity & ServicesNavigableEntity & ServicesSt
   uniqRef: String
   slug: String!
   legend: String
-  asset: Asset
-  devis: Devis
-  author: User
+  assetID: ID
+  devisID: ID
+  authorID: ID!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

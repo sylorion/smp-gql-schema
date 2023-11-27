@@ -5,9 +5,8 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   mediaID: ID!
   uniqRef: String
   slug: String
-  author: User
   authorID: ID!
-  mediaType: MediaType!
+  mediaType: MediaType
   legend: String
   summary: String
   originalName: String
@@ -30,8 +29,6 @@ extend type User {
 
 input MediaInput {
   mediaID: ID
-  uniqRef: String
-  slug: String
   authorID: ID!
   mediaType: MediaType
   legend: String

@@ -5,8 +5,8 @@ type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & Service
   paymentConfigID: ID!
   uniqRef: String!
   slug: String!
-  author: User
-  paymentMethod: PaymentMethod
+  authorID: ID
+  paymentMethodID: ID
   partnerTokenAuthDetails: String
   paymentConfigDetails: String
   state: ObjectStatus

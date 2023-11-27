@@ -5,11 +5,11 @@ type Devis implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   devisID: ID!
   uniqRef: String
   slug: String
-  author: User
-  operatorUser: User
-  buyerOrganization: Organization
-  sellerOrganization: Organization
-  service: Service
+  authorID: ID!
+  operatorUserID: ID
+  buyerOrganizationID: ID
+  sellerOrganizationID: ID
+  serviceID: ID
   expirationDueDate: Date
   expirationTimeLeft: Int # in second
   referencePrice: Int

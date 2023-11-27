@@ -4,11 +4,11 @@ type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesS
   transactionID: ID!
   uniqRef: String
   slug: String
-  buyerUser: User
-  sellerOrganization: Organization
-  invoice: Invoice
+  buyerUserID: ID
+  sellerOrganizationID: ID
+  invoiceID: ID
   totalAmount: Int
-  dealMediaProof: Media
+  dealMediaProofID: ID
   transactionDateTime: DateTime
   state: ObjectStatus
   createdAt: DateTime

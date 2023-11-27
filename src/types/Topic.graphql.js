@@ -7,8 +7,7 @@ type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   authorID: ID
   title: String
   description: String
-  parentID: ID
-  parent: Topic
+  parentTopicID: ID 
   # To design criteria as a hierarchical graph, higher is the level more accurate is the topic
   level: Int
   state: ObjectStatus
@@ -22,7 +21,7 @@ input TopicInput {
   authorID: ID
   title: String
   description: String
-  parentID: ID
+  parentTopicID: ID
   level: Int
   state: ObjectStatus
 }

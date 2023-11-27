@@ -5,9 +5,11 @@ type Application {
   applicationID: ID!
   uniqRef: String
   slug: String
-  author: User
+  authorID: ID
+  title: String
+  description: String
   officialName: String
-  developer: User
+  developerID: ID
   authKey: String
   plan: String
   isOfficialApp: Boolean
@@ -21,6 +23,8 @@ type Application {
 input ApplicationInput {
   applicationID: ID
   authorID: ID
+  title: String
+  description: String
   officialName: String
   developerID: ID
   authKey: String

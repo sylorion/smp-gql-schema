@@ -8,10 +8,9 @@ type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   authorID: ID
   title: String
   description: String
-  parentID: ID
-  parent: Criteria
+  parentID: ID 
   # To design criteria as a tree graph, more the level is high more accurate is the criteria 
-  level: ID
+  level: Int
   # for the moment, but we will move to pivot objects
   targetedEntityCriteria: TargetedEntityCriteria
   state: ObjectStatus
@@ -24,7 +23,11 @@ input CriteriaInput {
   criteriaID: ID
   authorID: ID!
   title: String
-  criteriaDescription: String
+  description: String
+  parentID: ID
+  # To design criteria as a tree graph, more the level is high more accurate is the criteria
+  level: Int
+  # for the moment, but we will move to pivot objects
   targetedEntityCriteria: TargetedEntityCriteria
   state: ObjectStatus
 }

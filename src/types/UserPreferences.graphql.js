@@ -4,7 +4,7 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   preferenceID: ID!
   uniqRef: String
   slug: String
-  user: User
+  userID: ID
   lang: String
   timeZone: String
   notificationPreferences: String
@@ -12,7 +12,7 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   theme: Int
   marketplaceConfig: String
   defaultCurrency: ServicesAcceptedDevice
-  defaultPaymentMethodID: Int
+  defaultPaymentMethodID: ID
   notificationFrequency: NotificationFrequencyPref
   showRecommendations: Boolean
   otherSettings: String
@@ -32,7 +32,7 @@ input UserPreferencesInput {
   theme: Int
   marketplaceConfig: String
   defaultCurrency: ServicesAcceptedDevice
-  defaultPaymentMethodID: Int
+  defaultPaymentMethodID: ID
   notificationFrequency: NotificationFrequencyPref
   showRecommendations: Boolean
   otherSettings: String

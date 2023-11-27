@@ -8,8 +8,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   username: String
   email: String
   plan: String
-  profileID: ID
-  profile: Profile
+  profileID: ID 
   userKind: UserType
   lastLogin: DateTime
   twoFactorEnabled: Boolean
@@ -23,8 +22,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 
 type UserToken {
   userTokenID: ID
-  userID: ID
-  #uniqRef: String
+  userID: ID 
   token: String
   expiresIn: Int
   platform: String

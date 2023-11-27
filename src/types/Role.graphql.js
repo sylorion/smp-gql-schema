@@ -4,8 +4,8 @@ export default `
 type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   roleID: ID!
   uniqRef: String!
-  slug: String
-  author: User
+  slug: String!
+  authorID: ID!
   roleName: String
   description: String
   permissions: String

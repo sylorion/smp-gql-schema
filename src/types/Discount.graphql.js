@@ -5,10 +5,10 @@ type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   discountID: ID!
   uniqRef: String
   slug: String
-  author: User
+  authorID: ID
   description: String
   discountCode: String
-  discountValue: Int!
+  discountValue: Int
   discountInPercent: Boolean!
   startDate: DateTime
   endDate: DateTime

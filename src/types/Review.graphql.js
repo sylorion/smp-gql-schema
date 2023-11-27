@@ -5,16 +5,11 @@ type Review  implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   reviewID: ID!
   uniqRef: String
   slug: String
-  service: Service
   serviceID: ID
-  organization: Organization
   organizationID: ID
-  author: User
-  authorID: ID
-  criteria: Criteria
-  CriteriaID:ID
+  authorID: ID!
+  criteriaID: ID
   rating: Int
-  comment: Comment
   commentID: ID
   state: ObjectStatus
   createdAt: DateTime

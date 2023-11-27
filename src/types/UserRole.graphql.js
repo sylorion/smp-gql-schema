@@ -5,9 +5,9 @@ type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   uniqRef: String
   slug: String
   legend: String
-  author: User
-  user: User
-  role: Role
+  authorID: ID
+  userID: ID
+  roleID: ID
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

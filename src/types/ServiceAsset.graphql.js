@@ -4,10 +4,10 @@ type ServiceAsset implements ServicesEntity & ServicesNavigableEntity & Services
   serviceAssetID: ID!
   uniqRef: String!
   slug: String
-  asset: Asset
-  service: Service
+  assetID: ID
+  serviceID: ID
   legend: String
-  author: User
+  authorID: ID!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
