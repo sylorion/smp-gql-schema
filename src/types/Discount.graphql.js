@@ -12,7 +12,7 @@ type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   discountInPercent: Boolean!
   startDate: DateTime
   endDate: DateTime
-  service: Service
+  serviceID: ID
   organizationID: ID
   topicID: ID
   state: ObjectStatus
