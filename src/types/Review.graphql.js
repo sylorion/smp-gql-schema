@@ -33,7 +33,7 @@ input ReviewInput {
   state: ObjectStatus
 }
 
-type ReviewResponse implements FallibleResponse {
+type ReviewResponse implements FaillibleResponse {
   data: [Review!]
   errors: [MutationError!]
 }

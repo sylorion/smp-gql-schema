@@ -36,7 +36,7 @@ input InvoiceInput {
   state: ObjectStatus
 }
 
-type InvoiceResponse implements FallibleResponse {
+type InvoiceResponse implements FaillibleResponse {
   data: [Invoice!]
   errors: [MutationError!]
 }

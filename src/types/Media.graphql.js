@@ -43,7 +43,7 @@ input MediaInput {
   state: ObjectStatus
 }
 
-type MediaResponse implements FallibleResponse {
+type MediaResponse implements FaillibleResponse {
   data: [Media!]
   errors: [MutationError!]
 }

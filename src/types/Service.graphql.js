@@ -59,7 +59,7 @@ input ServiceInput {
   state: ObjectStatus
 }
 
-type ServiceResponse implements FallibleResponse {
+type ServiceResponse implements FaillibleResponse {
   data: [Service!]
   errors: [MutationError!]
 }

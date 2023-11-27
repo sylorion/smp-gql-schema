@@ -39,7 +39,7 @@ input UserPreferencesInput {
   state: ObjectStatus
 }
 
-type UserPreferencesResponse implements FallibleResponse {
+type UserPreferencesResponse implements FaillibleResponse {
   data: [UserPreferences!]
   errors: [MutationError!]
 }

@@ -54,7 +54,7 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse implements FallibleResponse {
+type UserResponse implements FaillibleResponse {
   data: [User!]
   errors: [MutationError!]
 }

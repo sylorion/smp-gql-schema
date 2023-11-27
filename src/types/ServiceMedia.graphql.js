@@ -25,7 +25,7 @@ input ServiceMediaInput {
   state: ObjectStatus
 }
 
-type ServiceMediaResponse implements FallibleResponse {
+type ServiceMediaResponse implements FaillibleResponse {
   data: [ServiceMedia!]
   errors: [MutationError!]
 }

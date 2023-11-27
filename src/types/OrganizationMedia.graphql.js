@@ -25,7 +25,7 @@ input OrganizationMediaInput {
   state: ObjectStatus
 }
 
-type OrganizationMediaResponse implements FallibleResponse {
+type OrganizationMediaResponse implements FaillibleResponse {
   data: [OrganizationMedia!]
   errors: [MutationError!]
 }

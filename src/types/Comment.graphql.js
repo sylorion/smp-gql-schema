@@ -29,7 +29,7 @@ input CommentInput {
   state: ObjectStatus
 }
 
-type CommentResponse implements FallibleResponse {
+type CommentResponse implements FaillibleResponse {
   data: [Comment!]
   errors: [MutationError!]
 }

@@ -1,5 +1,5 @@
 export default `
-# src/graphql/types/FallibleResponse.graphql
+# src/graphql/types/FaillibleResponse.graphql
 
 union QueryResult = ServiceAttribute | Follow |
 Organization | Media | User | Asset | Application |
@@ -8,7 +8,7 @@ PaymentMethod | PaymentConfig |Profile | Review | Service | ServiceAsset | Servi
 Topic | Tag | Comment | Transaction | TermsAndConditions |
 UserOrganization | UserPreferences | UserRole |Role | Place | UserToken
 
-interface FallibleResponse {
+interface FaillibleResponse {
   data: [QueryResult!]
   errors: [MutationError!]
 }

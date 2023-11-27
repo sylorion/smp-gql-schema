@@ -38,7 +38,7 @@ input PaymentMethodInput {
   state: ObjectStatus
 }
 
-type PaymentMethodResponse implements FallibleResponse {
+type PaymentMethodResponse implements FaillibleResponse {
   data: [PaymentMethod!]
   errors: [MutationError!]
 }

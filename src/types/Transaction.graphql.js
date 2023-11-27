@@ -27,7 +27,7 @@ input TransactionInput {
   state: ObjectStatus
 }
 
-type TransactionResponse implements FallibleResponse {
+type TransactionResponse implements FaillibleResponse {
   data: [Transaction!]
   errors: [MutationError!]
 }

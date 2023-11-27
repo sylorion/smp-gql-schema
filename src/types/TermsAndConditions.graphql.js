@@ -22,7 +22,7 @@ input TermsAndConditionsInput {
   state: ObjectStatus
 }
 
-type TermsAndConditionsResponse implements FallibleResponse {
+type TermsAndConditionsResponse implements FaillibleResponse {
   data: [TermsAndConditions!]
   errors: [MutationError!]
 }

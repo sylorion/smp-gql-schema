@@ -30,7 +30,7 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
-type ApplicationResponse implements FallibleResponse {
+type ApplicationResponse implements FaillibleResponse {
   data: [Application!]
   errors: [MutationError!]
 }

@@ -24,7 +24,7 @@ input TagInput {
   state: ObjectStatus
 }
 
-type TagResponse implements FallibleResponse {
+type TagResponse implements FaillibleResponse {
   data: [Tag!]
   errors: [MutationError!]
 }

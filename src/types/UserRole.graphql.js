@@ -23,7 +23,7 @@ input UserRoleInput {
   state: ObjectStatus
 }
 
-type UserRoleResponse implements FallibleResponse {
+type UserRoleResponse implements FaillibleResponse {
   data: [UserRole!]
   errors: [MutationError!]
 }

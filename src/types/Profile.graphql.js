@@ -44,7 +44,7 @@ extend input UserInput {
   profile: ProfileInput
 }
 
-type ProfileResponse implements FallibleResponse {
+type ProfileResponse implements FaillibleResponse {
   data: [Profile!]
   errors: [MutationError!]
 }

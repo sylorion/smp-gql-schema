@@ -26,7 +26,7 @@ input FaqQuestionInput {
   state: ObjectStatus
 }
 
-type FaqQuestionResponse implements FallibleResponse {
+type FaqQuestionResponse implements FaillibleResponse {
   data: [FaqQuestion!]
   errors: [MutationError!]
 }

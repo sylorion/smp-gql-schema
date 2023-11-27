@@ -27,7 +27,7 @@ input TopicInput {
   state: ObjectStatus
 }
 
-type TopicResponse implements FallibleResponse {
+type TopicResponse implements FaillibleResponse {
   data: [Topic!]
   errors: [MutationError!]
 }

@@ -48,7 +48,7 @@ extend input ProfileInput {
   location: PlaceInput
 }
 
-type PlaceResponse implements FallibleResponse {
+type PlaceResponse implements FaillibleResponse {
   data: [Place!]
   errors: [MutationError!]
 }

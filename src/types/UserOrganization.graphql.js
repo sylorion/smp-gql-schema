@@ -25,7 +25,7 @@ input UserOrganizationInput {
   state: ObjectStatus
 }
 
-type UserOrganizationResponse implements FallibleResponse {
+type UserOrganizationResponse implements FaillibleResponse {
   data: [UserOrganization!]
   errors: [MutationError!]
 }

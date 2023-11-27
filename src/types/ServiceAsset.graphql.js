@@ -23,7 +23,7 @@ input ServiceAssetInput {
   state: ObjectStatus
 }
 
-type ServiceAssetResponse implements FallibleResponse {
+type ServiceAssetResponse implements FaillibleResponse {
   data: [ServiceAsset!]
   errors: [MutationError!]
 }

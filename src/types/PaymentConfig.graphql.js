@@ -24,7 +24,7 @@ input PaymentConfigInput {
   state: ObjectStatus
 }
 
-type PaymentConfigResponse implements FallibleResponse {
+type PaymentConfigResponse implements FaillibleResponse {
   data: [PaymentConfig!]
   errors: [MutationError!]
 }

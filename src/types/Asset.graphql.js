@@ -38,7 +38,7 @@ input AssetInput {
   state: ObjectStatus
 }
 
-type AssetResponse implements FallibleResponse {
+type AssetResponse implements FaillibleResponse {
   data: [Asset!]
   errors: [MutationError!]
 }

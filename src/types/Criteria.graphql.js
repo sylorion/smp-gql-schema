@@ -29,7 +29,7 @@ input CriteriaInput {
   state: ObjectStatus
 }
 
-type CriteriaResponse implements FallibleResponse {
+type CriteriaResponse implements FaillibleResponse {
   data: [Criteria!]
   errors: [MutationError!]
 }

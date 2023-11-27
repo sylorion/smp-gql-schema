@@ -91,7 +91,7 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 
-type OrganizationResponse implements FallibleResponse {
+type OrganizationResponse implements FaillibleResponse {
   data: [Organization!]
   errors: [MutationError!]
 }

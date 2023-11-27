@@ -25,7 +25,7 @@ input ServiceAttributeInput {
   state: ObjectStatus
 }
 
-type ServiceAttributeResponse implements FallibleResponse {
+type ServiceAttributeResponse implements FaillibleResponse {
   data: [ServiceAttribute!]
   errors: [MutationError!]
 }
