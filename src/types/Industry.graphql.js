@@ -22,7 +22,6 @@ input IndustryInput {
   level: Int!
   parentIndustryID: ID # of a potentiel parent hiearchy
   state: ObjectStatus
-  state: ObjectStatus
 }
 
 type IndustryResponse implements FallibleResponse {
