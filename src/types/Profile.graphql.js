@@ -43,7 +43,7 @@ input ProfileInput {
   state: ObjectStatus
 }
 
-extend input UserInput  @shareable {
+extend input UserInput {
   profile: ProfileInput
 }
 

@@ -43,7 +43,7 @@ extend type User {
   ): [UserToken!]
 }
 
-input UserInput  @shareable {
+input UserInput {
   userID: ID
   username: String
   email: String
