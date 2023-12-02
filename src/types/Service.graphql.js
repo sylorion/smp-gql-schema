@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Service.graphql.js
 
-type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   serviceID: ID!
   uniqRef: String
   slug: String
@@ -33,7 +33,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-input ServiceInput {
+input ServiceInput  @shareable {
   serviceID: ID
   authorID: ID
   title: String
@@ -59,7 +59,7 @@ input ServiceInput {
   state: ObjectStatus
 }
 
-type ServiceResponse implements FaillibleResponse {
+type ServiceResponse implements FaillibleResponse  @shareable {
   data: [Service!]
   errors: [MutationError!]
 }
@@ -73,14 +73,14 @@ extend type Query {
   ): ServiceResponse
 }
 
-type Mutation {
+type Mutation  @shareable {
   createService(input: ServiceInput!): ServiceResponse!
   updateServiceAttributes(serviceID: ID!, input: ServiceInput!): ServiceResponse!
   updateService(serviceID: ID!, input: ServiceInput!): ServiceResponse!
   deleteService(serviceID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription  @shareable {
   serviceAdded: Service!
   serviceUpdated: Service!
   serviceDeleted: Service!

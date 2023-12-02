@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/User.graphql.js
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   userID: ID!
   uniqRef: String
   slug: String
@@ -20,7 +20,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken {
+type UserToken  @shareable {
   userTokenID: ID
   userID: ID 
   token: String
@@ -39,7 +39,7 @@ extend type User {
   ): [UserToken!]
 }
 
-input UserInput {
+input UserInput  @shareable {
   userID: ID
   username: String
   email: String
@@ -52,12 +52,12 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse implements FaillibleResponse {
+type UserResponse implements FaillibleResponse  @shareable {
   data: [User!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query  @shareable {
   user(userID: ID!): UserResponse
   users(
     pagination: PaginationInput,
@@ -66,7 +66,7 @@ extend type Query {
   ): UserResponse
 }
 
-type Mutation {
+type Mutation  @shareable {
   login(email: String!, password: String!): UserResponse
   signup(input: UserInput!): UserResponse
   updateUser(userID: ID!, input: UserInput!): UserResponse!

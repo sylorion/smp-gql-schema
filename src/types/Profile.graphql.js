@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Profile.graphql.js
 
-type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  {
+type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   profileID: ID
   uniqRef: String
   slug: String
@@ -21,11 +21,11 @@ type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-extend type User {
+extend type User  @shareable {
   profile: Profile!
 }
 
-input ProfileInput {
+input ProfileInput  @shareable {
   profileID: ID
   firstName: String
   lastName: String
@@ -40,16 +40,16 @@ input ProfileInput {
   state: ObjectStatus
 }
 
-extend input UserInput {
+extend input UserInput  @shareable {
   profile: ProfileInput
 }
 
-type ProfileResponse implements FaillibleResponse {
+type ProfileResponse implements FaillibleResponse  @shareable {
   data: [Profile!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query  @shareable {
   profile(id: ID!): ProfileResponse
   profiles(
     pagination: PaginationInput,
@@ -58,13 +58,13 @@ extend type Query {
   ): ProfileResponse
 }
 
-type Mutation {
+type Mutation  @shareable {
   createProfile(input: ProfileInput!): ProfileResponse!
   updateProfile(profileID: ID!, input: ProfileInput!): ProfileResponse!
   deleteProfile(profileID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription  @shareable {
   profileAdded: Profile!
   profileUpdated: Profile!
   profileDeleted: Profile!

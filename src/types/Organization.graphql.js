@@ -2,7 +2,7 @@
 export default `
 # src/graphql/types/Organization.graphql.js
 scalar JSON
-type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   organizationID: ID!
   uniqRef: String
   slug: String
@@ -42,7 +42,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: Int
 }
 
-extend type User {
+extend type User @shareable {
   #Owned organization or pined
   organization: Organization! # Pined favorite organization
   organizations(
@@ -54,7 +54,7 @@ extend type User {
 
 # Input types for CRUD operations
 
-input OrganizationInput {
+input OrganizationInput @shareable {
   organizationID: ID
   authorID: Int
   ownerID: Int
@@ -89,12 +89,12 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 
-type OrganizationResponse implements FaillibleResponse {
+type OrganizationResponse implements FaillibleResponse @shareable {
   data: [Organization!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   getOrganization(id: ID!): OrganizationResponse
   listOrganizations(
     pagination: PaginationInput,
@@ -103,13 +103,13 @@ extend type Query {
   ): OrganizationResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createOrganization(input: OrganizationInput!): OrganizationResponse!
   updateOrganization(id: ID!, input: OrganizationInput!): OrganizationResponse!
   deleteOrganization(id: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   organizationAdded: Organization!
   organizationUpdated: Organization!
   organizationDeleted: Organization!

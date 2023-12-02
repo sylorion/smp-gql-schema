@@ -1,6 +1,7 @@
 export default `
 # src/graphql/types/UserRole.graphql.js
-type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+
+type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   userRoleID: ID!
   uniqRef: String
   slug: String
@@ -14,7 +15,7 @@ type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   deletedAt: DateTime
 }
 
-input UserRoleInput {
+input UserRoleInput @shareable {
   userRoleID: ID
   legend: String
   authorID: ID
@@ -23,12 +24,12 @@ input UserRoleInput {
   state: ObjectStatus
 }
 
-type UserRoleResponse implements FaillibleResponse {
+type UserRoleResponse implements FaillibleResponse @shareable {
   data: [UserRole!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   userRole(userRoleID: ID!): UserRoleResponse
   userRoles(
     pagination: PaginationInput,
@@ -37,13 +38,13 @@ extend type Query {
   ): UserRoleResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createUserRole(input: UserRoleInput!): UserRoleResponse!
   updateUserRole(userRoleID: ID!, input: UserRoleInput!): UserRoleResponse!
   deleteUserRole(userRoleID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   userRoleAdded: UserRole!
   userRoleUpdated: UserRole!
   userRoleDeleted: UserRole!

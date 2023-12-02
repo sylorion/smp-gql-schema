@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Application.graphql.js
 
-type Application {
+type Application  @shareable{
   applicationID: ID!
   uniqRef: String
   slug: String
@@ -20,7 +20,7 @@ type Application {
   deletedAt: DateTime
 }
 
-input ApplicationInput {
+input ApplicationInput  @shareable{
   applicationID: ID
   authorID: ID
   title: String
@@ -34,7 +34,7 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
-type ApplicationResponse implements FaillibleResponse {
+type ApplicationResponse implements FaillibleResponse  @shareable{
   data: [Application!]
   errors: [MutationError!]
 }
@@ -48,7 +48,7 @@ extend type Query {
   ): ApplicationResponse
 }
 
-extend type User {
+extend type User  @shareable{
   applications(
     pagination: PaginationInput,
     sort: SortInput,
@@ -56,13 +56,13 @@ extend type User {
   ): [Application!]
 }
 
-type Mutation {
+type Mutation  @shareable {
   createApplication(input: ApplicationInput!): ApplicationResponse!
   updateApplication(applicationID: ID!, input: ApplicationInput!): ApplicationResponse!
   deleteApplication(applicationID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription  @shareable {
   applicationAdded: Application!
   applicationUpdated: Application!
   applicationDeleted: Application!

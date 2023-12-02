@@ -1,6 +1,7 @@
 export default `
 # src/graphql/types/UserOrganization.graphql.js
-type UserOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+
+type UserOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   userOrganizationID: ID!
   uniqRef: String
   slug: String
@@ -15,7 +16,7 @@ type UserOrganization implements ServicesEntity & ServicesNavigableEntity & Serv
   deletedAt: DateTime
 }
 
-input UserOrganizationInput {
+input UserOrganizationInput @shareable {
   userOrganizationID: ID
   authorID: ID
   legend: String
@@ -25,12 +26,12 @@ input UserOrganizationInput {
   state: ObjectStatus
 }
 
-type UserOrganizationResponse implements FaillibleResponse {
+type UserOrganizationResponse implements FaillibleResponse @shareable {
   data: [UserOrganization!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   userOrganization(userOrganizationID: ID!): UserOrganizationResponse
   userOrganizations(
     pagination: PaginationInput,
@@ -39,13 +40,13 @@ extend type Query {
   ): UserOrganizationResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createUserOrganization(input: UserOrganizationInput!): UserOrganizationResponse!
   updateUserOrganization(userOrganizationID: ID!, input: UserOrganizationInput!): UserOrganizationResponse!
   deleteUserOrganization(userOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   userOrganizationAdded: UserOrganization!
   userOrganizationUpdated: UserOrganization!
   userOrganizationDeleted: UserOrganization!

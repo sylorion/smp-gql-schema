@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Place.graphql.js
 
-type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   placeID: ID!
   uniqRef: String!
   slug: String!
@@ -21,15 +21,15 @@ type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type Profile {
+extend type Profile  @shareable {
   location: Place
 }
 
-extend type Service {
+extend type Service  @shareable {
   location: Place
 }
 
-input PlaceInput {
+input PlaceInput @shareable {
   placeID: ID
   authorID: ID
   country: String
@@ -44,16 +44,16 @@ input PlaceInput {
   state: ObjectStatus
 }
 
-extend input ProfileInput {
+extend input ProfileInput @shareable {
   location: PlaceInput
 }
 
-type PlaceResponse implements FaillibleResponse {
+type PlaceResponse implements FaillibleResponse @shareable {
   data: [Place!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   place(placeID: ID!): PlaceResponse
   places(
     pagination: PaginationInput,
@@ -62,13 +62,13 @@ extend type Query {
   ): PlaceResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createPlace(input: PlaceInput!): PlaceResponse!
   updatePlace(placeID: ID!, input: PlaceInput!): PlaceResponse!
   deletePlace(placeID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   servicesPlaceAdded: Place!
   servicesPlaceUpdated: Place!
   servicesPlaceDeleted: Place!

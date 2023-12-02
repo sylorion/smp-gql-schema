@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Role.graphql.js
 
-type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   roleID: ID!
   uniqRef: String!
   slug: String!
@@ -15,7 +15,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-input RoleInput {
+input RoleInput @shareable {
   roleID: ID
   uniqRef: String!
   slug: String!
@@ -26,12 +26,12 @@ input RoleInput {
   state: ObjectStatus
 }
 
-type RoleResponse implements FaillibleResponse {
+type RoleResponse implements FaillibleResponse @shareable {
   data: [Role!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   role(roleID: ID!): RoleResponse
   roles(
     pagination: PaginationInput,
@@ -40,13 +40,13 @@ extend type Query {
   ): RoleResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createRole(input: RoleInput!): RoleResponse!
   updateRole(roleID: ID!, input: RoleInput!): RoleResponse!
   deleteRole(roleID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   roleAdded: Role!
   roleUpdated: Role!
   roleDeleted: Role!

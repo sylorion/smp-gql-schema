@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/Media.graphql.js
 
-type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   mediaID: ID!
   uniqRef: String
   slug: String
@@ -19,7 +19,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type User {
+extend type User @shareable {
     medias(
     pagination: PaginationInput,
     sort: SortInput,
@@ -27,7 +27,7 @@ extend type User {
   ): [Media!]
 }
 
-input MediaInput {
+input MediaInput @shareable {
   mediaID: ID
   authorID: ID!
   mediaType: MediaType
@@ -40,7 +40,7 @@ input MediaInput {
   state: ObjectStatus
 }
 
-type MediaResponse implements FaillibleResponse {
+type MediaResponse implements FaillibleResponse @shareable {
   data: [Media!]
   errors: [MutationError!]
 }
@@ -54,13 +54,13 @@ extend type Query {
   ): MediaResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createMedia(input: MediaInput!): MediaResponse!
   updateMedia(mediaID: ID!, input: MediaInput!): MediaResponse!
   deleteMedia(mediaID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   mediaAdded: Media!
   mediaUpdated: Media!
   mediaDeleted: Media!

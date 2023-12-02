@@ -1,6 +1,7 @@
 export default `
 # src/graphql/types/UserPreferences.graphql.js
-type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+
+type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   preferenceID: ID!
   uniqRef: String
   slug: String
@@ -22,7 +23,7 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   deletedAt: DateTime
 }
 
-input UserPreferencesInput {
+input UserPreferencesInput @shareable {
   preferenceID: ID
   userID: ID
   lang: String
@@ -39,12 +40,12 @@ input UserPreferencesInput {
   state: ObjectStatus
 }
 
-type UserPreferencesResponse implements FaillibleResponse {
+type UserPreferencesResponse implements FaillibleResponse @shareable {
   data: [UserPreferences!]
   errors: [MutationError!]
 }
 
-extend type Query {
+extend type Query @shareable {
   userPreferences(preferenceID: ID!): UserPreferencesResponse
   userPreferencesList(
     pagination: PaginationInput,
@@ -53,7 +54,7 @@ extend type Query {
   ): UserPreferencesResponse
 }
 
-type Mutation {
+type Mutation @shareable {
   createUserPreferences(input: UserPreferencesInput!): UserPreferencesResponse!
   updateUserPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
   updateUserNotificationPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
@@ -63,7 +64,7 @@ type Mutation {
   deleteUserPreferences(preferenceID: ID!): MutationResponse!
 }
 
-type Subscription {
+type Subscription @shareable {
   userPreferencesAdded: UserPreferences!
   userPreferencesUpdated: UserPreferences!
   userPreferencesDeleted: UserPreferences!
