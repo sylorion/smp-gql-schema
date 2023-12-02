@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   roleID: ID!
   uniqRef: String!
@@ -18,7 +18,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-input RoleInput @shareable {
+input RoleInput {
   roleID: ID
   uniqRef: String!
   slug: String!

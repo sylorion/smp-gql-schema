@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   placeID: ID!
   uniqRef: String!
@@ -32,7 +32,7 @@ extend type Service  @shareable {
   location: Place
 }
 
-input PlaceInput @shareable {
+input PlaceInput {
   placeID: ID
   authorID: ID
   country: String

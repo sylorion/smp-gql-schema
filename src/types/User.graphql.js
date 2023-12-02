@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 
 type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   userID: ID!
@@ -24,7 +24,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken  @shareable {
+type UserToken {
   userTokenID: ID
   userID: ID 
   token: String

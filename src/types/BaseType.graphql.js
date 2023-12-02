@@ -9,15 +9,15 @@ scalar File
 scalar DateTime
 scalar Date
 
-interface ServicesEntity @shareable {
+interface ServicesEntity {
   uniqRef: String # Mostly hand generated ID except for mongodb data
 }
 
-interface ServicesNavigableEntity @shareable {
+interface ServicesNavigableEntity {
   slug: String
 }
 
-interface ServicesStatable @shareable {
+interface ServicesStatable {
   state: ObjectStatus
 }
 

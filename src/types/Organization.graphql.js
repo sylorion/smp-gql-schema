@@ -57,7 +57,7 @@ extend type User @shareable {
 
 # Input types for CRUD operations
 
-input OrganizationInput @shareable {
+input OrganizationInput {
   organizationID: ID
   authorID: Int
   ownerID: Int

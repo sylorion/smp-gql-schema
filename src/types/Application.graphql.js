@@ -22,7 +22,7 @@ type Application  @shareable{
   deletedAt: DateTime
 }
 
-input ApplicationInput  @shareable{
+input ApplicationInput {
   applicationID: ID
   authorID: ID
   title: String

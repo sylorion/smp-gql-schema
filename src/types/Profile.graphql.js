@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   profileID: ID
   uniqRef: String
@@ -28,7 +28,7 @@ extend type User  @shareable {
   profile: Profile!
 }
 
-input ProfileInput  @shareable {
+input ProfileInput {
   profileID: ID
   firstName: String
   lastName: String

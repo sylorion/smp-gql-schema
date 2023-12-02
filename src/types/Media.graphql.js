@@ -29,7 +29,7 @@ extend type User @shareable {
   ): [Media!]
 }
 
-input MediaInput @shareable {
+input MediaInput {
   mediaID: ID
   authorID: ID!
   mediaType: MediaType
