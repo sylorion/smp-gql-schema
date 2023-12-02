@@ -5,7 +5,7 @@ extend schema
         import: ["@key", "@shareable"])
 
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key("userID") {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable  {
   userID: ID!
   uniqRef: String
   slug: String
@@ -24,7 +24,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken @key("userTokenID") {
+type UserToken @shareable  {
   userTokenID: ID
   userID: ID 
   token: String
