@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/TermsAndConditions.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   termsAndConditionsID: ID!
   uniqRef: String!

@@ -1,6 +1,8 @@
 export default `
 # src/graphql/types/Follow.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 type Follow {
   followID: ID!
   authorID: ID

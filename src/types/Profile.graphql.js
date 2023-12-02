@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/Profile.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   profileID: ID
   uniqRef: String

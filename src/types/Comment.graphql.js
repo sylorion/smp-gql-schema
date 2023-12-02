@@ -1,6 +1,8 @@
 export default `
 # src/graphql/types/Comment.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 type Comment implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   commentID: ID!
   uniqRef: String

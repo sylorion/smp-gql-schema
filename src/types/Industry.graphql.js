@@ -1,6 +1,8 @@
 export default `
 # src/graphql/types/Industry.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 type Industry {
   industryID: ID!
   authorID: ID

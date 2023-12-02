@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/Role.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   roleID: ID!
   uniqRef: String!

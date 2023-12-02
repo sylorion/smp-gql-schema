@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/Review.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type Review  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   reviewID: ID!
   uniqRef: String

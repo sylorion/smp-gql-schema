@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/UserPreferences.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   preferenceID: ID!
   uniqRef: String

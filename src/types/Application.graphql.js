@@ -1,6 +1,8 @@
 export default `
 # src/graphql/types/Application.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 type Application  @shareable{
   applicationID: ID!
   uniqRef: String

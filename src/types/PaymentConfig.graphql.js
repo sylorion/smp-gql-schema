@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/PaymentConfig.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   paymentConfigID: ID!
   uniqRef: String!

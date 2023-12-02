@@ -1,5 +1,9 @@
 export default `
 # src/graphql/types/ServiceMedia.graphql.js
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   serviceMediaID: ID!
   uniqRef: String

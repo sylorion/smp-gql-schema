@@ -1,6 +1,9 @@
 
 export default `
 # src/graphql/types/Organization.graphql.js
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 scalar JSON
 type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
   organizationID: ID!

@@ -1,6 +1,8 @@
 export default `
 # src/graphql/types/DevisAsset.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
 type DevisAsset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   devisAssetID: ID!
   uniqRef: String

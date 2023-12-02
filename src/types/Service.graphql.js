@@ -1,6 +1,9 @@
 export default `
 # src/graphql/types/Service.graphql.js
-
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3",
+        import: ["@key", "@shareable"])
+        
 type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
   serviceID: ID!
   uniqRef: String
