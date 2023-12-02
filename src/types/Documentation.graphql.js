@@ -34,7 +34,7 @@ input DocumentationInput {
   state: ObjectStatus
 }
 
-type DocumentationResponse implements FaillibleResponse {
+type DocumentationResponse  {
   data: [Documentation!]
   errors: [MutationError!]
 }

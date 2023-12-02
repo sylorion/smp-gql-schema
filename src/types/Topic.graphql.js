@@ -3,8 +3,8 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
-type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+
+type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key("topicID") {
   topicID: ID!
   uniqRef: String
   slug: String
@@ -30,7 +30,7 @@ input TopicInput {
   state: ObjectStatus
 }
 
-type TopicResponse implements FaillibleResponse {
+type TopicResponse  {
   data: [Topic!]
   errors: [MutationError!]
 }

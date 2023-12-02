@@ -40,7 +40,7 @@ input AssetInput {
   state: ObjectStatus
 }
 
-type AssetResponse implements FaillibleResponse {
+type AssetResponse  {
   data: [Asset!]
   errors: [MutationError!]
 }

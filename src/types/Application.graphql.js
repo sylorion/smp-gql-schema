@@ -36,7 +36,7 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
-type ApplicationResponse implements FaillibleResponse  @shareable{
+type ApplicationResponse   @shareable{
   data: [Application!]
   errors: [MutationError!]
 }

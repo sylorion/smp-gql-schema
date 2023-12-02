@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type ServiceAsset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   serviceAssetID: ID!
   uniqRef: String!
@@ -27,7 +27,7 @@ input ServiceAssetInput {
   state: ObjectStatus
 }
 
-type ServiceAssetResponse implements FaillibleResponse {
+type ServiceAssetResponse  {
   data: [ServiceAsset!]
   errors: [MutationError!]
 }

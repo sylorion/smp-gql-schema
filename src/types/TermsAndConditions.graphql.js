@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   termsAndConditionsID: ID!
   uniqRef: String!
@@ -25,7 +25,7 @@ input TermsAndConditionsInput {
   state: ObjectStatus
 }
 
-type TermsAndConditionsResponse implements FaillibleResponse {
+type TermsAndConditionsResponse  {
   data: [TermsAndConditions!]
   errors: [MutationError!]
 }

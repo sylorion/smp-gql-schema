@@ -26,7 +26,7 @@ input IndustryInput {
   state: ObjectStatus
 }
 
-type IndustryResponse implements FaillibleResponse {
+type IndustryResponse  {
   data: [Industry!]
   errors: [MutationError!]
 }

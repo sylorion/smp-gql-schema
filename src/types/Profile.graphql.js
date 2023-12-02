@@ -47,7 +47,7 @@ extend input UserInput {
   profile: ProfileInput
 }
 
-type ProfileResponse implements FaillibleResponse  @shareable {
+type ProfileResponse   @shareable {
   data: [Profile!]
   errors: [MutationError!]
 }

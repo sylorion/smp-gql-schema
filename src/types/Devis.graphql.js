@@ -48,7 +48,7 @@ input DevisInput {
   state: ObjectStatus
 }
 
-type DevisResponse implements FaillibleResponse {
+type DevisResponse  {
   data: [Devis!]
   errors: [MutationError!]
 }

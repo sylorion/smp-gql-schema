@@ -26,7 +26,7 @@ input DevisAssetInput {
   state: ObjectStatus
 }
 
-type DevisAssetResponse implements FaillibleResponse {
+type DevisAssetResponse  {
   data: [DevisAsset!]
   errors: [MutationError!]
 }

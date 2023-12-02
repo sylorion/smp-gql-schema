@@ -36,7 +36,7 @@ input AuditLogInput {
   state: ObjectStatus
 }
 
-type AuditLogResponse implements FaillibleResponse {
+type AuditLogResponse  {
   data: [AuditLog!]
   errors: [MutationError!]
 }

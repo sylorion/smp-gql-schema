@@ -21,7 +21,7 @@ input FollowInput {
   state: ObjectStatus
 }
 
-type FollowResponse implements FaillibleResponse {
+type FollowResponse  {
   data: [Follow!]
   errors: [MutationError!]
 }

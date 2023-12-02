@@ -28,7 +28,7 @@ input CommentInput {
   state: ObjectStatus
 }
 
-type CommentResponse implements FaillibleResponse {
+type CommentResponse  {
   data: [Comment!]
   errors: [MutationError!]
 }

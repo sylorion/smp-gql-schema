@@ -92,7 +92,7 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 
-type OrganizationResponse implements FaillibleResponse @shareable {
+type OrganizationResponse  @shareable {
   data: [Organization!]
   errors: [MutationError!]
 }

@@ -29,7 +29,7 @@ input UserOrganizationInput {
   state: ObjectStatus
 }
 
-type UserOrganizationResponse implements FaillibleResponse @shareable {
+type UserOrganizationResponse  @shareable {
   data: [UserOrganization!]
   errors: [MutationError!]
 }

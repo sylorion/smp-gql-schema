@@ -43,7 +43,7 @@ input UserPreferencesInput {
   state: ObjectStatus
 }
 
-type UserPreferencesResponse implements FaillibleResponse @shareable {
+type UserPreferencesResponse  @shareable {
   data: [UserPreferences!]
   errors: [MutationError!]
 }

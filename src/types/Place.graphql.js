@@ -51,7 +51,7 @@ extend input ProfileInput {
   location: PlaceInput
 }
 
-type PlaceResponse implements FaillibleResponse @shareable {
+type PlaceResponse  @shareable {
   data: [Place!]
   errors: [MutationError!]
 }

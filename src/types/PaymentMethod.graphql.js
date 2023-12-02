@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   paymentMethodID: ID!
   uniqRef: String!
@@ -42,7 +42,7 @@ input PaymentMethodInput {
   state: ObjectStatus
 }
 
-type PaymentMethodResponse implements FaillibleResponse {
+type PaymentMethodResponse  {
   data: [PaymentMethod!]
   errors: [MutationError!]
 }

@@ -31,7 +31,7 @@ input FaqServiceInput {
   state: ObjectStatus
 }
 
-type FaqServiceResponse implements FaillibleResponse {
+type FaqServiceResponse  {
   data: [FaqService!]
   errors: [MutationError!]
 }

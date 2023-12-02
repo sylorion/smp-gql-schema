@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   criteriaID: ID!
   uniqRef: String
@@ -35,7 +35,7 @@ input CriteriaInput {
   state: ObjectStatus
 }
 
-type CriteriaResponse implements FaillibleResponse {
+type CriteriaResponse  {
   data: [Criteria!]
   errors: [MutationError!]
 }

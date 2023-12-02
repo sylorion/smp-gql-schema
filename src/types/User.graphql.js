@@ -5,7 +5,7 @@ extend schema
         import: ["@key", "@shareable"])
 
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable  @key("userID") {
   userID: ID!
   uniqRef: String
   slug: String
@@ -24,7 +24,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken {
+type UserToken @shareable @key("userTokenID") {
   userTokenID: ID
   userID: ID 
   token: String
@@ -56,7 +56,7 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse implements FaillibleResponse  @shareable {
+type UserResponse   @shareable {
   data: [User!]
   errors: [MutationError!]
 }

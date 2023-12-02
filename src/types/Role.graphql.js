@@ -29,7 +29,7 @@ input RoleInput {
   state: ObjectStatus
 }
 
-type RoleResponse implements FaillibleResponse @shareable {
+type RoleResponse  @shareable {
   data: [Role!]
   errors: [MutationError!]
 }

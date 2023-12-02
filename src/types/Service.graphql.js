@@ -62,7 +62,7 @@ input ServiceInput {
   state: ObjectStatus
 }
 
-type ServiceResponse implements FaillibleResponse  @shareable {
+type ServiceResponse   @shareable {
   data: [Service!]
   errors: [MutationError!]
 }

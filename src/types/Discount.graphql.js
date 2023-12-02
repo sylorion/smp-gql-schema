@@ -38,7 +38,7 @@ input DiscountInput {
   state: ObjectStatus
 }
 
-type DiscountResponse implements FaillibleResponse {
+type DiscountResponse  {
   data: [Discount!]
   errors: [MutationError!]
 }

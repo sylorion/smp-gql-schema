@@ -42,7 +42,7 @@ input MediaInput {
   state: ObjectStatus
 }
 
-type MediaResponse implements FaillibleResponse @shareable {
+type MediaResponse  @shareable {
   data: [Media!]
   errors: [MutationError!]
 }

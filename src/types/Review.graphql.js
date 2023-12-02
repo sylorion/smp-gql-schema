@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Review  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   reviewID: ID!
   uniqRef: String
@@ -31,7 +31,7 @@ input ReviewInput {
   state: ObjectStatus
 }
 
-type ReviewResponse implements FaillibleResponse {
+type ReviewResponse  {
   data: [Review!]
   errors: [MutationError!]
 }

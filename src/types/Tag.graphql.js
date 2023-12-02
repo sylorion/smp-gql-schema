@@ -3,7 +3,7 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
+
 type Tag implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   tagID: ID!
   uniqRef: String
@@ -27,7 +27,7 @@ input TagInput {
   state: ObjectStatus
 }
 
-type TagResponse implements FaillibleResponse {
+type TagResponse  {
   data: [Tag!]
   errors: [MutationError!]
 }

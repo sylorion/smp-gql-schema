@@ -3,8 +3,8 @@ export default `
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3",
         import: ["@key", "@shareable"])
-        
-type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+
+type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @key("transactionID") {
   transactionID: ID!
   uniqRef: String
   slug: String
@@ -31,7 +31,7 @@ input TransactionInput {
   state: ObjectStatus
 }
 
-type TransactionResponse implements FaillibleResponse {
+type TransactionResponse  {
   data: [Transaction!]
   errors: [MutationError!]
 }
