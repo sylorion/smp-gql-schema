@@ -47,7 +47,7 @@ input PlaceInput {
   state: ObjectStatus
 }
 
-extend input ProfileInput @shareable {
+extend input ProfileInput {
   location: PlaceInput
 }
 
