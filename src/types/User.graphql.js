@@ -70,9 +70,7 @@ extend type Query @shareable {
   ): UserResponse
 }
 
-type Mutation @shareable {
-  login(email: String!, password: String!): UserResponse
-  signup(input: UserInput!): UserResponse
+type Mutation @shareable { 
   updateUser(userID: ID!, input: UserInput!): UserResponse!
   deleteUser(userID: ID!): MutationResponse!
 }
