@@ -5,7 +5,7 @@ extend schema
         import: ["@key", "@shareable"])
 
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable  @key("userID") {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key("userID") {
   userID: ID!
   uniqRef: String
   slug: String
@@ -24,7 +24,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken @shareable @key("userTokenID") {
+type UserToken @key("userTokenID") {
   userTokenID: ID
   userID: ID 
   token: String
@@ -56,12 +56,12 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse   @shareable {
+type UserResponse @shareable {
   data: [User!]
   errors: [MutationError!]
 }
 
-extend type Query  @shareable {
+extend type Query @shareable {
   user(userID: ID!): UserResponse
   users(
     pagination: PaginationInput,
@@ -70,7 +70,7 @@ extend type Query  @shareable {
   ): UserResponse
 }
 
-type Mutation  @shareable {
+type Mutation @shareable {
   login(email: String!, password: String!): UserResponse
   signup(input: UserInput!): UserResponse
   updateUser(userID: ID!, input: UserInput!): UserResponse!
