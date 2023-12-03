@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/Profile.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
+type Profile {
   profileID: ID
   uniqRef: String
   slug: String
@@ -24,7 +21,7 @@ type Profile implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-extend type User  @shareable {
+extend type User {
   profile: Profile!
 }
 
@@ -47,12 +44,12 @@ extend input UserInput {
   profile: ProfileInput
 }
 
-type ProfileResponse   @shareable {
+type ProfileResponse {
   data: [Profile!]
   errors: [MutationError!]
 }
 
-extend type Query  @shareable {
+extend type Query {
   profile(id: ID!): ProfileResponse
   profiles(
     pagination: PaginationInput,
@@ -61,13 +58,13 @@ extend type Query  @shareable {
   ): ProfileResponse
 }
 
-type Mutation  @shareable {
+type Mutation {
   createProfile(input: ProfileInput!): ProfileResponse!
   updateProfile(profileID: ID!, input: ProfileInput!): ProfileResponse!
   deleteProfile(profileID: ID!): MutationResponse!
 }
 
-type Subscription  @shareable {
+type Subscription {
   profileAdded: Profile!
   profileUpdated: Profile!
   profileDeleted: Profile!
