@@ -1,8 +1,5 @@
 export default `
 # src/graphql/types/PaymentMethod.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
 type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   paymentMethodID: ID!

@@ -1,8 +1,5 @@
 export default `
 # src/graphql/types/Criteria.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
 type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   criteriaID: ID!

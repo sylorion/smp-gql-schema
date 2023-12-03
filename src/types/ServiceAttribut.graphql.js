@@ -1,8 +1,5 @@
 export default `
 # src/graphql/types/ServiceAttribute.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
 type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   attributeID: ID!

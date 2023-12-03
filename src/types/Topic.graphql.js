@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/Topic.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key("topicID") {
+type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   topicID: ID!
   uniqRef: String
   slug: String

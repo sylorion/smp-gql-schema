@@ -1,9 +1,7 @@
 export default `
 # src/graphql/types/Application.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
-type Application  @shareable{
+
+type Application {
   applicationID: ID!
   uniqRef: String
   slug: String
@@ -36,7 +34,7 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
-type ApplicationResponse   @shareable{
+type ApplicationResponse  {
   data: [Application!]
   errors: [MutationError!]
 }
@@ -50,7 +48,7 @@ extend type Query {
   ): ApplicationResponse
 }
 
-extend type User  @shareable{
+extend type User {
   applications(
     pagination: PaginationInput,
     sort: SortInput,
@@ -58,13 +56,13 @@ extend type User  @shareable{
   ): [Application!]
 }
 
-type Mutation  @shareable {
+type Mutation {
   createApplication(input: ApplicationInput!): ApplicationResponse!
   updateApplication(applicationID: ID!, input: ApplicationInput!): ApplicationResponse!
   deleteApplication(applicationID: ID!): MutationResponse!
 }
 
-type Subscription  @shareable {
+type Subscription {
   applicationAdded: Application!
   applicationUpdated: Application!
   applicationDeleted: Application!

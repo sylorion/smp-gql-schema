@@ -1,9 +1,7 @@
 export default `
 # src/graphql/types/Media.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
-type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
+
+type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   mediaID: ID!
   uniqRef: String
   slug: String
@@ -21,7 +19,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type User @shareable {
+extend type User {
     medias(
     pagination: PaginationInput,
     sort: SortInput,
@@ -42,7 +40,7 @@ input MediaInput {
   state: ObjectStatus
 }
 
-type MediaResponse  @shareable {
+type MediaResponse  {
   data: [Media!]
   errors: [MutationError!]
 }
@@ -56,13 +54,13 @@ extend type Query {
   ): MediaResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createMedia(input: MediaInput!): MediaResponse!
   updateMedia(mediaID: ID!, input: MediaInput!): MediaResponse!
   deleteMedia(mediaID: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   mediaAdded: Media!
   mediaUpdated: Media!
   mediaDeleted: Media!

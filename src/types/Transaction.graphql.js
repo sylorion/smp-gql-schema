@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/Transaction.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @key("transactionID") {
+type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   transactionID: ID!
   uniqRef: String
   slug: String

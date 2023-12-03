@@ -1,8 +1,6 @@
 export default `
 # src/graphql/types/Documentation.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
+
 type Documentation implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   documentationID: ID!
   uniqRef: String

@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/Place.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
+type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   placeID: ID!
   uniqRef: String!
   slug: String!
@@ -24,11 +21,11 @@ type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type Profile  @shareable {
+extend type Profile {
   location: Place
 }
 
-extend type Service  @shareable {
+extend type Service {
   location: Place
 }
 
@@ -51,12 +48,12 @@ extend input ProfileInput {
   location: PlaceInput
 }
 
-type PlaceResponse  @shareable {
+type PlaceResponse {
   data: [Place!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   place(placeID: ID!): PlaceResponse
   places(
     pagination: PaginationInput,
@@ -65,13 +62,13 @@ extend type Query @shareable {
   ): PlaceResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createPlace(input: PlaceInput!): PlaceResponse!
   updatePlace(placeID: ID!, input: PlaceInput!): PlaceResponse!
   deletePlace(placeID: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   servicesPlaceAdded: Place!
   servicesPlaceUpdated: Place!
   servicesPlaceDeleted: Place!

@@ -1,10 +1,6 @@
 export default `
-# src/graphql/types/UserRole.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
-
-type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
+# src/graphql/types/UserRole.graphql.j
+type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   userRoleID: ID!
   uniqRef: String
   slug: String
@@ -27,12 +23,12 @@ input UserRoleInput {
   state: ObjectStatus
 }
 
-type UserRoleResponse  @shareable {
+type UserRoleResponse {
   data: [UserRole!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   userRole(userRoleID: ID!): UserRoleResponse
   userRoles(
     pagination: PaginationInput,
@@ -41,13 +37,13 @@ extend type Query @shareable {
   ): UserRoleResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createUserRole(input: UserRoleInput!): UserRoleResponse!
   updateUserRole(userRoleID: ID!, input: UserRoleInput!): UserRoleResponse!
   deleteUserRole(userRoleID: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   userRoleAdded: UserRole!
   userRoleUpdated: UserRole!
   userRoleDeleted: UserRole!

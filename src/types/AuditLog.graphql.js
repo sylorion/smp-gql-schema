@@ -1,8 +1,6 @@
 export default `
 # src/graphql/types/AuditLog.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
+
 type AuditLog implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   auditLogID: ID!
   uniqRef: String

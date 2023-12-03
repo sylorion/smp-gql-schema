@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/UserPreferences.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
+type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   preferenceID: ID!
   uniqRef: String
   slug: String
@@ -43,12 +40,12 @@ input UserPreferencesInput {
   state: ObjectStatus
 }
 
-type UserPreferencesResponse  @shareable {
+type UserPreferencesResponse {
   data: [UserPreferences!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   userPreferences(preferenceID: ID!): UserPreferencesResponse
   userPreferencesList(
     pagination: PaginationInput,
@@ -57,7 +54,7 @@ extend type Query @shareable {
   ): UserPreferencesResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createUserPreferences(input: UserPreferencesInput!): UserPreferencesResponse!
   updateUserPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
   updateUserNotificationPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
@@ -67,7 +64,7 @@ type Mutation @shareable {
   deleteUserPreferences(preferenceID: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   userPreferencesAdded: UserPreferences!
   userPreferencesUpdated: UserPreferences!
   userPreferencesDeleted: UserPreferences!

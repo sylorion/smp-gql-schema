@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/Service.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  @shareable {
+type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   serviceID: ID!
   uniqRef: String
   slug: String
@@ -62,7 +59,7 @@ input ServiceInput {
   state: ObjectStatus
 }
 
-type ServiceResponse   @shareable {
+type ServiceResponse {
   data: [Service!]
   errors: [MutationError!]
 }
@@ -76,14 +73,14 @@ extend type Query {
   ): ServiceResponse
 }
 
-type Mutation  @shareable {
+type Mutation {
   createService(input: ServiceInput!): ServiceResponse!
   updateServiceAttributes(serviceID: ID!, input: ServiceInput!): ServiceResponse!
   updateService(serviceID: ID!, input: ServiceInput!): ServiceResponse!
   deleteService(serviceID: ID!): MutationResponse!
 }
 
-type Subscription  @shareable {
+type Subscription {
   serviceAdded: Service!
   serviceUpdated: Service!
   serviceDeleted: Service!

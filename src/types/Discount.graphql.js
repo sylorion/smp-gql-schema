@@ -1,8 +1,6 @@
 export default `
 # src/graphql/types/Discount.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
+
 type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   discountID: ID!
   uniqRef: String

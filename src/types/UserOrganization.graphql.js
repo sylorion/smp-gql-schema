@@ -1,10 +1,7 @@
 export default `
 # src/graphql/types/UserOrganization.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-type UserOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
+type UserOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   userOrganizationID: ID!
   uniqRef: String
   slug: String
@@ -29,12 +26,12 @@ input UserOrganizationInput {
   state: ObjectStatus
 }
 
-type UserOrganizationResponse  @shareable {
+type UserOrganizationResponse {
   data: [UserOrganization!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   userOrganization(userOrganizationID: ID!): UserOrganizationResponse
   userOrganizations(
     pagination: PaginationInput,
@@ -43,13 +40,13 @@ extend type Query @shareable {
   ): UserOrganizationResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createUserOrganization(input: UserOrganizationInput!): UserOrganizationResponse!
   updateUserOrganization(userOrganizationID: ID!, input: UserOrganizationInput!): UserOrganizationResponse!
   deleteUserOrganization(userOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   userOrganizationAdded: UserOrganization!
   userOrganizationUpdated: UserOrganization!
   userOrganizationDeleted: UserOrganization!

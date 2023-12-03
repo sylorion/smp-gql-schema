@@ -1,11 +1,8 @@
 
 export default `
 # src/graphql/types/Organization.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
-scalar JSON
-type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable {
+
+type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   organizationID: ID!
   uniqRef: String
   slug: String
@@ -45,7 +42,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: Int
 }
 
-extend type User @shareable {
+extend type User {
   #Owned organization or pined
   organization: Organization! # Pined favorite organization
   organizations(
@@ -92,12 +89,12 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 
-type OrganizationResponse  @shareable {
+type OrganizationResponse  {
   data: [Organization!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   getOrganization(id: ID!): OrganizationResponse
   listOrganizations(
     pagination: PaginationInput,
@@ -106,13 +103,13 @@ extend type Query @shareable {
   ): OrganizationResponse
 }
 
-type Mutation @shareable {
+type Mutation {
   createOrganization(input: OrganizationInput!): OrganizationResponse!
   updateOrganization(id: ID!, input: OrganizationInput!): OrganizationResponse!
   deleteOrganization(id: ID!): MutationResponse!
 }
 
-type Subscription @shareable {
+type Subscription {
   organizationAdded: Organization!
   organizationUpdated: Organization!
   organizationDeleted: Organization!

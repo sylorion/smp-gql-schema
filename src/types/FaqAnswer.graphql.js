@@ -1,8 +1,6 @@
 export default `
 # src/graphql/types/FaqAnswer.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
+
 type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   faqAnswerID: ID!
   uniqRef: String

@@ -1,11 +1,7 @@
 export default `
 # src/graphql/types/User.graphql.js
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3",
-        import: ["@key", "@shareable"])
 
-
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @shareable  {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  {
   userID: ID!
   uniqRef: String
   slug: String
@@ -24,7 +20,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken @shareable  {
+type UserToken {
   userTokenID: ID
   userID: ID 
   token: String
@@ -56,12 +52,12 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse @shareable {
+type UserResponse {
   data: [User!]
   errors: [MutationError!]
 }
 
-extend type Query @shareable {
+extend type Query {
   user(userID: ID!): UserResponse
   users(
     pagination: PaginationInput,
@@ -70,7 +66,7 @@ extend type Query @shareable {
   ): UserResponse
 }
 
-type Mutation @shareable { 
+type Mutation { 
   updateUser(userID: ID!, input: UserInput!): UserResponse!
   deleteUser(userID: ID!): MutationResponse!
 }
