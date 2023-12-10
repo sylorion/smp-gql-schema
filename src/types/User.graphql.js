@@ -32,7 +32,7 @@ type UserToken {
 
 extend type User {
   userToken: UserToken! #Last token
-  userTolens(
+  userTokens (
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -58,15 +58,20 @@ type UserResponse {
 }
 
 extend type Query {
-  user(userID: ID!): UserResponse
+  user(userID: ID!): User!
+  userByIDs(ids): [User!]!
+  userByEmails(emails): [User!]!
+  userByUsername(usernames): [User!]!
+  userToken(userTokenID: ID!): UserToken!
   users(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): UserResponse
+  ): [User!]!
 }
 
 type Mutation { 
+  createUser(input: UserInput!): User
   updateUser(userID: ID!, input: UserInput!): UserResponse!
   deleteUser(userID: ID!): MutationResponse!
 }
