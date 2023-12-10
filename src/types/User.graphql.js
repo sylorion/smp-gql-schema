@@ -31,7 +31,8 @@ type UserToken {
 }
 
 extend type User {
-  userToken: UserToken! #Last token
+  userToken: UserToken #Last token
+  userToken(utID: ID!): UserToken!
   userTokens (
     pagination: PaginationInput,
     sort: SortInput,
@@ -59,9 +60,9 @@ type UserResponse {
 
 extend type Query {
   user(userID: ID!): User!
-  userByIDs(ids): [User!]!
-  userByEmails(emails): [User!]!
-  userByUsername(usernames): [User!]!
+  userByIDs(ids: [ID!]!): [User!]!
+  userByEmails(emails: [String!]!): [User!]!
+  userByUsername(usernames: [String!]!): [User!]!
   userToken(userTokenID: ID!): UserToken!
   users(
     pagination: PaginationInput,

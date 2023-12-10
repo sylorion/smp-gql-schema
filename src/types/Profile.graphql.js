@@ -50,17 +50,17 @@ type ProfileResponse {
 }
 
 extend type Query {
-  profile(id: ID!): ProfileResponse
+  profile(id: ID!): Profile
   profiles(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ProfileResponse
+  ): Profile
 }
 
 type Mutation {
-  createProfile(input: ProfileInput!): ProfileResponse!
-  updateProfile(profileID: ID!, input: ProfileInput!): ProfileResponse!
+  createProfile(input: ProfileInput!): Profile!
+  updateProfile(profileID: ID!, input: ProfileInput!): Profile!
   deleteProfile(profileID: ID!): MutationResponse!
 }
 
