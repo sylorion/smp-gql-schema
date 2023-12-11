@@ -5,7 +5,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   serviceID: ID!
   uniqRef: String
   slug: String
-  author: User
+  authorID: ID
   title: String
   description: String
   mediaBannerID: ID
