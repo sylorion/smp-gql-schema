@@ -55,7 +55,7 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): Profile
+  ): [Profile!]!
 }
 
 type Mutation {
