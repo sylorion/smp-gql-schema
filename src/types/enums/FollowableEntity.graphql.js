@@ -4,4 +4,4 @@ enum FollowableEntity {
   organization
   topic
 }
-`
+`;
