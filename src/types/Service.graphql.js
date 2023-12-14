@@ -42,6 +42,7 @@ input ServiceInput {
   termsAndConditionsID: ID
   parentServiceID: ID
   topicID: ID
+  tagID:ID
   organizationID: ID
   locationID: ID
   paymentConfigID: ID

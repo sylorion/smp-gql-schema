@@ -1,6 +1,6 @@
 
 export default `
-enum CriteriaTargetedEntity.graphql {
+enum TargetedEntityCriteria.graphql {
   service
   user
   organization

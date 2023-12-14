@@ -15,7 +15,7 @@ export { default as ServiceBillingPlan } from "./src/types/enums/ServiceBillingP
 export { default as ServicesAcceptedDevice } from "./src/types/enums/ServicesAcceptedDevice.graphql.js"
 export { default as ServiceSupplyForm } from "./src/types/enums/ServiceSupplyForm.graphql.js"
 export { default as ServiceUptakeType } from "./src/types/enums/ServiceUptakeType.graphql.js"
-export { default as CriteriaTargetedEntity } from "./src/types/enums/CriteriaTargetedEntity.graphql.js"
+export { default as TargetedEntityCriteria } from "./src/types/enums/TargetedEntityCriteria.graphql.js"
 export { default as UserType } from "./src/types/enums/UserType.graphql.js"
 
 export { default as Application } from "./src/types/Application.graphql.js"
