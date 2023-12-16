@@ -56,9 +56,20 @@ input UserInput {
 extend type Query {
   user(userID: ID!): User!
   userByIDs(ids: [ID!]!): [User!]!
-  userByEmails(emails: [String!]!): [User!]!
-  userByUsername(usernames: [String!]!): [User!]!
-  userToken(userTokenID: ID!): UserToken!
+  userByUsername(username: String!): User!
+  userByEmail(email: String!): User!
+  usersByUsernames(
+    usernames: [String!]!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [User!]!
+  usersByEmails(
+    emails: [String!]!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [User!]!
   users(
     pagination: PaginationInput,
     sort: SortInput,

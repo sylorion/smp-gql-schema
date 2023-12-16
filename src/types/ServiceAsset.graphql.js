@@ -19,7 +19,7 @@ input ServiceAssetInput {
   serviceAssetID: ID
   assetID: ID
   serviceID: ID
-  legend: String
+  legend: String 
   authorID: ID!
   state: ObjectStatus
 }
