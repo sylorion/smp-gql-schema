@@ -40,32 +40,28 @@ input UserPreferencesInput {
   state: ObjectStatus
 }
 
-type UserPreferencesResponse {
-  data: [UserPreferences!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  userPreferences(preferenceID: ID!): UserPreferencesResponse
+  userPreferences(preferenceID: ID!): UserPreferences
   userPreferencesList(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): UserPreferencesResponse
+  ): [UserPreferences!]!
 }
 
 type Mutation {
-  createUserPreferences(input: UserPreferencesInput!): UserPreferencesResponse!
-  updateUserPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
-  updateUserNotificationPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
-  updateUserPrivacySettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
-  updateUserOtherSettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
-  updateMarketplaceConfig(preferenceID: ID!, input: UserPreferencesInput!): UserPreferencesResponse!
+  createUserPreferences(input: UserPreferencesInput!): UserPreferences!
+  updateUserPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
+  updateUserNotificationPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
+  updateUserPrivacySettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
+  updateUserOtherSettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
+  updateMarketplaceConfig(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
   deleteUserPreferences(preferenceID: ID!): MutationResponse!
 }
 
 type Subscription {
   userPreferencesAdded: UserPreferences!
+  userPreferencesListing: UserPreferences!
   userPreferencesUpdated: UserPreferences!
   userPreferencesDeleted: UserPreferences!
 }

@@ -32,23 +32,18 @@ input CriteriaInput {
   state: ObjectStatus
 }
 
-type CriteriaResponse  {
-  data: [Criteria!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  criteria(criteriaID: ID!): CriteriaResponse
+  criteria(criteriaID: ID!): Criteria
   criterias(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): CriteriaResponse
+  ): [Criteria!]!
 }
 
 type Mutation {
-  createCriteria(input: CriteriaInput!): CriteriaResponse!
-  updateCriteria(criteriaID: ID!, input: CriteriaInput!): CriteriaResponse!
+  createCriteria(input: CriteriaInput!): Criteria!
+  updateCriteria(criteriaID: ID!, input: CriteriaInput!): Criteria!
   deleteCriteria(criteriaID: ID!): MutationResponse!
 }
 

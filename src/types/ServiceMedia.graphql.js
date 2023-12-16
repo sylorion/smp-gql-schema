@@ -26,23 +26,18 @@ input ServiceMediaInput {
   state: ObjectStatus
 }
 
-type ServiceMediaResponse  {
-  data: [ServiceMedia!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  serviceMedia(serviceMediaID: ID!): ServiceMediaResponse
+  serviceMedia(serviceMediaID: ID!): ServiceMedia
   serviceMedias(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ServiceMediaResponse
+  ): [ServiceMedia!]!
 }
 
 type Mutation {
-  createServiceMedia(input: ServiceMediaInput!): ServiceMediaResponse!
-  updateServiceMedia(serviceMediaID: ID!, input: ServiceMediaInput!): ServiceMediaResponse!
+  createServiceMedia(input: ServiceMediaInput!): ServiceMedia!
+  updateServiceMedia(serviceMediaID: ID!, input: ServiceMediaInput!): ServiceMedia!
   deleteServiceMedia(serviceMediaID: ID!): MutationResponse!
 }
 

@@ -34,25 +34,20 @@ input DiscountInput {
   organizationID: ID
   topicID: ID
   state: ObjectStatus
-}
-
-type DiscountResponse  {
-  data: [Discount!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  discount(discountID: ID!): DiscountResponse
+  discount(discountID: ID!): Discount
   discounts(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): DiscountResponse
+  ): [Discount!]
 }
 
 type Mutation {
-  createDiscount(input: DiscountInput!): DiscountResponse!
-  updateDiscount(discountID: ID!, input: DiscountInput!): DiscountResponse!
+  createDiscount(input: DiscountInput!): Discount!
+  updateDiscount(discountID: ID!, input: DiscountInput!): Discount!
   deleteDiscount(discountID: ID!): MutationResponse!
 }
 

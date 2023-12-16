@@ -44,11 +44,6 @@ extend input UserInput {
   profile: ProfileInput
 }
 
-type ProfileResponse {
-  data: [Profile!]
-  errors: [MutationError!]
-}
-
 extend type Query {
   profile(id: ID!): Profile
   profiles(

@@ -22,26 +22,20 @@ input IndustryInput {
   level: Int!
   parentIndustryID: ID # of a potentiel parent hiearchy
   state: ObjectStatus
-}
-
-type IndustryResponse  {
-  data: [Industry!]
-  errors: [MutationError!]
-}
-
+} 
 extend type Query {
-  industry(industryID: ID!): IndustryResponse
+  industry(industryID: ID!): Industry
   industrys(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): IndustryResponse
+  ): [Industry!]!
 }
 
 type Mutation {
-  industryService(serviceID: ID!): IndustryResponse!
-  industryOrganization(organizationID: ID!): IndustryResponse!
-  updateIndustryDetails(industryID: ID!, input: IndustryInput!): IndustryResponse!
+  industryService(serviceID: ID!): Industry!
+  industryOrganization(organizationID: ID!): Industry!
+  updateIndustryDetails(industryID: ID!, input: IndustryInput!): Industry!
   unIndustryService(serviceID: ID!): Boolean!
   unIndustryOrganization(organizationID: ID!): Boolean!
 }

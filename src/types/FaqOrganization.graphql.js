@@ -27,25 +27,20 @@ input FaqOrganizationInput {
   organizationID: ID
   question: String 
   state: ObjectStatus
-}
-
-type FaqOrganizationResponse  {
-  data: [FaqOrganization!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  faqOrganization(faqOrganizationID: ID!): FaqOrganizationResponse
+  faqOrganization(faqOrganizationID: ID!): FaqOrganization
   faqOrganizations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): FaqOrganizationResponse
+  ): [FaqOrganization!]!
 }
 
 type Mutation {
-  createFaqOrganization(input: FaqOrganizationInput!): FaqOrganizationResponse!
-  updateFaqOrganization(faqOrganizationID: ID!, input: FaqOrganizationInput!): FaqOrganizationResponse!
+  createFaqOrganization(input: FaqOrganizationInput!): FaqOrganization!
+  updateFaqOrganization(faqOrganizationID: ID!, input: FaqOrganizationInput!): FaqOrganization!
   deleteFaqOrganization(faqOrganizationID: ID!): MutationResponse!
 }
 

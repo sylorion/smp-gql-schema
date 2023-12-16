@@ -28,23 +28,18 @@ input FaqAnswerInput {
   state: ObjectStatus
 }
 
-type FaqAnswerResponse  {
-  data: [FaqAnswer!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  faqAnswer(faqAnswerID: ID!): FaqAnswerResponse
+  faqAnswer(faqAnswerID: ID!): FaqAnswer
   faqAnswers(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): FaqAnswerResponse
+  ): [FaqAnswer!]!
 }
 
 type Mutation {
-  createFaqAnswer(input: FaqAnswerInput!): FaqAnswerResponse!
-  updateFaqAnswer(faqAnswerID: ID!, input: FaqAnswerInput!): FaqAnswerResponse!
+  createFaqAnswer(input: FaqAnswerInput!): FaqAnswer!
+  updateFaqAnswer(faqAnswerID: ID!, input: FaqAnswerInput!): FaqAnswer!
   deleteFaqAnswer(faqAnswerID: ID!): MutationResponse!
 }
 

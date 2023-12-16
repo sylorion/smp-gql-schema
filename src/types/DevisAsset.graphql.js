@@ -22,25 +22,20 @@ input DevisAssetInput {
   devisID: ID
   authorID: ID!
   state: ObjectStatus
-}
-
-type DevisAssetResponse  {
-  data: [DevisAsset!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  devisAsset(devisAssetID: ID!): DevisAssetResponse
+  devisAsset(devisAssetID: ID!): DevisAsset
   devisAssets(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): DevisAssetResponse
+  ): [DevisAsset!]!
 }
 
 type Mutation {
-  createDevisAsset(input: DevisAssetInput!): DevisAssetResponse!
-  updateDevisAsset(devisAssetID: ID!, input: DevisAssetInput!): DevisAssetResponse!
+  createDevisAsset(input: DevisAssetInput!): DevisAsset!
+  updateDevisAsset(devisAssetID: ID!, input: DevisAssetInput!): DevisAsset!
   deleteDevisAsset(devisAssetID: ID!): MutationResponse!
 }
 

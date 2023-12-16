@@ -28,27 +28,23 @@ input TransactionInput {
   state: ObjectStatus
 }
 
-type TransactionResponse  {
-  data: [Transaction!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  transaction(transactionID: ID!): TransactionResponse
+  transaction(transactionID: ID!): Transaction
   transactions(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): TransactionResponse
+  ): [Transaction!]!
 }
 
 type Mutation {
-  createTransaction(input: TransactionInput!): TransactionResponse!
-  updateTransaction(transactionID: ID!, input: TransactionInput!): TransactionResponse!
+  createTransaction(input: TransactionInput!): Transaction!
+  updateTransaction(transactionID: ID!, input: TransactionInput!): Transaction!
   deleteTransaction(transactionID: ID!): MutationResponse!
 }
 
 type Subscription {
+  transactionListing:   Transaction!
   transactionAdded:   Transaction!
   transactionUpdated: Transaction!
   transactionDeleted: Transaction!

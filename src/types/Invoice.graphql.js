@@ -34,25 +34,20 @@ input InvoiceInput {
   dueDate: DateTime
   digitalSignature: String
   state: ObjectStatus
-}
-
-type InvoiceResponse  {
-  data: [Invoice!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  invoice(invoiceID: ID!): InvoiceResponse
+  invoice(invoiceID: ID!): Invoice
   invoices(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): InvoiceResponse
+  ): Invoice
 }
 
 type Mutation {
-  createInvoice(input: InvoiceInput!): InvoiceResponse!
-  updateInvoice(invoiceID: ID!, input: InvoiceInput!): InvoiceResponse!
+  createInvoice(input: InvoiceInput!): Invoice!
+  updateInvoice(invoiceID: ID!, input: InvoiceInput!): Invoice!
   deleteInvoice(invoiceID: ID!): MutationResponse!
 }
 

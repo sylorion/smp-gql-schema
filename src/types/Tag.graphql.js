@@ -24,23 +24,18 @@ input TagInput {
   state: ObjectStatus
 }
 
-type TagResponse  {
-  data: [Tag!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  tag(tagID: ID!): TagResponse
+  tag(tagID: ID!): Tag
   tags(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): TagResponse
+  ): [Tag!]!
 }
 
 type Mutation {
-  createTag(input: TagInput!): TagResponse!
-  updateTag(tagID: ID!, input: TagInput!): TagResponse!
+  createTag(input: TagInput!): Tag!
+  updateTag(tagID: ID!, input: TagInput!): Tag!
   deleteTag(tagID: ID!): MutationResponse!
 }
 

@@ -34,20 +34,16 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
-type ApplicationResponse  {
-  data: [Application!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  application(applicationID: ID!): ApplicationResponse
+  application(applicationID: ID!): Application
   applications(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ApplicationResponse
+  ): [Application!]!
 }
 
+# TODO to be move to the gateway
 extend type User {
   applications(
     pagination: PaginationInput,
@@ -57,12 +53,16 @@ extend type User {
 }
 
 type Mutation {
-  createApplication(input: ApplicationInput!): ApplicationResponse!
-  updateApplication(applicationID: ID!, input: ApplicationInput!): ApplicationResponse!
+  createApplication(input: ApplicationInput!): Application!
+  updateApplication(applicationID: ID!, input: ApplicationInput!): Application!
   deleteApplication(applicationID: ID!): MutationResponse!
 }
 
 type Subscription {
+  # When appear to a search or listing
+  applicationListing: Application!
+  # When loaded for full details aka applicationbyid or slug
+  applicationDetails: Application!
   applicationAdded: Application!
   applicationUpdated: Application!
   applicationDeleted: Application!

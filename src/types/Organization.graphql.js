@@ -88,28 +88,24 @@ input OrganizationInput {
 }
 
 # Mutation responses for CRUD operations
-
-type OrganizationResponse  {
-  data: [Organization!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  getOrganization(id: ID!): OrganizationResponse
+  getOrganization(id: ID!): Organization
   listOrganizations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): OrganizationResponse
+  ): [Organization!]!
 }
 
 type Mutation {
-  createOrganization(input: OrganizationInput!): OrganizationResponse!
-  updateOrganization(id: ID!, input: OrganizationInput!): OrganizationResponse!
+  createOrganization(input: OrganizationInput!): Organization!
+  updateOrganization(id: ID!, input: OrganizationInput!): Organization!
   deleteOrganization(id: ID!): MutationResponse!
 }
 
 type Subscription {
+  organizationListing: Organization!
+  organizationDetails: Organization!
   organizationAdded: Organization!
   organizationUpdated: Organization!
   organizationDeleted: Organization!

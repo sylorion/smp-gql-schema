@@ -39,24 +39,19 @@ input PaymentMethodInput {
   state: ObjectStatus
 }
 
-type PaymentMethodResponse  {
-  data: [PaymentMethod!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  paymentMethod(paymentMethodID: ID!): PaymentMethodResponse
+  paymentMethod(paymentMethodID: ID!): PaymentMethod 
   paymentMethods(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): PaymentMethodResponse
+  ): [PaymentMethod!]!
 }
 
 type Mutation {
-  createPaymentMethod(input: PaymentMethodInput!): PaymentMethodResponse!
-  updatePaymentMethodDetails(paymentMethodID: ID!, input: PaymentMethodInput!):PaymentMethodResponse!
-  updatePaymentMethod(paymentMethodID: ID!, input: PaymentMethodInput!): PaymentMethodResponse!
+  createPaymentMethod(input: PaymentMethodInput!): PaymentMethod!
+  updatePaymentMethodDetails(paymentMethodID: ID!, input: PaymentMethodInput!):PaymentMethod!
+  updatePaymentMethod(paymentMethodID: ID!, input: PaymentMethodInput!): PaymentMethod!
   deletePaymentMethod(paymentMethodID: ID!): MutationResponse!
 }
 

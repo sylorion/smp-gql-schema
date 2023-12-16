@@ -15,34 +15,33 @@ type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & Serv
   deletedAt: DateTime
 }
 
+extend type Service {
+  attributes: [ServiceAttribute!]!
+}
+
 input ServiceAttributeInput {
   attributeID: ID
-  uniqRef: String!
-  slug: String!
+  uniqRef: String
+  slug: String
   authorID: ID!
-  attributeName: String
-  attributeValue: String
-  serviceID: ID
+  attributeName: String!
+  attributeValue: String!
+  serviceID: ID!
   state: ObjectStatus
 }
 
-type ServiceAttributeResponse  {
-  data: [ServiceAttribute!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  serviceAttribute(attributeID: ID!): ServiceAttributeResponse
+  serviceAttribute(attributeID: ID!): ServiceAttribute
   serviceAttributes(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ServiceAttributeResponse
+  ): [ServiceAttribute!]!
 }
 
 type Mutation {
-  createServiceAttribute(input: ServiceAttributeInput!): ServiceAttributeResponse!
-  updateServiceAttribute(attributeID: ID!, input: ServiceAttributeInput!): ServiceAttributeResponse!
+  createServiceAttribute(input: ServiceAttributeInput!): ServiceAttribute!
+  updateServiceAttribute(attributeID: ID!, input: ServiceAttributeInput!): ServiceAttribute!
   deleteServiceAttribute(attributeID: ID!): MutationResponse!
 }
 

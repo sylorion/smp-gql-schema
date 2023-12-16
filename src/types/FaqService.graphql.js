@@ -29,23 +29,18 @@ input FaqServiceInput {
   state: ObjectStatus
 }
 
-type FaqServiceResponse  {
-  data: [FaqService!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  faqService(faqServiceID: ID!): FaqServiceResponse
+  faqService(faqServiceID: ID!): FaqService
   faqServices(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): FaqServiceResponse
+  ): [FaqService!]!
 }
 
 type Mutation {
-  createFaqService(input: FaqServiceInput!): FaqServiceResponse!
-  updateFaqService(faqServiceID: ID!, input: FaqServiceInput!): FaqServiceResponse!
+  createFaqService(input: FaqServiceInput!): FaqService!
+  updateFaqService(faqServiceID: ID!, input: FaqServiceInput!): FaqService!
   deleteFaqService(faqServiceID: ID!): MutationResponse!
 }
 

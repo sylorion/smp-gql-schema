@@ -38,27 +38,24 @@ input AssetInput {
   state: ObjectStatus
 }
 
-type AssetResponse  {
-  data: [Asset!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  asset(assetID: ID!): AssetResponse
+  asset(assetID: ID!): Asset
   assets(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): AssetResponse
+  ): [Asset!]!
 }
 
 type Mutation {
-  createAsset(input: AssetInput!): AssetResponse!
-  updateAsset(assetID: ID!, input: AssetInput!): AssetResponse!
+  createAsset(input: AssetInput!): Asset!
+  updateAsset(assetID: ID!, input: AssetInput!): Asset!
   deleteAsset(assetID: ID!): MutationResponse!
 }
 
 type Subscription {
+  assetListing: Asset!
+  assetDetails: Asset!
   assetAdded: Asset!
   assetUpdated: Asset!
   assetDeleted: Asset!

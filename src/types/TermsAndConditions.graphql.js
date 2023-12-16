@@ -22,23 +22,18 @@ input TermsAndConditionsInput {
   state: ObjectStatus
 }
 
-type TermsAndConditionsResponse  {
-  data: [TermsAndConditions!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  termsAndConditions(termsAndConditionsID: ID!): TermsAndConditionsResponse
+  termsAndConditions(termsAndConditionsID: ID!): TermsAndConditions
   termsAndConditionsList(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): TermsAndConditionsResponse
+  ): [TermsAndConditions!]!
 }
 
 type Mutation {
-  createTermsAndConditions(input: TermsAndConditionsInput!): TermsAndConditionsResponse!
-  updateTermsAndConditions(termsAndConditionsID: ID!, input: TermsAndConditionsInput!): TermsAndConditionsResponse!
+  createTermsAndConditions(input: TermsAndConditionsInput!): TermsAndConditions!
+  updateTermsAndConditions(termsAndConditionsID: ID!, input: TermsAndConditionsInput!): TermsAndConditions!
   deleteTermsAndConditions(termsAndConditionsID: ID!): MutationResponse!
 }
 

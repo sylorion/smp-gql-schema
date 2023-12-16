@@ -40,23 +40,18 @@ input MediaInput {
   state: ObjectStatus
 }
 
-type MediaResponse  {
-  data: [Media!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  media(mediaID: ID!): MediaResponse
+  media(mediaID: ID!): Media
   medias(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): MediaResponse
+  ): [Media!]!
 }
 
 type Mutation {
-  createMedia(input: MediaInput!): MediaResponse!
-  updateMedia(mediaID: ID!, input: MediaInput!): MediaResponse!
+  createMedia(input: MediaInput!): Media!
+  updateMedia(mediaID: ID!, input: MediaInput!): Media!
   deleteMedia(mediaID: ID!): MutationResponse!
 }
 

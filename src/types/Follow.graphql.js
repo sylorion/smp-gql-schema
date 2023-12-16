@@ -17,26 +17,21 @@ input FollowInput {
   followedID: ID!
   followedEntity: FollowableEntity!
   state: ObjectStatus
-}
-
-type FollowResponse  {
-  data: [Follow!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  follow(followID: ID!): FollowResponse
+  follow(followID: ID!): Follow
   follows(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): FollowResponse
+  ): [Follow!]!
 }
 
 type Mutation {
-  followService(serviceID: ID!): FollowResponse!
-  followOrganization(organizationID: ID!): FollowResponse!
-  updateFollowDetails(followID: ID!, input: FollowInput!): FollowResponse!
+  followService(serviceID: ID!): Follow!
+  followOrganization(organizationID: ID!): Follow!
+  updateFollowDetails(followID: ID!, input: FollowInput!): Follow!
   unFollowService(serviceID: ID!): Boolean!
   unFollowOrganization(organizationID: ID!): Boolean!
 }

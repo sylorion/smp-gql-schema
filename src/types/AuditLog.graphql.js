@@ -34,23 +34,18 @@ input AuditLogInput {
   state: ObjectStatus
 }
 
-type AuditLogResponse  {
-  data: [AuditLog!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  auditLog(auditLogID: ID!): AuditLogResponse
+  auditLog(auditLogID: ID!): AuditLog
   auditLogs(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): AuditLogResponse
+  ): [AuditLog!]!
 }
 
 type Mutation {
-  createAuditLog(input: AuditLogInput!): AuditLogResponse!
-  updateAuditLog(auditLogID: ID!, input: AuditLogInput!): AuditLogResponse!
+  createAuditLog(input: AuditLogInput!): AuditLog!
+  updateAuditLog(auditLogID: ID!, input: AuditLogInput!): AuditLog!
   deleteAuditLog(auditLogID: ID!): MutationResponse!
 }
 

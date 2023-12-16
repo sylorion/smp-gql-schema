@@ -27,18 +27,13 @@ input TopicInput {
   state: ObjectStatus
 }
 
-type TopicResponse  {
-  data: [Topic!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  topic(topicID: ID!): TopicResponse
+  topic(topicID: ID!): Topic
   topics(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): TopicResponse
+  ): [Topic!]!
 }
 
 extend type Tag {
@@ -58,8 +53,8 @@ extend type Criteria {
 }
 
 type Mutation {
-  createTopic(input: TopicInput!): TopicResponse!
-  updateTopic(topicID: ID!, input: TopicInput!): TopicResponse!
+  createTopic(input: TopicInput!): Topic!
+  updateTopic(topicID: ID!, input: TopicInput!): Topic!
   deleteTopic(topicID: ID!): MutationResponse!
 }
 

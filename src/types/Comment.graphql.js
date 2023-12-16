@@ -26,21 +26,17 @@ input CommentInput {
   state: ObjectStatus
 }
 
-type CommentResponse  {
-  data: [Comment!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  comment(commentID: ID!): CommentResponse
+  comment(commentID: ID!): Comment
   comments(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): CommentResponse
+  ): [Comment!]!
 }
 
 # Adding comments to Users
+# TODO to be move to the gateway, user type unknown here 
 extend type User {
   comments(
     pagination: PaginationInput,
@@ -50,6 +46,7 @@ extend type User {
 }
 
 # Adding comments to Services
+# TODO to be move to the gateway, service type unknown here
 extend type Service {
   comments(
     pagination: PaginationInput,
@@ -59,6 +56,7 @@ extend type Service {
 }
 
 # Adding comments to Organizations
+# TODO to be move to the gateway, organization type unknown here
 extend type Organization {
   comments(
     pagination: PaginationInput,
@@ -68,8 +66,8 @@ extend type Organization {
 }
 
 type Mutation {
-  createComment(input: CommentInput!): CommentResponse!
-  updateComment(commentID: ID!, input: CommentInput!): CommentResponse!
+  createComment(input: CommentInput!): Comment!
+  updateComment(commentID: ID!, input: CommentInput!): Comment!
   deleteComment(commentID: ID!): MutationResponse!
 }
 

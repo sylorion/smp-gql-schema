@@ -30,25 +30,20 @@ input DocumentationInput {
   description: String
   parentDocumentationID: ID
   state: ObjectStatus
-}
-
-type DocumentationResponse  {
-  data: [Documentation!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  documentation(documentationID: ID!): DocumentationResponse
+  documentation(documentationID: ID!): Documentation
   documentations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): DocumentationResponse
+  ): [Documentation!]!
 }
 
 type Mutation {
-  createDocumentation(input: DocumentationInput!): DocumentationResponse!
-  updateDocumentation(documentationID: ID!, input: DocumentationInput!): DocumentationResponse!
+  createDocumentation(input: DocumentationInput!): Documentation!
+  updateDocumentation(documentationID: ID!, input: DocumentationInput!): Documentation!
   deleteDocumentation(documentationID: ID!): MutationResponse!
 }
 

@@ -24,23 +24,18 @@ input ServiceAssetInput {
   state: ObjectStatus
 }
 
-type ServiceAssetResponse  {
-  data: [ServiceAsset!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  serviceAsset(serviceAssetID: ID!): ServiceAssetResponse
+  serviceAsset(serviceAssetID: ID!): ServiceAsset
   serviceAssets(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ServiceAssetResponse
+  ): [ServiceAsset!]!
 }
 
 type Mutation {
-  createServiceAsset(input: ServiceAssetInput!): ServiceAssetResponse!
-  updateServiceAsset(serviceAssetID: ID!, input: ServiceAssetInput!): ServiceAssetResponse!
+  createServiceAsset(input: ServiceAssetInput!): ServiceAsset!
+  updateServiceAsset(serviceAssetID: ID!, input: ServiceAssetInput!): ServiceAsset!
   deleteServiceAsset(serviceAssetID: ID!): MutationResponse!
 }
 

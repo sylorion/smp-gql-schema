@@ -26,27 +26,23 @@ input UserOrganizationInput {
   state: ObjectStatus
 }
 
-type UserOrganizationResponse {
-  data: [UserOrganization!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  userOrganization(userOrganizationID: ID!): UserOrganizationResponse
+  userOrganization(userOrganizationID: ID!): UserOrganization
   userOrganizations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): UserOrganizationResponse
+  ): [UserOrganization!]!
 }
 
 type Mutation {
-  createUserOrganization(input: UserOrganizationInput!): UserOrganizationResponse!
-  updateUserOrganization(userOrganizationID: ID!, input: UserOrganizationInput!): UserOrganizationResponse!
+  createUserOrganization(input: UserOrganizationInput!): UserOrganization!
+  updateUserOrganization(userOrganizationID: ID!, input: UserOrganizationInput!): UserOrganization!
   deleteUserOrganization(userOrganizationID: ID!): MutationResponse!
 }
 
 type Subscription {
+  userOrganizationLinsting: UserOrganization!
   userOrganizationAdded: UserOrganization!
   userOrganizationUpdated: UserOrganization!
   userOrganizationDeleted: UserOrganization!

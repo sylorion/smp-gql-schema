@@ -51,6 +51,7 @@ input ServiceInput {
   upperPrice: Int
   negotiable: Boolean
   perimeter: Int
+  attributes: [ServiceAttributeInput]
   supplyType: ServiceSupplyForm
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
@@ -59,28 +60,25 @@ input ServiceInput {
   state: ObjectStatus
 }
 
-type ServiceResponse {
-  data: [Service!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  service(serviceID: ID!): ServiceResponse
+  service(serviceID: ID!): Service
   services(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ServiceResponse
+  ): [Service!]!
 }
 
 type Mutation {
-  createService(input: ServiceInput!): ServiceResponse!
-  updateServiceAttributes(serviceID: ID!, input: ServiceInput!): ServiceResponse!
-  updateService(serviceID: ID!, input: ServiceInput!): ServiceResponse!
+  createService(input: ServiceInput!): Service!
+  updateServiceAttributes(serviceID: ID!, input: ServiceInput!): Service!
+  updateService(serviceID: ID!, input: ServiceInput!): Service!
   deleteService(serviceID: ID!): MutationResponse!
 }
 
 type Subscription {
+  serviceListing: Service!
+  serviceDetail: Service!
   serviceAdded: Service!
   serviceUpdated: Service!
   serviceDeleted: Service!

@@ -44,26 +44,21 @@ input DevisInput {
   details: String
   stage: DevisStage
   state: ObjectStatus
-}
-
-type DevisResponse  {
-  data: [Devis!]
-  errors: [MutationError!]
-}
+} 
 
 extend type Query {
-  devis(devisID: ID!): DevisResponse
+  devis(devisID: ID!): DevisAsset
   devisList(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): DevisResponse
+  ): [DevisAsset!]!
 }
 
 type Mutation {
-  createDevis(input: DevisInput!): DevisResponse!
-  updateDevis(devisID: ID!, input: DevisInput!): DevisResponse!
-  updateDevisDetails(devisID: ID!, input: DevisInput!): DevisResponse!
+  createDevis(input: DevisInput!): DevisAsset!
+  updateDevis(devisID: ID!, input: DevisInput!): DevisAsset!
+  updateDevisDetails(devisID: ID!, input: DevisInput!): DevisAsset!
   deleteDevis(devisID: ID!): MutationResponse!
 }
 

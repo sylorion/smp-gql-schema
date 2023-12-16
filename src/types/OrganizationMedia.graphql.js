@@ -26,23 +26,18 @@ input OrganizationMediaInput {
   state: ObjectStatus
 }
 
-type OrganizationMediaResponse  {
-  data: [OrganizationMedia!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  organizationMedia(organizationMediaID: ID!): OrganizationMediaResponse
+  organizationMedia(organizationMediaID: ID!): OrganizationMedia
   organizationMedias(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): OrganizationMediaResponse
+  ): [OrganizationMedia!]!
 }
 
 type Mutation {
-  createOrganizationMedia(input: OrganizationMediaInput!): OrganizationMediaResponse!
-  updateOrganizationMedia(organizationMediaID: ID!, input: OrganizationMediaInput!): OrganizationMediaResponse!
+  createOrganizationMedia(input: OrganizationMediaInput!): OrganizationMedia!
+  updateOrganizationMedia(organizationMediaID: ID!, input: OrganizationMediaInput!): OrganizationMedia!
   deleteOrganizationMedia(organizationMediaID: ID!): MutationResponse!
 }
 

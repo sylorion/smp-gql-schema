@@ -24,23 +24,18 @@ input PaymentConfigInput {
   state: ObjectStatus
 }
 
-type PaymentConfigResponse  {
-  data: [PaymentConfig!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  paymentConfig(paymentConfigID: ID!): PaymentConfigResponse
+  paymentConfig(paymentConfigID: ID!): PaymentConfig
   paymentConfigs(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): PaymentConfigResponse
+  ): [PaymentConfig!]!
 }
 
 type Mutation {
-  createPaymentConfig(input: PaymentConfigInput!): PaymentConfigResponse!
-  updatePaymentConfig(paymentConfigID: ID!, input: PaymentConfigInput!): PaymentConfigResponse!
+  createPaymentConfig(input: PaymentConfigInput!): PaymentConfig!
+  updatePaymentConfig(paymentConfigID: ID!, input: PaymentConfigInput!): PaymentConfig!
   deletePaymentConfig(paymentConfigID: ID!): MutationResponse!
 }
 

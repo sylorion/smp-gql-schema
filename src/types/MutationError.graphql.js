@@ -10,7 +10,6 @@ type MutationError {
   code: Int
 }
 
-
 # For operation requiring a state only
 type MutationResponse {
   success: Boolean!

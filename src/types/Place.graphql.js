@@ -48,27 +48,24 @@ extend input ProfileInput {
   location: PlaceInput
 }
 
-type PlaceResponse {
-  data: [Place!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  place(placeID: ID!): PlaceResponse
+  place(placeID: ID!): Profile
   places(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): PlaceResponse
+  ): [Place!]!
 }
 
 type Mutation {
-  createPlace(input: PlaceInput!): PlaceResponse!
-  updatePlace(placeID: ID!, input: PlaceInput!): PlaceResponse!
+  createPlace(input: PlaceInput!): Place!
+  updatePlace(placeID: ID!, input: PlaceInput!): Place!
   deletePlace(placeID: ID!): MutationResponse!
 }
 
 type Subscription {
+  servicesPlaceListing: Place!
+  servicesPlaceDetails: Place!
   servicesPlaceAdded: Place!
   servicesPlaceUpdated: Place!
   servicesPlaceDeleted: Place!

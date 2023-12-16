@@ -26,23 +26,18 @@ input RoleInput {
   state: ObjectStatus
 }
 
-type RoleResponse {
-  data: [Role!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  role(roleID: ID!): RoleResponse
+  role(roleID: ID!): Role
   roles(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): RoleResponse
+  ): [Role!]!
 }
 
 type Mutation {
-  createRole(input: RoleInput!): RoleResponse!
-  updateRole(roleID: ID!, input: RoleInput!): RoleResponse!
+  createRole(input: RoleInput!): Role!
+  updateRole(roleID: ID!, input: RoleInput!): Role!
   deleteRole(roleID: ID!): MutationResponse!
 }
 

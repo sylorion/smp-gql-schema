@@ -1,6 +1,6 @@
 
 export default `
-enum TargetedEntityCriteria {
+enum CriteriaTargetedEntity {
   service
   user
   organization

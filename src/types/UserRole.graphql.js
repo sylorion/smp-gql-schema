@@ -23,27 +23,23 @@ input UserRoleInput {
   state: ObjectStatus
 }
 
-type UserRoleResponse {
-  data: [UserRole!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  userRole(userRoleID: ID!): UserRoleResponse
+  userRole(userRoleID: ID!): UserRole
   userRoles(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): UserRoleResponse
+  ): [UserRole!]!
 }
 
 type Mutation {
-  createUserRole(input: UserRoleInput!): UserRoleResponse!
-  updateUserRole(userRoleID: ID!, input: UserRoleInput!): UserRoleResponse!
+  createUserRole(input: UserRoleInput!): UserRole!
+  updateUserRole(userRoleID: ID!, input: UserRoleInput!): UserRole!
   deleteUserRole(userRoleID: ID!): MutationResponse!
 }
 
 type Subscription {
+  userRoleListing: UserRole!
   userRoleAdded: UserRole!
   userRoleUpdated: UserRole!
   userRoleDeleted: UserRole!

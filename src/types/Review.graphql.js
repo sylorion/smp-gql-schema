@@ -28,18 +28,13 @@ input ReviewInput {
   state: ObjectStatus
 }
 
-type ReviewResponse  {
-  data: [Review!]
-  errors: [MutationError!]
-}
-
 extend type Query {
-  review(reviewID: ID!): ReviewResponse
+  review(reviewID: ID!): Review
   reviews(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): ReviewResponse
+  ): [Review!]!
 }
 
 ### Attaching review to objects 
@@ -54,7 +49,7 @@ extend type User {
 
 # Adding reviews to Services
 extend type Service {
-  reviews(
+  reviews (
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -78,7 +73,6 @@ extend type Comment {
     filter: [FilterInput!]
   ): [Review!]
 }
-
 
 ### Stats criteria for objects
 # Adding reviews to Users
@@ -106,12 +100,14 @@ extend type Comment {
 }
 
 type Mutation {
-  createReview(input: ReviewInput!): ReviewResponse!
-  updateReview(reviewID: ID!, input: ReviewInput!): ReviewResponse!
+  createReview(input: ReviewInput!): Review!
+  updateReview(reviewID: ID!, input: ReviewInput!): Review!
   deleteReview(reviewID: ID!): MutationResponse!
 }
 
 type Subscription {
+  reviewListing: Review!
+  reviewDetails: Review!
   reviewAdded: Review!
   reviewUpdated: Review!
   reviewDeleted: Review!

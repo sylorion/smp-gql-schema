@@ -53,11 +53,6 @@ input UserInput {
   state: ObjectStatus
 }
 
-type UserResponse {
-  data: [User!]
-  errors: [MutationError!]
-}
-
 extend type Query {
   user(userID: ID!): User!
   userByIDs(ids: [ID!]!): [User!]!
@@ -73,11 +68,13 @@ extend type Query {
 
 type Mutation { 
   createUser(input: UserInput!): User
-  updateUser(userID: ID!, input: UserInput!): UserResponse!
+  updateUser(userID: ID!, input: UserInput!): User!
   deleteUser(userID: ID!): MutationResponse!
 }
 
 type Subscription {
+  userListing: User!
+  userDetails: User!
   userAdded: User!
   userUpdated: User!
   userDeleted: User!
