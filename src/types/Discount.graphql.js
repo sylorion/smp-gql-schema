@@ -2,7 +2,7 @@ export default `
 # src/graphql/types/Discount.graphql.js
 
 type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  discountID :: ID!
+  discountID :  ID!
   uniqRef :   String!
   slug :  String!
   authorID :  ID
@@ -25,7 +25,7 @@ type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 }
 
 input DiscountInput {
-  discountID :: ID
+  discountID :  ID
   authorID :  ID
   description :   String
   discountCode :  String
