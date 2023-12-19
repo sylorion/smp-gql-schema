@@ -12,7 +12,7 @@ type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   # To design criteria as a tree graph, more the level is high more accurate is the criteria 
   level: Int
   # for the moment, but we will move to pivot objects
-  targetedEntityCriteria: TargetedEntityCriteria
+  targetedEntityCriteria: CriteriaTargetedEntity
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -28,7 +28,7 @@ input CriteriaInput {
   # To design criteria as a tree graph, more the level is high more accurate is the criteria
   level: Int
   # for the moment, but we will move to pivot objects
-  targetedEntityCriteria: TargetedEntityCriteria
+  targetedEntityCriteria: CriteriaTargetedEntity
   state: ObjectStatus
 }
 
