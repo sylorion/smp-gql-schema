@@ -1,3 +1,5 @@
+
+
 export default `
 # src/graphql/types/User.graphql.js
 
