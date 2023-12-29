@@ -28,15 +28,15 @@ input UserPreferencesInput {
   userID: ID
   lang: String
   timeZone: String
-  notificationPreferences: String
-  privacySettings: String
+  notificationPreferences: JSON
+  privacySettings: JSON
   theme: Int
   marketplaceConfig: String
   defaultCurrency: ServicesAcceptedDevice
   defaultPaymentMethodID: ID
   notificationFrequency: NotificationFrequencyPref
   showRecommendations: Boolean
-  otherSettings: String
+  otherSettings: JSON
   state: ObjectStatus
 }
 
