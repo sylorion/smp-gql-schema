@@ -28,6 +28,28 @@ input RoleInput {
 
 extend type Query {
   role(roleID: ID!): Role
+  roleByID(roleID: ID!): Role
+  roleByUUID(uuid: String!): Role!
+  roleBySlug(slug: String!): Role! 
+  rolesByIDs(ids: [ID!]!): [Role!]!
+  rolesByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Role!]!
+  rolesByName(
+    name: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Role!]!
+  rolesByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Role!]!
   roles(
     pagination: PaginationInput,
     sort: SortInput,
@@ -42,6 +64,8 @@ type Mutation {
 }
 
 type Subscription {
+  roleListing: Role!
+  roleDetails: Role!
   roleAdded: Role!
   roleUpdated: Role!
   roleDeleted: Role!

@@ -49,7 +49,36 @@ extend input ProfileInput {
 }
 
 extend type Query {
-  place(placeID: ID!): Profile
+  place(placeID: ID!): Place
+  placeByID(placeID: ID!): Place
+  placeByUUID(uuid: String!): Place!
+  placeBySlug(slug: String!): Place!
+  placeByLocation(lonlat: [String]!): Place!
+  placesByIDs(ids: [ID!]!): [Place!]!
+  placesByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Place!]!
+  placesByCountry(
+    country: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Place!]!
+  placesByCity(
+    city: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Place!]!
+  placesByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Place!]!
   places(
     pagination: PaginationInput,
     sort: SortInput,

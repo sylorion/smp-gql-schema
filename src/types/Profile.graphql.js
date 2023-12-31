@@ -45,7 +45,36 @@ extend input UserInput {
 }
 
 extend type Query {
-  profile(id: ID!): Profile
+  profile(profileID: ID!): Profile
+  profileByID(profileID: ID!): Profile
+  profileByUUID(uuid: String!): Profile!
+  profileBySlug(slug: String!): Profile!
+  profileByLocation(lonlat: [String]!): Profile!
+  profileByIDs(ids: [ID!]!): [Profile!]!
+  profilesByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Profile!]!
+  profilesByCountry(
+    country: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Profile!]!
+  profilesByCity(
+    city: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Profile!]!
+  profileByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Profile!]!
   profiles(
     pagination: PaginationInput,
     sort: SortInput,

@@ -30,73 +30,52 @@ input ReviewInput {
 
 extend type Query {
   review(reviewID: ID!): Review
+  reviewByID(reviewID: ID!): Review
+  reviewByUUID(uuid: String!): Review!
+  reviewBySlug(slug: String!): Review!
+  reviewByService(serviceID: String!): Review!
+  reviewsByIDs(ids: [ID!]!): [Review!]!
+  reviewsByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
+  reviewsByOrganization(
+    organizationID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
+  reviewsByService(
+    serviceID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
+  reviewsByCriteria(
+    criteriaID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
+  reviewsByComment(
+    commentID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
+  reviewsByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Review!]!
   reviews(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
   ): [Review!]!
-}
-
-### Attaching review to objects 
-# Adding reviews to Users
-extend type User {
-  reviews(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Review!]
-}
-
-# Adding reviews to Services
-extend type Service {
-  reviews (
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Review!]
-}
-
-# Adding reviews to Organizations
-extend type Organization {
-  reviews(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Review!]
-}
-
-# Adding reviews to Comments
-extend type Comment {
-  reviews(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Review!]
-}
-
-### Stats criteria for objects
-# Adding reviews to Users
-extend type User {
-  criteriaCount(forCriteriaID: ID): Int!
-  sumCriteria(forCriteriaID: ID): Int!
-}
-
-# Adding reviews to Services
-extend type Service {
-  criteriaCount(forCriteriaID: ID): Int!
-  sumCriteria(forCriteriaID: ID): Int!
-}
-
-# Adding reviews to Organizations
-extend type Organization {
-  criteriaCount(forCriteriaID: ID): Int!
-  sumCriteria(forCriteriaID: ID): Int!
-}
-
-# Adding reviews to Comments
-extend type Comment {
-  criteriaCount(forCriteriaID: ID): Int!
-  sumCriteria(forCriteriaID: ID): Int!
 }
 
 type Mutation {

@@ -60,6 +60,12 @@ extend type Query {
   userByIDs(ids: [ID!]!): [User!]!
   userByUsername(username: String!): User!
   userByEmail(email: String!): User!
+  usersByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [User!]!
   usersByUsernames(
     usernames: [String!]!
     pagination: PaginationInput,

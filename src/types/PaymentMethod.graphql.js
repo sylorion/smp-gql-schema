@@ -41,6 +41,47 @@ input PaymentMethodInput {
 
 extend type Query {
   paymentMethod(paymentMethodID: ID!): PaymentMethod 
+  paymentMethodByID(paymentMethodID: ID!): PaymentMethod
+  paymentMethodByUUID(uuid: String!): PaymentMethod!
+  paymentMethodBySlug(slug: String!): PaymentMethod!
+  paymentMethodByCardNumber(number: String!): PaymentMethod!
+  paymentMethodsByIDs(ids: [ID!]!): [PaymentMethod!]!
+  paymentMethodsByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
+  paymentMethodsByOrganization(
+    organizationID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
+  paymentMethodsByBankCardType(
+    cardType: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
+  paymentMethodsByMethodKind(
+    paymentMethodKind: PaymentMethodType!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
+  paymentMethodsActive(
+    isActive: Boolean!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
+  paymentMethodsByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [PaymentMethod!]!
   paymentMethods(
     pagination: PaginationInput,
     sort: SortInput,
