@@ -41,8 +41,20 @@ input UserPreferencesInput {
 }
 
 extend type Query {
-  userPreferences(preferenceID: ID!): UserPreferences
-  userPreferencesList(
+  userPreference(preferenceID: ID!): UserPreferences
+  userPreferencesByLang(
+    lang: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [UserPreferences!]!
+  userPreferencesByUserID(
+    userID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [UserPreferences!]!
+  userPreferences(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -62,6 +74,7 @@ type Mutation {
 type Subscription {
   userPreferencesAdded: UserPreferences!
   userPreferencesListing: UserPreferences!
+  userPreferencesDetails: UserPreferences!
   userPreferencesUpdated: UserPreferences!
   userPreferencesDeleted: UserPreferences!
 }
