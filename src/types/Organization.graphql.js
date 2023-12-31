@@ -89,8 +89,60 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 extend type Query {
-  getOrganization(id: ID!): Organization
-  listOrganizations(
+  organization(id: ID!): Organization
+  organizationByID(organizationID: ID!): Organization
+  organizationByUUID(uuid: String!): Organization!
+  organizationBySlug(slug: String!): Organization! 
+  organizationByIDs(ids: [ID!]!): [Organization!]!
+  organizationsByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationsByLocation(
+    location:  ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationsByOwner(
+    ownerID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationBySector(
+    sectorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationBySize(
+    organizationSize: OrganizationEconomicSizeKind!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByCurrency(
+    currency: ServicesAcceptedDevice!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByUniqIdentifier(
+    identifier: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]

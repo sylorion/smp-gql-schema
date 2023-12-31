@@ -58,6 +58,8 @@ input UserInput {
 extend type Query {
   user(userID: ID!): User!
   userByIDs(ids: [ID!]!): [User!]!
+  userByUUID(uuid: String!): User!
+  userBySlug(slug: String!): User!
   userByUsername(username: String!): User!
   userByEmail(email: String!): User!
   usersByState(

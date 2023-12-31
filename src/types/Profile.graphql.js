@@ -49,7 +49,6 @@ extend type Query {
   profileByID(profileID: ID!): Profile
   profileByUUID(uuid: String!): Profile!
   profileBySlug(slug: String!): Profile!
-  profileByLocation(lonlat: [String]!): Profile!
   profileByIDs(ids: [ID!]!): [Profile!]!
   profilesByState(
     state: String!
@@ -75,7 +74,14 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
     ): [Profile!]!
-  profiles(
+    profilesByLocation(
+    lonlat: [String!]!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Profile!]!
+
+    profiles(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]

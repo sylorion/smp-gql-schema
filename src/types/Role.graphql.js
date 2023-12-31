@@ -8,7 +8,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   authorID: ID!
   roleName: String
   description: String
-  permissions: String
+  permissions: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

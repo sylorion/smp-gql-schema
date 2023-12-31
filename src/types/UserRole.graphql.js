@@ -24,7 +24,41 @@ input UserRoleInput {
 }
 
 extend type Query {
-  userRole(userRoleID: ID!): UserRole
+  userRole(userRoleID: ID!): UserRole!
+  userRoleByID(userRoleID: ID!): UserRole
+  userRoleByUUID(uuid: String!): UserRole!
+  userRoleBySlug(slug: String!): UserRole!
+  userRolesByIDs(ids: [ID!]!): [UserRole!]!
+  userRolesByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [UserRole!]!
+  userRolesByName(
+    name: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [UserRole!]!
+  userRolesByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [UserRole!]!
+  userRolesByUser(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [UserRole!]!
+  userRolesByRole(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Role!]!
   userRoles(
     pagination: PaginationInput,
     sort: SortInput,
@@ -40,6 +74,7 @@ type Mutation {
 
 type Subscription {
   userRoleListing: UserRole!
+  userRoleDetails: UserRole!
   userRoleAdded: UserRole!
   userRoleUpdated: UserRole!
   userRoleDeleted: UserRole!
