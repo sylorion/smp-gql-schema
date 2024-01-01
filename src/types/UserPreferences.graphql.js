@@ -8,15 +8,15 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   userID: ID
   lang: String
   timeZone: String
-  notificationPreferences: String
-  privacySettings: String
+  notificationPreferences: JSON
+  privacySettings: JSON
   theme: Int
-  marketplaceConfig: String
+  marketplaceConfig: JSON
   defaultCurrency: ServicesAcceptedDevice
   defaultPaymentMethodID: ID
   notificationFrequency: NotificationFrequencyPref
   showRecommendations: Boolean
-  otherSettings: String
+  otherSettings: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -31,7 +31,7 @@ input UserPreferencesInput {
   notificationPreferences: JSON
   privacySettings: JSON
   theme: Int
-  marketplaceConfig: String
+  marketplaceConfig: JSON
   defaultCurrency: ServicesAcceptedDevice
   defaultPaymentMethodID: ID
   notificationFrequency: NotificationFrequencyPref
@@ -42,6 +42,7 @@ input UserPreferencesInput {
 
 extend type Query {
   userPreference(preferenceID: ID!): UserPreferences
+  userPreferencesByID(preferenceID: ID!): UserPreferences
   userPreferencesByLang(
     lang: String!
     pagination: PaginationInput,
@@ -50,6 +51,12 @@ extend type Query {
   ): [UserPreferences!]!
   userPreferencesByUserID(
     userID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [UserPreferences!]!
+  userPreferencesByIDs(
+    ids: [ID!]!
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]

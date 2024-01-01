@@ -98,6 +98,8 @@ type Mutation {
 
 type Subscription {
   paymentMethodAdded: PaymentMethod!
+  paymentMethodListing: PaymentMethod!
+  paymentMethodDetails: PaymentMethod!
   paymentMethodUpdated: PaymentMethod!
   paymentMethodDeleted: PaymentMethod!
 }
