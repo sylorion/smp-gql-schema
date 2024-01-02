@@ -19,14 +19,6 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type User {
-    medias(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Media!]
-}
-
 input MediaInput {
   mediaID: ID
   authorID: ID!

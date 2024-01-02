@@ -16,10 +16,8 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 }
 
 input RoleInput {
-  roleID: ID
-  uniqRef: String!
-  slug: String!
-  authorID: ID!
+  roleID: ID 
+  authorID: ID
   roleName: String
   description: String
   permissions: String

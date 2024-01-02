@@ -7,8 +7,8 @@ type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & Service
   slug: String!
   authorID: ID
   paymentMethodID: ID
-  partnerTokenAuthDetails: String
-  paymentConfigDetails: String
+  partnerTokenAuthDetails: JSON
+  paymentConfigDetails: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -19,8 +19,8 @@ input PaymentConfigInput {
   paymentConfigID: ID
   authorID: ID
   paymentMethodID: ID
-  partnerTokenAuthDetails: String
-  paymentConfigDetails: String
+  partnerTokenAuthDetails: JSON
+  paymentConfigDetails: JSON
   state: ObjectStatus
 }
 

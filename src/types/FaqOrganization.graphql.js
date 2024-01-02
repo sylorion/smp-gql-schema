@@ -17,9 +17,7 @@ type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
 }
 
 input FaqOrganizationInput {
-  faqOrganizationID: ID!
-  uniqRef: String
-  slug: String
+  faqOrganizationID: ID! 
   authorID: ID
   order: ID
   faqAnswerID: ID

@@ -29,9 +29,7 @@ input CriteriaInput {
   # To design criteria as a tree graph, more the level is high more accurate is the criteria
   level: Int
   # for the moment, but we will move to pivot objects
-
   CriteriaTargetedEntity: CriteriaTargetedEntity
-
   state: ObjectStatus
 }
 

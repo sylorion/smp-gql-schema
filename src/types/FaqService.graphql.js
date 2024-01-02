@@ -17,9 +17,7 @@ type FaqService implements ServicesEntity & ServicesNavigableEntity & ServicesSt
 }
 
 input FaqServiceInput {
-  faqServiceID: ID!
-  uniqRef: String
-  slug: String
+  faqServiceID: ID! 
   authorID: ID
   order: ID
   faqAnswerID: ID

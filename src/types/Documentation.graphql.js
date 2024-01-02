@@ -19,9 +19,7 @@ type Documentation implements ServicesEntity & ServicesNavigableEntity & Service
 }
 
 input DocumentationInput {
-  documentationID: ID
-  uniqRef: String
-  slug: String
+  documentationID: ID 
   authorID: ID
   serviceID: ID
   title: String

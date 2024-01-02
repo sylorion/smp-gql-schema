@@ -20,9 +20,7 @@ extend type Service {
 }
 
 input ServiceAttributeInput {
-  attributeID: ID
-  uniqRef: String
-  slug: String
+  attributeID: ID 
   authorID: ID!
   attributeName: String!
   attributeValue: String!

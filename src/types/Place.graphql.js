@@ -21,14 +21,6 @@ type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-extend type Profile {
-  location: Place
-}
-
-extend type Service {
-  location: Place
-}
-
 input PlaceInput {
   placeID: ID
   authorID: ID
@@ -42,10 +34,6 @@ input PlaceInput {
   addressLine2: String
   coordinates: String
   state: ObjectStatus
-}
-
-extend input ProfileInput {
-  location: PlaceInput
 }
 
 extend type Query {

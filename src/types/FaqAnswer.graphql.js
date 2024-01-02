@@ -17,9 +17,7 @@ type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesSta
 }
 
 input FaqAnswerInput {
-  faqAnswerID: ID!
-  uniqRef: String
-  slug: String
+  faqAnswerID: ID! 
   authorID: ID
   topicID: ID
   lang: String
