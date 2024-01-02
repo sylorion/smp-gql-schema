@@ -9,7 +9,8 @@ type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   title: String
   description: String
   parentTopicID: ID 
-  # To design criteria as a hierarchical graph, higher is the level more accurate is the topic
+  # To design criteria as a hierarchical graph, 
+  # higher is the level more accurate is the topic
   level: Int
   state: ObjectStatus
   createdAt: DateTime
@@ -34,22 +35,6 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Topic!]!
-}
-
-extend type Tag {
-  topic: Topic
-}
-
-extend type Service {
-  topic: Topic
-}
-
-extend type Discount {
-  topic: Topic
-}
-
-extend type Criteria {
-  topic: Topic
 }
 
 type Mutation {
