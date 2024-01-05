@@ -7,6 +7,7 @@ type Documentation implements ServicesEntity & ServicesNavigableEntity & Service
   slug: String
   authorID: ID
   serviceID: ID
+  organizationID: ID
   title: String
   level: Int
   order: Int
