@@ -23,7 +23,7 @@ input DocumentationInput {
   documentationID: ID 
   authorID: ID
   serviceID: ID
-  organizationID
+  organizationID: ID
   title: String
   level: Int
   order: Int
