@@ -22,6 +22,7 @@ input DocumentationInput {
   documentationID: ID 
   authorID: ID
   serviceID: ID
+  organizationID
   title: String
   level: Int
   order: Int
