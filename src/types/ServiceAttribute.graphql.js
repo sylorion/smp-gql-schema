@@ -2,7 +2,7 @@ export default `
 # src/graphql/types/ServiceAttribute.graphql.js
 
 type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  attributeID: ID!
+  serviceAttributeID: ID!
   uniqRef: String
   slug: String
   authorID: ID!
@@ -20,7 +20,7 @@ extend type Service {
 }
 
 input ServiceAttributeInput {
-  attributeID: ID 
+  serviceAttributeID: ID 
   authorID: ID!
   attributeName: String!
   attributeValue: String!
@@ -29,7 +29,7 @@ input ServiceAttributeInput {
 }
 
 extend type Query {
-  serviceAttribute(attributeID: ID!): ServiceAttribute
+  serviceAttribute(serviceAttributeID: ID!): ServiceAttribute
   serviceAttributes(
     pagination: PaginationInput,
     sort: SortInput,
