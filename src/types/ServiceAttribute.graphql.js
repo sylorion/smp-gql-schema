@@ -39,8 +39,8 @@ extend type Query {
 
 type Mutation {
   createServiceAttribute(input: ServiceAttributeInput!): ServiceAttribute!
-  updateServiceAttribute(attributeID: ID!, input: ServiceAttributeInput!): ServiceAttribute!
-  deleteServiceAttribute(attributeID: ID!): MutationResponse!
+  updateServiceAttribute(serviceAttributeID: ID!, input: ServiceAttributeInput!): ServiceAttribute!
+  deleteServiceAttribute(serviceAttributeID: ID!): MutationResponse!
 }
 
 type Subscription {
