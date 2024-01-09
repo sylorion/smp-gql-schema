@@ -31,9 +31,8 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   activityEndedAt: Int
   description: String
   summary: String
-  location:  Place
   locationID: ID #Place
-  parentOrganization: Organization
+  parentOrganizationID: ID
   parentOrganizationID: ID
   advancedAttributes: JSON
   state: ObjectStatus
