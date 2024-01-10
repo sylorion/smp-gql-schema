@@ -27,17 +27,17 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   capital: Int
   insuranceRef: String
   insuranceName: String
-  activityStartedAt: Int
-  activityEndedAt: Int
+  activityStartedAt: String
+  activityEndedAt: String
   description: String
   summary: String
   locationID: ID #Place
   parentOrganizationID: ID
   advancedAttributes: JSON
   state: ObjectStatus
-  createdAt: Int
-  updatedAt: Int
-  deletedAt: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
 }
 
 extend type User {
