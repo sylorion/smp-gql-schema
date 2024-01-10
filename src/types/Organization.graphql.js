@@ -42,8 +42,15 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
 
 extend type User {
   #Owned organization or pined
-  organization: Organization! # Pined favorite organization
+  organization(organizationID: ID!): Organization!
+  organizationID(organizationID: ID!): Organization!
   organizations(
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [Organization!]
+  organizationsIDs(
+    ids:[ID!]!,
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -87,7 +94,7 @@ input OrganizationInput {
 
 # Mutation responses for CRUD operations
 extend type Query {
-  organization(id: ID!): Organization
+  organization(organizationID: ID!): Organization
   organizationByID(organizationID: ID!): Organization
   organizationByUUID(uuid: String!): Organization!
   organizationBySlug(slug: String!): Organization! 
