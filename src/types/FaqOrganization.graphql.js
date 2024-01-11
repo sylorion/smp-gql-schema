@@ -23,7 +23,6 @@ input FaqOrganizationInput {
   faqAnswerID: ID
   faqQuestionID: ID
   organizationID: ID
-  question: String 
   state: ObjectStatus
 } 
 
