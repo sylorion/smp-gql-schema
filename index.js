@@ -61,5 +61,7 @@ export { default as User } from "./src/types/User.graphql.js"
 export { default as UserOrganization } from "./src/types/UserOrganization.graphql.js"
 export { default as UserPreferences } from "./src/types/UserPreferences.graphql.js"
 export { default as UserRole } from "./src/types/UserRole.graphql.js"
+export { default as TagOrganization } from "./src/types/TagOrganization.graphql.js"
+
 
 export { loadGraphQLComponents, currentDirname, currentFile, loadFiles } from "./src/index.js"
