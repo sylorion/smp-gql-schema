@@ -15,11 +15,11 @@ type Industry {
 }
 
 input IndustryInput {
-  industryID: ID!
+  industryID: ID
   authorID: ID
   title: String
   description: String
-  level: Int!
+  level: Int
   parentIndustryID: ID # of a potentiel parent hiearchy
   state: ObjectStatus
 } 
