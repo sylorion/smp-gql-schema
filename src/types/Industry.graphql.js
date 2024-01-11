@@ -43,8 +43,8 @@ type Mutation {
 }
 
 type Subscription {
-  IndustryAdded: Industry!
-  IndustryUpdated: Industry!
-  IndustryDeleted: Industry!
+  industryAdded: Industry!
+  industryUpdated: Industry!
+  industryDeleted: Industry!
 }
 `;
