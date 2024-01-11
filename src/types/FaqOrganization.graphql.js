@@ -7,7 +7,7 @@ type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
   slug: String
   authorID: ID
   order: ID
-  faqAnswerID: ID
+  faqAnswerID: ID, 
   faqQuestionID: ID
   organizationID: ID
   state: ObjectStatus
