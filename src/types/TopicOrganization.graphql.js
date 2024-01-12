@@ -1,8 +1,8 @@
 export default `
-# src/graphql/types/TopicOrganizationrganization.graphql.js
+# src/graphql/types/TopicOrganization.graphql.js
 
-type TopicOrganizationrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  topicOrganizationrganizationID: ID!
+type TopicOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+  topicOrganizationID: ID!
   topicID: ID
   uniqRef: String
   slug: String
@@ -13,31 +13,31 @@ type TopicOrganizationrganization implements ServicesEntity & ServicesNavigableE
   deletedAt: DateTime
 }
 
-input TopicOrganizationrganizationInput {
-  topicOrganizationrganizationID: ID
+input TopicOrganizationInput {
+  topicOrganizationID: ID
   topicID: ID
   organizationID: ID
   state: ObjectStatus
 }
 
 extend type Query {
-  topicOrganizationrganization(topicOrganizationrganizationID: ID!): TopicOrganizationrganization
-  topicOrganizationrganizations(
+  topicOrganization(topicOrganizationID: ID!): TopicOrganization
+  topicOrganizations(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [TopicOrganizationrganization!]!
+  ): [TopicOrganization!]!
 }
 
 type Mutation {
-  createTopicOrganizationrganization(input: TopicOrganizationrganizationInput!): TopicOrganizationrganization!
-  updateTopicOrganizationrganization(topicOrganizationrganizationID: ID!, input: TopicOrganizationrganizationInput!): TopicOrganizationrganization!
-  deleteTopicOrganizationrganization(topicOrganizationrganizationID: ID!): MutationResponse!
+  createTopicOrganization(input: TopicOrganizationInput!): TopicOrganization!
+  updateTopicOrganization(topicOrganizationID: ID!, input: TopicOrganizationInput!): TopicOrganization!
+  deleteTopicOrganization(topicOrganizationID: ID!): MutationResponse!
 }
 
 type Subscription {
-  topicOrganizationrganizationAdded: TopicOrganizationrganization!
-  topicOrganizationrganizationUpdated: TopicOrganizationrganization!
-  topicOrganizationrganizationDeleted: TopicOrganizationrganization!
+  topicOrganizationAdded: TopicOrganization!
+  topicOrganizationUpdated: TopicOrganization!
+  topicOrganizationDeleted: TopicOrganization!
 }
 `;
