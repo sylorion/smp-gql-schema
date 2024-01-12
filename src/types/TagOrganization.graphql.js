@@ -15,8 +15,8 @@ type TagOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
 
 input TagOrganizationInput {
   tagOrganizationID: ID
-  tagID: ID!
-  organizationID: ID!
+  tagID: ID
+  organizationID: ID
   state: ObjectStatus
 }
 
