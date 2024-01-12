@@ -4,6 +4,8 @@ export default `
 type TagOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   tagOrganizationID: ID!
   tagID: ID
+  uniqRef: String
+  slug: String
   organizationID: ID
   state: ObjectStatus
   createdAt: DateTime
