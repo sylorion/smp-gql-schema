@@ -15,7 +15,7 @@ type Tag implements ServicesEntity & ServicesNavigableEntity & ServicesStatable 
 }
 
 input TagInput {
-  tagID: ID! 
+  tagID: ID 
   authorID: ID
   value: String
   topicID: ID
