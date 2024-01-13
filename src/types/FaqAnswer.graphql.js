@@ -17,7 +17,7 @@ type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesSta
 }
 
 input FaqAnswerInput {
-  faqAnswerID: ID! 
+  faqAnswerID: ID
   authorID: ID
   topicID: ID
   lang: String
