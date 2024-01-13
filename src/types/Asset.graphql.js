@@ -13,6 +13,7 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   price: Int
   legalVatPercent: Int
   quantity: Int
+  stockQuantity: Int
   maxPerReservation: Int
   conflictingAssets: String
   applyableAssets: String
@@ -26,10 +27,12 @@ input AssetInput {
   assetID: ID
   title: String
   authorID: ID!
+  stockQuantity: Int
   organizationID: ID
   mediaID: ID
   description: String
   price: Int
+
   legalVatPercent: Int
   quantity: Int
   maxPerReservation: Int
