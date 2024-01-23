@@ -14,7 +14,7 @@ type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & Service
   bankName: String
   cardNumber: String
   cardType: String
-  methodDetails: String
+  methodDetails: Json
   isDefault: Boolean
   state: ObjectStatus
   createdAt: DateTime
