@@ -81,10 +81,10 @@ type Mutation {
 }
 
 type Subscription {
-  servicesPlaceListing: Place!
-  servicesPlaceDetails: Place!
-  servicesPlaceAdded: Place!
-  servicesPlaceUpdated: Place!
-  servicesPlaceDeleted: Place!
+  placeListing: Place!
+  placeDetails: Place!
+  placeAdded: Place!
+  placeUpdated: Place!
+  placeDeleted: Place!
 }
 `;

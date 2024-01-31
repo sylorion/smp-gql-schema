@@ -23,6 +23,7 @@ input IndustryInput {
   parentIndustryID: ID # of a potentiel parent hiearchy
   state: ObjectStatus
 } 
+
 extend type Query {
   industry(industryID: ID!): Industry
   industrys(
