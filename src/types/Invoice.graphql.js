@@ -5,7 +5,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   invoiceID: ID!
   uniqRef: String
   slug: String
-  devisID: ID
+  estimateID: ID
   thirdPartyFees: Int
   servicesFees: Int
   servicesVatPercent: Int
@@ -23,7 +23,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 
 input InvoiceInput {
   invoiceID: ID
-  devisID: ID
+  estimateID: ID
   thirdPartyFees: Int
   servicesFees: Int
   servicesVatPercent: Int
