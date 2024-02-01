@@ -52,7 +52,7 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Documentation!]!
+  ): [Estimate!]!
 }
 
 type Mutation {
