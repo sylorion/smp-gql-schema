@@ -48,11 +48,11 @@ input EstimateInput {
 
 extend type Query {
   estimate(estimateID: ID!): EstimateAsset
-  estimateList(
+  estimates(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [EstimateAsset!]!
+  ): [Documentation!]!
 }
 
 type Mutation {
