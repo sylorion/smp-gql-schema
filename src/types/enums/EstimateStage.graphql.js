@@ -1,6 +1,6 @@
 
 export default `
-enum DevisStage {
+enum EstimateStage {
   submit
   processing
   negociating

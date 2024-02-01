@@ -1,8 +1,8 @@
 export default `
-# src/graphql/types/Devis.graphql.js
+# src/graphql/types/Estimate.graphql.js
 
-type Devis implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  devisID: ID!
+type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+  estimateID: ID!
   uniqRef: String
   slug: String
   authorID: ID!
@@ -19,15 +19,15 @@ type Devis implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   negociatedPrice: Int
   discountID: ID
   details: String
-  stage: DevisStage
+  stage: EstimateStage
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
 }
 
-input DevisInput {
-  devisID: ID
+input EstimateInput {
+  estimateID: ID
   authorID: ID!
   operatorUserID: ID
   buyerOrganizationID: ID
@@ -42,29 +42,29 @@ input DevisInput {
   negociatedPrice: Int
   discountID: ID
   details: String
-  stage: DevisStage
+  stage: EstimateStage
   state: ObjectStatus
 } 
 
 extend type Query {
-  devis(devisID: ID!): DevisAsset
-  devisList(
+  estimate(estimateID: ID!): EstimateAsset
+  estimateList(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [DevisAsset!]!
+  ): [EstimateAsset!]!
 }
 
 type Mutation {
-  createDevis(input: DevisInput!): DevisAsset!
-  updateDevis(devisID: ID!, input: DevisInput!): DevisAsset!
-  updateDevisDetails(devisID: ID!, input: DevisInput!): DevisAsset!
-  deleteDevis(devisID: ID!): MutationResponse!
+  createEstimate(input: EstimateInput!): EstimateAsset!
+  updateEstimate(estimateID: ID!, input: EstimateInput!): EstimateAsset!
+  updateEstimateDetails(estimateID: ID!, input: EstimateInput!): EstimateAsset!
+  deleteEstimate(estimateID: ID!): MutationResponse!
 }
 
 type Subscription {
-  devisAdded: Devis!
-  devisUpdated: Devis!
-  devisDeleted: Devis!
+  estimateAdded: Estimate!
+  estimateUpdated: Estimate!
+  estimateDeleted: Estimate!
 }
 `;
