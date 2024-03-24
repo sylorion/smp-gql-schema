@@ -63,6 +63,8 @@ export { default as UserPreferences } from "./src/types/UserPreferences.graphql.
 export { default as UserRole } from "./src/types/UserRole.graphql.js"
 export { default as TagOrganization } from "./src/types/TagOrganization.graphql.js"
 export { default as TopicOrganization } from "./src/types/TopicOrganization.graphql.js"
+export { default as Notification } from "./src/types/Notification.graphql.js"
+
 
 
 
