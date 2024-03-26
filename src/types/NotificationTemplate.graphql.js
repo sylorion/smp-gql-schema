@@ -5,7 +5,6 @@ type NotificationTemplate {
   notificationTemplateID: ID!
   title: String!
   message: String!
-  readAt: DateTime
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime

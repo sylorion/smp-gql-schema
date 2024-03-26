@@ -8,6 +8,8 @@ type Notification {
   message: String!
   readAt: DateTime
   link: String
+  type: NotificationType
+  notificationTemplateID: ID
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
@@ -17,6 +19,7 @@ input NotificationInput {
   userID: ID!
   title: String!
   message: String!
+  notificationTemplateID: ID
   link: String
 }
 

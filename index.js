@@ -17,6 +17,7 @@ export { default as ServiceSupplyForm } from "./src/types/enums/ServiceSupplyFor
 export { default as ServiceUptakeType } from "./src/types/enums/ServiceUptakeType.graphql.js"
 export { default as CriteriaTargetedEntity } from "./src/types/enums/CriteriaTargetedEntity.graphql.js"
 export { default as UserType } from "./src/types/enums/UserType.graphql.js"
+export { default as NotificationType } from "./src/types/enums/NotificationType.graphql.js"
 
 export { default as Application } from "./src/types/Application.graphql.js"
 export { default as Asset } from "./src/types/Asset.graphql.js"
@@ -64,6 +65,8 @@ export { default as UserRole } from "./src/types/UserRole.graphql.js"
 export { default as TagOrganization } from "./src/types/TagOrganization.graphql.js"
 export { default as TopicOrganization } from "./src/types/TopicOrganization.graphql.js"
 export { default as Notification } from "./src/types/Notification.graphql.js"
+export { default as NotificationTemplate } from "./src/types/NotificationTemplate.graphql.js"
+
 
 
 
