@@ -1,7 +1,6 @@
 export default `
-enum NotificationTemplate {
+enum NotificationType {
   sms
-  push
   push
   mail
   front
