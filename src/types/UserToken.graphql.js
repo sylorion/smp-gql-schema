@@ -10,7 +10,6 @@ type UserToken {
   expiresIn: Int!
   createdAt: DateTime!
   newTokenGeneratedAt: DateTime
-  createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
 }
