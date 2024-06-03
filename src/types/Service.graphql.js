@@ -59,7 +59,15 @@ input ServiceInput {
   advancedAttributes: String
   state: ObjectStatus
 }
-
+input SearchServiceInput {
+  name: String
+  startDate: String
+  endDate: String
+  minPrice: Float
+  maxPrice: Float
+  tag: Int
+  topic: Int
+}
 extend type Query {
   service(serviceID: ID!): Service
   services(
