@@ -59,14 +59,9 @@ input ServiceInput {
   advancedAttributes: String
   state: ObjectStatus
 }
+
 input SearchServiceInput {
-  name: String
-  startDate: String
-  endDate: String
-  minPrice: Float
-  maxPrice: Float
-  tag: Int
-  topic: Int
+  searchTerm: String
 }
 extend type Query {
   service(serviceID: ID!): Service
@@ -76,6 +71,8 @@ extend type Query {
     filter: [FilterInput!]
   ): [Service!]!
   searchServices(input: SearchServiceInput!): [Service!]!
+ 
+
 
 }
 
