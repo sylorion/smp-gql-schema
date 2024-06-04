@@ -75,6 +75,8 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Service!]!
+  searchServices(input: SearchServiceInput!): [Service!]!
+
 }
 
 type Mutation {
