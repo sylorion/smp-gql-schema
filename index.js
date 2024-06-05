@@ -68,6 +68,7 @@ export { default as TagOrganization } from "./src/types/TagOrganization.graphql.
 export { default as TopicOrganization } from "./src/types/TopicOrganization.graphql.js"
 export { default as Notification } from "./src/types/Notification.graphql.js"
 export { default as NotificationTemplate } from "./src/types/NotificationTemplate.graphql.js"
+export { default as ResetPassword } from "./src/types/ResetPassword.graphql.js"
 
 
 
