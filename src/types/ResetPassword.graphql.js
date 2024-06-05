@@ -1,7 +1,7 @@
 export default `
 # src/graphql/types/ResetPassword.graphql.js
 
-extend type Mutation {
+ type Mutation {
   # Mutation pour demander la réinitialisation de mot de passe
 
   requestPasswordReset(email: String!): PasswordResetResponse!
@@ -12,6 +12,7 @@ extend type Mutation {
 } 
 
 # Réponse des mutations de réinitialisation de mot de passe
+
 type PasswordResetResponse {
   success: Boolean!
   message: String
