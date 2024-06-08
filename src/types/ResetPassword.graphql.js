@@ -2,7 +2,7 @@ export default `
 # src/graphql/types/ResetPassword.graphql.js
 
  type Mutation {
-  requestPasswordReset(email: String!): PasswordResetResponse!
+  forgotPassword(email: String!): PasswordResetResponse!
   resetPassword(token: String!, newPassword: String!): PasswordResetResponse!
 } 
 
