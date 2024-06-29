@@ -19,6 +19,8 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   negociatedPrice: Int
   discountID: ID
   details: String
+  propositionCount: Int
+  lastProposition: ID
   stage: EstimateStage
   state: ObjectStatus
   createdAt: DateTime
@@ -46,6 +48,7 @@ input EstimateInput {
   state: ObjectStatus
 } 
 
+
 extend type Query {
   estimate(estimateID: ID!): EstimateAsset
   estimates(
@@ -60,6 +63,33 @@ type Mutation {
   updateEstimate(estimateID: ID!, input: EstimateInput!): EstimateAsset!
   updateEstimateDetails(estimateID: ID!, input: EstimateInput!): EstimateAsset!
   deleteEstimate(estimateID: ID!): MutationResponse!
+  negotiateEstimateRequest(input: NegotiateEstimateInput!): Estimate!
+  negotiatePrice(input: NegotiatePriceInput!): Estimate!
+  estimatePayment(estimateID: ID!, paymentInput: PaymentInput!): Estimate
+  refundEstimatePayment(estimateID: ID!): Estimate
+}
+
+input PaymentInput {
+  cardNumber: String!
+  expDate: String!
+  token: String!
+  cvc: String!
+}
+input NegotiateEstimateInput {
+  serviceID: ID!
+  authorID: ID!
+  operatorUserID: ID
+  buyerOrganizationID: ID
+  expirationDueDate: Date
+  expirationTimeLeft: Int # in seconds
+  comment: String
+  stage: EstimateStage
+  state: ObjectStatus
+}
+  input NegotiatePriceInput {
+  estimateID: ID!
+  proposedPrice: Int!
+  lastProposition: ID!
 }
 
 type Subscription {
