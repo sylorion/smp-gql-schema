@@ -11,12 +11,12 @@ input ResetPasswordInput {
 }
 
 type PasswordResetResponse {
-  success: Boolean
+  success: Boolean!
   message: String
 }
 
 type Mutation {
-  forgotPassword(input: ForgotPasswordInput!): PasswordResetResponse!
+  forgotPassword(email: String!): PasswordResetResponse
   resetPassword(input: ResetPasswordInput!): PasswordResetResponse!
 }
 
