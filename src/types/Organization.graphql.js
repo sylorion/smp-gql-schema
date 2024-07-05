@@ -156,7 +156,7 @@ extend type Query {
 
 type Mutation {
   createOrganization(input: OrganizationInput!): Organization!
-  updateOrganization(organizationID: ID!, ...): Organization!
+  updateOrganization(organizationID: ID!, input: OrganizationInput!): Organization!  
   deleteOrganization(organizationID: ID!): Boolean!
 }
 
