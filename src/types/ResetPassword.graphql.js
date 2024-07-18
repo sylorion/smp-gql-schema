@@ -16,7 +16,8 @@ type PasswordResetResponse {
 }
 
 type Mutation {
-  forgotPassword(email: String!): PasswordResetResponse
+  forgotPassword(input: ForgotPasswordInput!): PasswordResetResponse
+
   resetPassword(input: ResetPasswordInput!): PasswordResetResponse!
 }
 
