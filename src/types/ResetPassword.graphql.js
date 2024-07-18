@@ -17,6 +17,7 @@ type PasswordResetResponse {
 
 type Mutation {
   forgotPassword(input: ForgotPasswordInput!): PasswordResetResponse
+
   resetPassword(input: ResetPasswordInput!): PasswordResetResponse!
 }
 
