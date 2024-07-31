@@ -46,7 +46,7 @@ input UserInput {
   userID: ID
   username: String
   email: String
-  password: String
+  passwordHash: String
   plan: String
   profileID: Int
   userKind: UserType
