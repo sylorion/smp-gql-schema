@@ -50,7 +50,7 @@ input EstimateInput {
 
 
 extend type Query {
-  estimate(estimateID: ID!): EstimateAsset
+  estimate(estimateID: ID!): Estimate
   estimates(
     pagination: PaginationInput,
     sort: SortInput,
@@ -59,9 +59,9 @@ extend type Query {
 }
 
 type Mutation {
-  createEstimate(input: EstimateInput!): EstimateAsset!
-  updateEstimate(estimateID: ID!, input: EstimateInput!): EstimateAsset!
-  updateEstimateDetails(estimateID: ID!, input: EstimateInput!): EstimateAsset!
+  createEstimate(input: EstimateInput!): Estimate!
+  updateEstimate(estimateID: ID!, input: EstimateInput!): Estimate!
+  updateEstimateDetails(estimateID: ID!, input: EstimateInput!): Estimate!
   deleteEstimate(estimateID: ID!): MutationResponse!
   negotiateEstimateRequest(input: NegotiateEstimateInput!): Estimate!
   negotiatePrice(input: NegotiatePriceInput!): Estimate!
