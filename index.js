@@ -69,6 +69,7 @@ export { default as TopicOrganization } from "./src/types/TopicOrganization.grap
 export { default as Notification } from "./src/types/Notification.graphql.js"
 export { default as NotificationTemplate } from "./src/types/NotificationTemplate.graphql.js"
 export { default as ResetPassword } from "./src/types/ResetPassword.graphql.js"
+export { default as Heartbeat } from "./src/types/Heartbeat.graphql.js"
 
 
 
