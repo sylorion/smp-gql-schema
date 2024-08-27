@@ -20,7 +20,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
-  currency: string
+  currency: String
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
@@ -75,7 +75,7 @@ input OrganizationInput {
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
-  currency: string
+  currency: String
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
@@ -99,7 +99,59 @@ extend type Query {
   organizationByUUID(uuid: String!): Organization!
   organizationBySlug(slug: String!): Organization! 
   organizationByIDs(ids: [ID!]!): [Organization!]!
-  
+  organizationsByState(
+    state: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationsByLocation(
+    location:  ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationsByOwner(
+    ownerID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByAuthor(
+    authorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationBySector(
+    sectorID: ID!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationBySize(
+    organizationSize: OrganizationEconomicSizeKind!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByCurrency(
+    currency: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizationByUniqIdentifier(
+    identifier: String!
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+    ): [Organization!]!
+  organizations(
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [Organization!]!
 }
 
 type Mutation {
