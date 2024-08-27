@@ -40,23 +40,6 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: DateTime
 }
 
-extend type User {
-  #Owned organization or pined
-  organization(organizationID: ID!): Organization!
-  organizationID(organizationID: ID!): Organization!
-  organizations(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Organization!]
-  organizationsIDs(
-    ids:[ID!]!,
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Organization!]
-}
-
 # Input types for CRUD operations
 
 input OrganizationInput {
