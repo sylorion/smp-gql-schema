@@ -29,7 +29,7 @@ input UserPreferencesInput {
   lang: String
   timeZone: String
   notificationPreferences: JSON
-  privacySettings: JSON
+  privacySettings: JSON 
   theme: Int
   marketplaceConfig: JSON
   defaultCurrency: ServicesAcceptedDevice

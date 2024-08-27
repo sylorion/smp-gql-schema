@@ -40,7 +40,7 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-    ): [Review!]!
+    ): [Review!]!          
   reviewsByOrganization(
     organizationID: ID!
     pagination: PaginationInput,
