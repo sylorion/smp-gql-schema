@@ -20,7 +20,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
-  currency: ServicesAcceptedDevice
+  currency: String
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
@@ -75,7 +75,7 @@ input OrganizationInput {
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
-  currency: ServicesAcceptedDevice
+  currency: String
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
@@ -136,7 +136,7 @@ extend type Query {
     filter: [FilterInput!]
     ): [Organization!]!
   organizationByCurrency(
-    currency: ServicesAcceptedDevice!
+    currency: String!
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
