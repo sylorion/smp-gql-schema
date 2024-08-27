@@ -12,9 +12,9 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   privacySettings: JSON
   theme: Int
   marketplaceConfig: JSON
-  defaultCurrency: ServicesAcceptedDevice
+  defaultCurrency: String
   defaultPaymentMethodID: ID
-  notificationFrequency: NotificationFrequencyPref
+  notificationFrequency: String
   showRecommendations: Boolean
   otherSettings: JSON
   state: ObjectStatus
@@ -32,9 +32,9 @@ input UserPreferencesInput {
   privacySettings: JSON 
   theme: Int
   marketplaceConfig: JSON
-  defaultCurrency: ServicesAcceptedDevice
+  defaultCurrency: String
   defaultPaymentMethodID: ID
-  notificationFrequency: NotificationFrequencyPref
+  notificationFrequency: String
   showRecommendations: Boolean
   otherSettings: JSON
   state: ObjectStatus
