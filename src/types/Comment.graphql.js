@@ -35,35 +35,6 @@ extend type Query {
   ): [Comment!]!
 }
 
-# Adding comments to Users
-# TODO to be move to the gateway, user type unknown here 
-extend type User {
-  comments(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Comment!]
-}
-
-# Adding comments to Services
-# TODO to be move to the gateway, service type unknown here
-extend type Service {
-  comments(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Comment!]
-}
-
-# Adding comments to Organizations
-# TODO to be move to the gateway, organization type unknown here
-extend type Organization {
-  comments(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Comment!]
-}
 
 type Mutation {
   createComment(input: CommentInput!): Comment!
