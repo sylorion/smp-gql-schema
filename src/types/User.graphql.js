@@ -22,25 +22,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-type UserToken {
-  userTokenID: ID
-  userID: ID 
-  token: String
-  expiresIn: Int
-  platform: String
-  applicationID: ID 
-  createdAt: DateTime
-}
 
-extend type User {
-  userToken: UserToken #Last token
-  userToken(utID: ID!): UserToken!
-  userTokens (
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [UserToken!]
-}
 
 input UserInput {
   userID: ID
@@ -99,8 +81,5 @@ type Subscription {
   userAdded: User!
   userUpdated: User!
   userDeleted: User!
-  userTokenAdded: UserToken!
-  userTokenDeleted: UserToken!
-  userTokenRevoked: UserToken!
 }
 `;
