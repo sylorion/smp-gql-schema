@@ -43,14 +43,6 @@ extend type Query {
   ): [Application!]!
 }
 
-# TODO to be move to the gateway
-extend type User {
-  applications(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Application!]
-}
 
 type Mutation {
   createApplication(input: ApplicationInput!): Application!
