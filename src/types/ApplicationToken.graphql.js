@@ -1,6 +1,6 @@
 export default `
 
-#src/graphql/types/ApplicationToken.graphql
+# src/graphql/types/ApplicationToken.graphql.js
 
 type ApplicationToken {
   applicationTokenID: ID!
@@ -12,10 +12,21 @@ type ApplicationToken {
   deletedAt: DateTime
 }
 
-input ApplicationTokenInput {
+input CreateApplicationTokenInput {
   applicationID: ID!
   key: String!
   isActive: Boolean!
+}
+
+input UpdateApplicationTokenInput {
+  applicationTokenID: ID!
+  isActive: Boolean
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  applicationToken: ApplicationToken
 }
 
 extend type Query {
@@ -24,9 +35,9 @@ extend type Query {
 }
 
 type Mutation {
-  createApplicationToken(input: ApplicationTokenInput!): ApplicationToken!
-  updateApplicationToken(applicationTokenID: ID!, input: ApplicationTokenInput!): ApplicationToken!
-  deleteApplicationToken(applicationTokenID: ID!): Boolean!
+  createApplicationToken(input: CreateApplicationTokenInput!): ApplicationToken!
+  updateApplicationToken(applicationTokenID: ID!, input: UpdateApplicationTokenInput!): ApplicationToken!
+  deleteApplicationToken(applicationTokenID: ID!): MutationResponse!
 }
 
 extend type Subscription {
@@ -36,4 +47,4 @@ extend type Subscription {
   applicationTokenUpdated: ApplicationToken!
   applicationTokenDeleted: ApplicationToken!
 }
-`
+`;

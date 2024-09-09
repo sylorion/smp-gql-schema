@@ -20,8 +20,7 @@ type Application {
   deletedAt: DateTime
 }
 
-input ApplicationInput {
-  applicationID: ID
+input CreateApplicationInput {
   authorID: ID
   title: String
   description: String
@@ -34,6 +33,26 @@ input ApplicationInput {
   state: ObjectStatus
 }
 
+input UpdateApplicationInput {
+  applicationID: ID!
+  authorID: ID!
+  title: String
+  description: String
+  officialName: String
+  developerID: ID
+  authKey: String
+  plan: String
+  isOfficialApp: Boolean
+  appConfiguration: String
+  state: ObjectStatus
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  application: Application
+}
+
 extend type Query {
   application(applicationID: ID!): Application
   applications(
@@ -43,10 +62,9 @@ extend type Query {
   ): [Application!]!
 }
 
-
 type Mutation {
-  createApplication(input: ApplicationInput!): Application!
-  updateApplication(applicationID: ID!, input: ApplicationInput!): Application!
+  createApplication(input: CreateApplicationInput!): Application!
+  updateApplication(applicationID: ID!, input: UpdateApplicationInput!): Application!
   deleteApplication(applicationID: ID!): MutationResponse!
 }
 
