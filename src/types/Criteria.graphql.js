@@ -12,7 +12,7 @@ type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   # To design criteria as a tree graph, more the level is high more accurate is the criteria 
   level: Int
   # for the moment, but we will move to pivot objects
-  CriteriatargetedEntity: CriteriaTargetedEntity
+  criteriaTargetedEntity: CriteriaTargetedEntity
 
   state: ObjectStatus
   createdAt: DateTime
@@ -20,17 +20,33 @@ type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   deletedAt: DateTime
 }
 
-input CriteriaInput {
-  criteriaID: ID
+input CreateCriteriaInput {
   authorID: ID!
-  title: String
+  title: String!
   description: String
   parentID: ID
   # To design criteria as a tree graph, more the level is high more accurate is the criteria
   level: Int
   # for the moment, but we will move to pivot objects
-  CriteriaTargetedEntity: CriteriaTargetedEntity
+  criteriaTargetedEntity: CriteriaTargetedEntity
   state: ObjectStatus
+}
+
+input UpdateCriteriaInput {
+  criteriaID: ID!
+  authorID: ID!
+  title: String
+  description: String
+  parentID: ID
+  level: Int
+  criteriaTargetedEntity: CriteriaTargetedEntity
+  state: ObjectStatus
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  criteria: Criteria
 }
 
 extend type Query {
@@ -43,8 +59,8 @@ extend type Query {
 }
 
 type Mutation {
-  createCriteria(input: CriteriaInput!): Criteria!
-  updateCriteria(criteriaID: ID!, input: CriteriaInput!): Criteria!
+  createCriteria(input: CreateCriteriaInput!): Criteria!
+  updateCriteria(criteriaID: ID!, input: UpdateCriteriaInput!): Criteria!
   deleteCriteria(criteriaID: ID!): MutationResponse!
 }
 

@@ -21,7 +21,6 @@ input CreateCommentInput {
   authorID: ID!
   serviceID: ID!
   organizationID: ID
-  feedback: Int
   state: ObjectStatus
 }
 
