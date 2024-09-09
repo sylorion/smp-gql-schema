@@ -20,8 +20,21 @@ type AuditLog implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   deletedAt: DateTime
 }
 
-input AuditLogInput {
-  auditLogID: ID
+input CreateAuditLogInput {
+  actionType: AuditLogActionType!
+  userID: ID
+  userIP: String
+  userOS: String
+  machineName: String
+  applicationID: ID
+  applicationVersion: String
+  actionDetails: String
+  clientDetails: String
+  state: ObjectStatus
+}
+
+input UpdateAuditLogInput {
+  auditLogID: ID!
   actionType: AuditLogActionType
   userID: ID
   userIP: String
@@ -34,6 +47,12 @@ input AuditLogInput {
   state: ObjectStatus
 }
 
+type MutationResponse {
+  success: Boolean!
+  message: String
+  auditLog: AuditLog
+}
+
 extend type Query {
   auditLog(auditLogID: ID!): AuditLog
   auditLogs(
@@ -44,8 +63,8 @@ extend type Query {
 }
 
 type Mutation {
-  createAuditLog(input: AuditLogInput!): AuditLog!
-  updateAuditLog(auditLogID: ID!, input: AuditLogInput!): AuditLog!
+  createAuditLog(input: CreateAuditLogInput!): AuditLog!
+  updateAuditLog(auditLogID: ID!, input: UpdateAuditLogInput!): AuditLog!
   deleteAuditLog(auditLogID: ID!): MutationResponse!
 }
 
