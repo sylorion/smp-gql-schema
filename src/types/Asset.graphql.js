@@ -23,22 +23,42 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-input AssetInput {
-  assetID: ID
-  title: String
+input CreateAssetInput {
+  title: String!
   authorID: ID!
   stockQuantity: Int
   organizationID: ID
   mediaID: ID
   description: String
   price: Int
-
   legalVatPercent: Int
   quantity: Int
   maxPerReservation: Int
   conflictingAssets: String
   applyableAssets: String
   state: ObjectStatus
+}
+
+input UpdateAssetInput {
+  assetID: ID!
+  title: String
+  authorID: ID
+  stockQuantity: Int
+  mediaID: ID
+  description: String
+  price: Int
+  legalVatPercent: Int
+  quantity: Int
+  maxPerReservation: Int
+  conflictingAssets: String
+  applyableAssets: String
+  state: ObjectStatus
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  asset: Asset
 }
 
 extend type Query {
@@ -51,8 +71,8 @@ extend type Query {
 }
 
 type Mutation {
-  createAsset(input: AssetInput!): Asset!
-  updateAsset(assetID: ID!, input: AssetInput!): Asset!
+  createAsset(input: CreateAssetInput!): Asset!
+  updateAsset(assetID: ID!, input: UpdateAssetInput!): Asset!
   deleteAsset(assetID: ID!): MutationResponse!
 }
 
