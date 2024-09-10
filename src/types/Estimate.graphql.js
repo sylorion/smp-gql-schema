@@ -11,7 +11,7 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   sellerOrganizationID: ID
   serviceID: ID
   expirationDueDate: Date
-  expirationTimeLeft: Int # in second
+  expirationTimeLeft: Int # in seconds
   referencePrice: Int
   previewPrice: Int
   proposedPrice: Int
@@ -28,15 +28,14 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   deletedAt: DateTime
 }
 
-input EstimateInput {
-  estimateID: ID
+input CreateEstimateInput {
   authorID: ID!
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID
   serviceID: ID
   expirationDueDate: Date
-  expirationTimeLeft: Int # in second
+  expirationTimeLeft: Int
   referencePrice: Int
   previewPrice: Int
   proposedPrice: Int
@@ -46,8 +45,30 @@ input EstimateInput {
   details: String
   stage: EstimateStage
   state: ObjectStatus
-} 
+}
 
+input UpdateEstimateInput {
+  estimateID: ID!
+  operatorUserID: ID
+  serviceID: ID
+  expirationDueDate: Date
+  expirationTimeLeft: Int
+  referencePrice: Int
+  previewPrice: Int
+  proposedPrice: Int
+  commentaire: String
+  negociatedPrice: Int
+  discountID: ID
+  details: String
+  stage: EstimateStage
+  state: ObjectStatus
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  estimate: Estimate
+}
 
 extend type Query {
   estimate(estimateID: ID!): Estimate
@@ -59,37 +80,9 @@ extend type Query {
 }
 
 type Mutation {
-  createEstimate(input: EstimateInput!): Estimate!
-  updateEstimate(estimateID: ID!, input: EstimateInput!): Estimate!
-  updateEstimateDetails(estimateID: ID!, input: EstimateInput!): Estimate!
+  createEstimate(input: CreateEstimateInput!): Estimate!
+  updateEstimate(estimateID: ID!, input: UpdateEstimateInput!): Estimate!
   deleteEstimate(estimateID: ID!): MutationResponse!
-  negotiateEstimateRequest(input: NegotiateEstimateInput!): Estimate!
-  negotiatePrice(input: NegotiatePriceInput!): Estimate!
-  estimatePayment(estimateID: ID!, paymentInput: PaymentInput!): Estimate
-  refundEstimatePayment(estimateID: ID!): Estimate
-}
-
-input PaymentInput {
-  cardNumber: String!
-  expDate: String!
-  token: String!
-  cvc: String!
-}
-input NegotiateEstimateInput {
-  serviceID: ID!
-  authorID: ID!
-  operatorUserID: ID
-  buyerOrganizationID: ID
-  expirationDueDate: Date
-  expirationTimeLeft: Int # in seconds
-  comment: String
-  stage: EstimateStage
-  state: ObjectStatus
-}
-  input NegotiatePriceInput {
-  estimateID: ID!
-  proposedPrice: Int!
-  lastProposition: ID!
 }
 
 type Subscription {
