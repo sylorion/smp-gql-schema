@@ -19,8 +19,7 @@ type Documentation implements ServicesEntity & ServicesNavigableEntity & Service
   deletedAt: DateTime
 }
 
-input DocumentationInput {
-  documentationID: ID 
+input CreateDocumentationInput {
   authorID: ID
   serviceID: ID
   organizationID: ID
@@ -30,7 +29,26 @@ input DocumentationInput {
   description: String
   parentDocumentationID: ID
   state: ObjectStatus
-} 
+}
+
+input UpdateDocumentationInput {
+  documentationID: ID!
+  authorID: ID
+  serviceID: ID
+  organizationID: ID
+  title: String
+  level: Int
+  order: Int
+  description: String
+  parentDocumentationID: ID
+  state: ObjectStatus
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+  documentation: Documentation
+}
 
 extend type Query {
   documentation(documentationID: ID!): Documentation
@@ -42,8 +60,8 @@ extend type Query {
 }
 
 type Mutation {
-  createDocumentation(input: DocumentationInput!): Documentation!
-  updateDocumentation(documentationID: ID!, input: DocumentationInput!): Documentation!
+  createDocumentation(input: CreateDocumentationInput!): Documentation!
+  updateDocumentation(documentationID: ID!, input: UpdateDocumentationInput!): Documentation!
   deleteDocumentation(documentationID: ID!): MutationResponse!
 }
 
