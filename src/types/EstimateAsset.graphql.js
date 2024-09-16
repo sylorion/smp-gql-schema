@@ -9,6 +9,9 @@ type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & Service
   assetID: ID
   estimateID: ID
   authorID: ID!
+  mandadtry: Boolean
+  initialPrice: Int
+  quantity: Int
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -20,6 +23,9 @@ input CreateEstimateAssetInput {
   assetID: ID!
   estimateID: ID!
   authorID: ID!
+  mandadtry: Boolean
+  initialPrice: Int
+  quantity: Int
   state: ObjectStatus
 }
 

@@ -12,8 +12,8 @@ type AuditLog implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   machineName: String
   applicationID: ID
   applicationVersion: String
-  actionDetails: String
-  clientDetails: String
+  actionDetails: Json
+  clientDetails: Json
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -28,8 +28,8 @@ input CreateAuditLogInput {
   machineName: String
   applicationID: ID
   applicationVersion: String
-  actionDetails: String
-  clientDetails: String
+  actionDetails: Json
+  clientDetails: Json
   state: ObjectStatus
 }
 
@@ -41,8 +41,8 @@ input UpdateAuditLogInput {
   machineName: String
   applicationID: ID
   applicationVersion: String
-  # actionDetails: String
-  # clientDetails: String
+  # actionDetails: Json
+  # clientDetails: Json
   state: ObjectStatus
 }
 

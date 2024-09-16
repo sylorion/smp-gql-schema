@@ -11,10 +11,12 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   servicesVatPercent: Int
   prestationsVatPercent: Int
   totalAmount: Int
+  sellerOrganizationID: ID
   paymentStatus: PaymentStatus
   emitDate: DateTime
   dueDate: DateTime
   digitalSignature: String
+  authorID: ID!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -23,7 +25,9 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 
 input CreateInvoiceInput {
   estimateID: ID
+  authorID: ID!
   thirdPartyFees: Int
+  sellerOrganizationID: ID
   servicesFees: Int
   servicesVatPercent: Int
   prestationsVatPercent: Int
@@ -36,7 +40,6 @@ input CreateInvoiceInput {
 }
 
 input UpdateInvoiceInput {
-  invoiceID: ID!
   thirdPartyFees: Int
   servicesFees: Int
   servicesVatPercent: Int
