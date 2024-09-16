@@ -2,7 +2,7 @@ export default /* GraphQL */ `
 # src/graphql/types/UserPreferences.graphql.js
 
 type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  userPreferenceID: ID!
+  userPreferencesID: ID!
   uniqRef: String
   slug: String
   userID: ID
@@ -55,7 +55,7 @@ input UpdateUserPreferencesInput {
 }
 
 extend type Query {
-  userPreference(preferenceID: ID!): UserPreferences
+  userPreference(userPreferencesID: ID!): UserPreferences
   userPreferences(
     pagination: PaginationInput,
     sort: SortInput,
@@ -65,8 +65,8 @@ extend type Query {
 
 type Mutation {
   createUserPreferences(input: CreateUserPreferencesInput!): UserPreferences!
-  updateUserPreferences(preferenceID: ID!, input: UpdateUserPreferencesInput!): UserPreferences!
-  deleteUserPreferences(preferenceID: ID!): MutationResponse!
+  updateUserPreferences(userPreferencesID: ID!, input: UpdateUserPreferencesInput!): UserPreferences!
+  deleteUserPreferences(userPreferencesID: ID!): MutationResponse!
 }
 
 extend type Subscription {
