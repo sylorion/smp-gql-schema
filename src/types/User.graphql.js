@@ -50,6 +50,11 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [User!]!
+  userBySlug(Slug: String!): User!
+  userByUsername(Username: String!): User!
+  userByUniqRef(UniqRef: String!): User!
+  userByEmail(Email: String!): User!
+
 }
 
 type Mutation { 
