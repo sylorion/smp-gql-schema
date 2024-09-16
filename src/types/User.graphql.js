@@ -53,7 +53,9 @@ extend type Query {
   userBySlug(Slug: String!): User!
   userByUsername(Username: String!): User!
   userByUniqRef(UniqRef: String!): User!
-  userByEmail(Email: String!): User!
+  userByEmail(Email: String!): User! 
+  usersByIDs(userIDs: [ID!]!): [User!]! # This is a list of users
+  usersBySlugs(slugs: [String!]!): [User!]! # This is a list of users
 
 }
 
