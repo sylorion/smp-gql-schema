@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/OrganizationMedia.graphql.js
 
 type OrganizationMedia implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -16,9 +16,17 @@ type OrganizationMedia implements ServicesEntity & ServicesNavigableEntity & Ser
   deletedAt: DateTime
 }
 
-input OrganizationMediaInput {
-  organizationMediaID: ID
-  authorID: ID
+input CreateOrganizationMediaInput {
+  authorID: ID!
+  mediaID: ID!
+  organizationID: ID!
+  legend: String
+  listingPosition: Int
+  state: ObjectStatus
+}
+
+input UpdateOrganizationMediaInput {
+  authorID: ID!
   mediaID: ID
   organizationID: ID
   legend: String
@@ -36,12 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  createOrganizationMedia(input: OrganizationMediaInput!): OrganizationMedia!
-  updateOrganizationMedia(organizationMediaID: ID!, input: OrganizationMediaInput!): OrganizationMedia!
+  createOrganizationMedia(input: CreateOrganizationMediaInput!): OrganizationMedia!
+  updateOrganizationMedia(organizationMediaID: ID!, input: UpdateOrganizationMediaInput!): OrganizationMedia!
   deleteOrganizationMedia(organizationMediaID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   organizationMediaAdded: OrganizationMedia!
   organizationMediaUpdated: OrganizationMedia!
   organizationMediaDeleted: OrganizationMedia!

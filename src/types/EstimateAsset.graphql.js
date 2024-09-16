@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/EstimateAsset.graphql.js
 
 type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -15,14 +15,20 @@ type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & Service
   deletedAt: DateTime
 }
 
-input EstimateAssetInput {
-  estimateAssetID: ID
-  legend: String
-  assetID: ID
-  estimateID: ID
+input CreateEstimateAssetInput {
+  legend: String!
+  assetID: ID!
+  estimateID: ID!
   authorID: ID!
   state: ObjectStatus
-} 
+}
+
+input UpdateEstimateAssetInput {
+  legend: String!
+  assetID: ID
+  estimateID: ID
+  state: ObjectStatus
+}
 
 extend type Query {
   estimateAsset(estimateAssetID: ID!): EstimateAsset
@@ -34,12 +40,12 @@ extend type Query {
 }
 
 type Mutation {
-  createEstimateAsset(input: EstimateAssetInput!): EstimateAsset!
-  updateEstimateAsset(estimateAssetID: ID!, input: EstimateAssetInput!): EstimateAsset!
+  createEstimateAsset(input: CreateEstimateAssetInput!): EstimateAsset!
+  updateEstimateAsset(estimateAssetID: ID!, input: UpdateEstimateAssetInput!): EstimateAsset!
   deleteEstimateAsset(estimateAssetID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   estimateAssetAdded: EstimateAsset!
   estimateAssetUpdated: EstimateAsset!
   estimateAssetDeleted: EstimateAsset!

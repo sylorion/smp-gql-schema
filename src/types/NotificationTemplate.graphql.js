@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/NotificationTemplate.graphql.js
 
 type NotificationTemplate {
@@ -10,10 +10,14 @@ type NotificationTemplate {
   deletedAt: DateTime
 }
 
-input NotificationTemplateInput {
-  name: String!
+input CreateNotificationTemplateInput {
   title: String!
   message: String!
+}
+
+input UpdateNotificationTemplateInput {
+  title: String
+  message: String
 }
 
 extend type Query {
@@ -26,13 +30,12 @@ extend type Query {
 }
 
 type Mutation {
-  createNotificationTemplate(input: NotificationTemplateInput!): NotificationTemplate!
-  updateNotificationTemplate(notificationTemplateID: ID!, input: NotificationTemplateInput!): NotificationTemplate!
+  createNotificationTemplate(input: CreateNotificationTemplateInput!): NotificationTemplate!
+  updateNotificationTemplate(notificationTemplateID: ID!, input: UpdateNotificationTemplateInput!): NotificationTemplate!
   deleteNotificationTemplate(notificationTemplateID: ID!): MutationResponse!
-  markNotificationTemplateAsRead(notificationTemplateID: ID!): NotificationTemplate!
 }
 
-type Subscription {
+extend type Subscription {
   notificationTemplateAdded: NotificationTemplate!
   notificationTemplateUpdated: NotificationTemplate!
   notificationTemplateDeleted: NotificationTemplate!

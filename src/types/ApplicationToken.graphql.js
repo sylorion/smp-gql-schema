@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 
 # src/graphql/types/ApplicationToken.graphql.js
 
@@ -6,8 +6,10 @@ type ApplicationToken {
   applicationTokenID: ID!
   applicationID: ID!
   key: String!
+  slug: String
+  uniqRef: String
   isActive: Boolean!
-  createdAt: DateTime!
+  createdAt: DateTime! 
   updatedAt: DateTime
   deletedAt: DateTime
 }
@@ -19,14 +21,7 @@ input CreateApplicationTokenInput {
 }
 
 input UpdateApplicationTokenInput {
-  applicationTokenID: ID!
   isActive: Boolean
-}
-
-type MutationResponse {
-  success: Boolean!
-  message: String
-  applicationToken: ApplicationToken
 }
 
 extend type Query {

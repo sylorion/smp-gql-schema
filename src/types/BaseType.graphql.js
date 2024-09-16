@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/BaseType.graphql.js
 
 scalar Date

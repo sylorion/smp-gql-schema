@@ -1,5 +1,5 @@
 
-export default `
+export default /* GraphQL */`
 # src/graphql/types/FilterInput.graphql
 
 # Filtering input

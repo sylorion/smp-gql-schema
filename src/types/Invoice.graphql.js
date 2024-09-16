@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Invoice.graphql.js
 
 type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -21,8 +21,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-input InvoiceInput {
-  invoiceID: ID
+input CreateInvoiceInput {
   estimateID: ID
   thirdPartyFees: Int
   servicesFees: Int
@@ -34,7 +33,21 @@ input InvoiceInput {
   dueDate: DateTime
   digitalSignature: String
   state: ObjectStatus
-} 
+}
+
+input UpdateInvoiceInput {
+  invoiceID: ID!
+  thirdPartyFees: Int
+  servicesFees: Int
+  servicesVatPercent: Int
+  prestationsVatPercent: Int
+  totalAmount: Int
+  paymentStatus: PaymentStatus
+  emitDate: DateTime
+  dueDate: DateTime
+  digitalSignature: String
+  state: ObjectStatus
+}
 
 extend type Query {
   invoice(invoiceID: ID!): Invoice
@@ -42,16 +55,16 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): Invoice
+  ): [Invoice!]!
 }
 
 type Mutation {
-  createInvoice(input: InvoiceInput!): Invoice!
-  updateInvoice(invoiceID: ID!, input: InvoiceInput!): Invoice!
+  createInvoice(input: CreateInvoiceInput!): Invoice!
+  updateInvoice(invoiceID: ID!, input: UpdateInvoiceInput!): Invoice!
   deleteInvoice(invoiceID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   invoiceAdded: Invoice!
   invoiceUpdated: Invoice!
   invoiceDeleted: Invoice!

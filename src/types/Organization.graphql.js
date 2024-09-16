@@ -1,5 +1,4 @@
-
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Organization.graphql.js
 
 type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -31,7 +30,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   activityEndedAt: String
   description: String
   summary: String
-  locationID: ID #Place
+  locationID: ID
   parentOrganizationID: ID
   advancedAttributes: JSON
   state: ObjectStatus
@@ -40,11 +39,39 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: DateTime
 }
 
-# Input types for CRUD operations
+input CreateOrganizationInput {
+  authorID: Int!
+  ownerID: Int
+  orgRef: String
+  sectorID: Int
+  legalName: String!
+  brand: String
+  sigle: String
+  smallLogoID: ID
+  bigLogoID: ID
+  bannerID: ID
+  oSize: OrganizationEconomicSizeKind
+  juridicForm: String
+  juridicCatLabel: String
+  juridicCatCode: String
+  currency: String
+  legalUniqIdentifier: String
+  vatNumber: String
+  communityVATNumber: String
+  capital: Int
+  insuranceRef: String
+  insuranceName: String
+  activityStartedAt: Int
+  activityEndedAt: Int
+  description: String!
+  summary: String
+  locationID: ID
+  parentOrganizationID: ID
+  advancedAttributes: JSON
+  state: ObjectStatus
+}
 
-input OrganizationInput {
-  organizationID: ID
-  authorID: Int
+input UpdateOrganizationInput {
   ownerID: Int
   orgRef: String
   sectorID: Int
@@ -71,65 +98,12 @@ input OrganizationInput {
   summary: String
   locationID: ID
   parentOrganizationID: ID
-  advancedAttributes: String
+  advancedAttributes: JSON
   state: ObjectStatus
 }
 
-# Mutation responses for CRUD operations
 extend type Query {
   organization(organizationID: ID!): Organization
-  organizationByID(organizationID: ID!): Organization
-  organizationByUUID(uuid: String!): Organization!
-  organizationBySlug(slug: String!): Organization! 
-  organizationByIDs(ids: [ID!]!): [Organization!]!
-  organizationsByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationsByLocation(
-    location:  ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationsByOwner(
-    ownerID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationBySector(
-    sectorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationBySize(
-    organizationSize: OrganizationEconomicSizeKind!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationByCurrency(
-    currency: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
-  organizationByUniqIdentifier(
-    identifier: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Organization!]!
   organizations(
     pagination: PaginationInput,
     sort: SortInput,
@@ -138,15 +112,12 @@ extend type Query {
 }
 
 type Mutation {
-  createOrganization(input: OrganizationInput!): Organization!
-  updateOrganization(organizationID: ID!, input: OrganizationInput!): Organization!
+  createOrganization(input: CreateOrganizationInput!): Organization!
+  updateOrganization(organizationID: ID!, input: UpdateOrganizationInput!): Organization!
   deleteOrganization(organizationID: ID!): Boolean!
-} 
+}
 
-
-type Subscription {
-  organizationListing: Organization!
-  organizationDetails: Organization!
+extend type Subscription {
   organizationAdded: Organization!
   organizationUpdated: Organization!
   organizationDeleted: Organization!

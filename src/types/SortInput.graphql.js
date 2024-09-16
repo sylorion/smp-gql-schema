@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/SortInput.graphql.js
 
 # Sorting input

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Estimate.graphql.js
 
 type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -33,7 +33,7 @@ input CreateEstimateInput {
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID
-  serviceID: ID
+  serviceID: ID!
   expirationDueDate: Date
   expirationTimeLeft: Int
   referencePrice: Int
@@ -42,7 +42,7 @@ input CreateEstimateInput {
   commentaire: String
   negociatedPrice: Int
   discountID: ID
-  details: String
+  details: Json!
   stage: EstimateStage
   state: ObjectStatus
 }
@@ -50,24 +50,15 @@ input CreateEstimateInput {
 input UpdateEstimateInput {
   estimateID: ID!
   operatorUserID: ID
-  serviceID: ID
   expirationDueDate: Date
   expirationTimeLeft: Int
-  referencePrice: Int
-  previewPrice: Int
   proposedPrice: Int
   commentaire: String
   negociatedPrice: Int
   discountID: ID
-  details: String
+  details: Json
   stage: EstimateStage
   state: ObjectStatus
-}
-
-type MutationResponse {
-  success: Boolean!
-  message: String
-  estimate: Estimate
 }
 
 extend type Query {
@@ -85,7 +76,7 @@ type Mutation {
   deleteEstimate(estimateID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   estimateAdded: Estimate!
   estimateUpdated: Estimate!
   estimateDeleted: Estimate!

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/FaqAnswer.graphql.js
 
 type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -16,8 +16,16 @@ type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesSta
   deletedAt: DateTime
 }
 
-input FaqAnswerInput {
-  faqAnswerID: ID
+input CreateFaqAnswerInput {
+  authorID: ID!
+  topicID: ID!
+  lang: String!
+  answer: String!
+  parentFaqAnswerID: ID
+  state: ObjectStatus
+}
+
+input UpdateFaqAnswerInput {
   authorID: ID
   topicID: ID
   lang: String
@@ -36,12 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  createFaqAnswer(input: FaqAnswerInput!): FaqAnswer!
-  updateFaqAnswer(faqAnswerID: ID!, input: FaqAnswerInput!): FaqAnswer!
+  createFaqAnswer(input: CreateFaqAnswerInput!): FaqAnswer!
+  updateFaqAnswer(faqAnswerID: ID!, input: UpdateFaqAnswerInput!): FaqAnswer!
   deleteFaqAnswer(faqAnswerID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   faqAnswerAdded: FaqAnswer!
   faqAnswerUpdated: FaqAnswer!
   faqAnswerDeleted: FaqAnswer!

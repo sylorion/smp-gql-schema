@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Notification.graphql.js
 
 type Notification {
@@ -15,12 +15,19 @@ type Notification {
   deletedAt: DateTime
 }
 
-input NotificationInput {
+input CreateNotificationInput {
   userID: ID!
   title: String!
   message: String!
   notificationTemplateID: ID
   link: String
+}
+
+input UpdateNotificationInput {
+  title: String
+  message: String
+  link: String
+  type: NotificationType
 }
 
 extend type Query {
@@ -33,13 +40,13 @@ extend type Query {
 }
 
 type Mutation {
-  createNotification(input: NotificationInput!): Notification!
-  updateNotification(notificationID: ID!, input: NotificationInput!): Notification!
+  createNotification(input: CreateNotificationInput!): Notification!
+  updateNotification(notificationID: ID!, input: UpdateNotificationInput!): Notification!
   deleteNotification(notificationID: ID!): MutationResponse!
   markNotificationAsRead(notificationID: ID!): Notification!
 }
 
-type Subscription {
+extend type Subscription {
   notificationAdded: Notification!
   notificationUpdated: Notification!
   notificationDeleted: Notification!

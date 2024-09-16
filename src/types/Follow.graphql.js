@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Follow.graphql.js
 
 type Follow {
@@ -12,12 +12,19 @@ type Follow {
   deletedAt: DateTime
 }
 
-input FollowInput {
-  followID: ID!
+input CreateFollowInput {
+  authorID: ID!
   followedID: ID!
   followedEntity: FollowableEntity!
   state: ObjectStatus
-} 
+}
+
+input UpdateFollowInput {
+  authorID: ID
+  followedID: ID
+  followedEntity: FollowableEntity
+  state: ObjectStatus
+}
 
 extend type Query {
   follow(followID: ID!): Follow
@@ -31,14 +38,14 @@ extend type Query {
 type Mutation {
   followService(serviceID: ID!): Follow!
   followOrganization(organizationID: ID!): Follow!
-  updateFollowDetails(followID: ID!, input: FollowInput!): Follow!
+  updateFollowDetails(followID: ID!, input: UpdateFollowInput!): Follow!
   unFollowService(serviceID: ID!): Boolean!
   unFollowOrganization(organizationID: ID!): Boolean!
 }
 
-type Subscription {
-  FollowAdded: Follow!
-  FollowUpdated: Follow!
-  FollowDeleted: Follow!
+extend type Subscription {
+  followAdded: Follow!
+  followUpdated: Follow!
+  followDeleted: Follow!
 }
 `;

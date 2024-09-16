@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/TermsAndConditions.graphql.js
 
 type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -14,9 +14,15 @@ type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & Se
   deletedAt: DateTime
 }
 
-input TermsAndConditionsInput {
-  termsAndConditionsID: ID
-  authorID: ID
+input CreateTermsAndConditionsInput {
+  authorID: ID!
+  organizationID: ID!
+  tacContent: String!
+  state: ObjectStatus
+}
+
+input UpdateTermsAndConditionsInput {
+  authorID: ID!
   organizationID: ID
   tacContent: String
   state: ObjectStatus
@@ -32,12 +38,12 @@ extend type Query {
 }
 
 type Mutation {
-  createTermsAndConditions(input: TermsAndConditionsInput!): TermsAndConditions!
-  updateTermsAndConditions(termsAndConditionsID: ID!, input: TermsAndConditionsInput!): TermsAndConditions!
+  createTermsAndConditions(input: CreateTermsAndConditionsInput!): TermsAndConditions!
+  updateTermsAndConditions(termsAndConditionsID: ID!, input: UpdateTermsAndConditionsInput!): TermsAndConditions!
   deleteTermsAndConditions(termsAndConditionsID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   termsAndConditionsAdded: TermsAndConditions!
   termsAndConditionsUpdated: TermsAndConditions!
   termsAndConditionsDeleted: TermsAndConditions!

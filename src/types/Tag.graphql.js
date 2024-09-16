@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Tag.graphql.js
 
 type Tag implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -14,9 +14,15 @@ type Tag implements ServicesEntity & ServicesNavigableEntity & ServicesStatable 
   deletedAt: DateTime
 }
 
-input TagInput {
-  tagID: ID 
-  authorID: ID
+input CreateTagInput {
+  authorID: ID!
+  value: String!
+  topicID: ID
+  state: ObjectStatus
+}
+
+input UpdateTagInput {
+  authorID: ID!
   value: String
   topicID: ID
   state: ObjectStatus
@@ -32,14 +38,15 @@ extend type Query {
 }
 
 type Mutation {
-  createTag(input: TagInput!): Tag!
-  updateTag(tagID: ID!, input: TagInput!): Tag!
+  createTag(input: CreateTagInput!): Tag!
+  updateTag(tagID: ID!, input: UpdateTagInput!): Tag!
   deleteTag(tagID: ID!): MutationResponse!
 }
 
-type Subscription {
-  tagAdded:   Tag!
+extend type Subscription {
+  tagAdded: Tag!
   tagUpdated: Tag!
   tagDeleted: Tag!
 }
 `;
+

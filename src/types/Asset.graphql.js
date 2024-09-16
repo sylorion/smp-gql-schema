@@ -1,4 +1,4 @@
-export default `
+export default  /* GraphQL */`
 # src/graphql/types/Asset.graphql.js
 
 type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -30,19 +30,18 @@ input CreateAssetInput {
   organizationID: ID
   mediaID: ID
   description: String
-  price: Int
+  price: Int!
   legalVatPercent: Int
-  quantity: Int
+  quantity: Int!
   maxPerReservation: Int
   conflictingAssets: String
   applyableAssets: String
-  state: ObjectStatus
+  state: ObjectStatus!
 }
 
 input UpdateAssetInput {
-  assetID: ID!
   title: String
-  authorID: ID
+  authorID: ID!
   stockQuantity: Int
   mediaID: ID
   description: String

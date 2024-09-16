@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/ServiceAsset.graphql.js
 
 type ServiceAsset implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -15,11 +15,18 @@ type ServiceAsset implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: DateTime
 }
 
-input ServiceAssetInput {
-  serviceAssetID: ID
+input CreateServiceAssetInput {
+  assetID: ID!
+  serviceID: ID!
+  legend: String
+  authorID: ID!
+  state: ObjectStatus
+}
+
+input UpdateServiceAssetInput {
   assetID: ID
   serviceID: ID
-  legend: String 
+  legend: String
   authorID: ID!
   state: ObjectStatus
 }
@@ -34,12 +41,12 @@ extend type Query {
 }
 
 type Mutation {
-  createServiceAsset(input: ServiceAssetInput!): ServiceAsset!
-  updateServiceAsset(serviceAssetID: ID!, input: ServiceAssetInput!): ServiceAsset!
+  createServiceAsset(input: CreateServiceAssetInput!): ServiceAsset!
+  updateServiceAsset(serviceAssetID: ID!, input: UpdateServiceAssetInput!): ServiceAsset!
   deleteServiceAsset(serviceAssetID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   serviceAssetAdded: ServiceAsset!
   serviceAssetUpdated: ServiceAsset!
   serviceAssetDeleted: ServiceAsset!

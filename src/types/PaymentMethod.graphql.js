@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/PaymentMethod.graphql.js
 
 type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -22,66 +22,38 @@ type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & Service
   deletedAt: DateTime
 }
 
-input PaymentMethodInput {
-  paymentMethodID: ID
-  authorID: ID
+input CreatePaymentMethodInput {
+  authorID: ID!
+  organizationID: ID
+  paymentMethodKind: PaymentMethodType!
+  isActive: Boolean
+  accountHolderName: String
+  expirationDate: Date
+  bankName: String
+  cardNumber: String
+  cardType: String
+  methodDetails: JSON
+  isDefault: Boolean
+  state: ObjectStatus
+}
+
+input UpdatePaymentMethodInput {
+  authorID: ID!
   organizationID: ID
   paymentMethodKind: PaymentMethodType
   isActive: Boolean
   accountHolderName: String
   expirationDate: Date
-  pmUUID: String
   bankName: String
   cardNumber: String
   cardType: String
-  methodDetails: String
+  methodDetails: JSON
   isDefault: Boolean
   state: ObjectStatus
 }
 
 extend type Query {
-  paymentMethod(paymentMethodID: ID!): PaymentMethod 
-  paymentMethodByID(paymentMethodID: ID!): PaymentMethod
-  paymentMethodByUUID(uuid: String!): PaymentMethod!
-  paymentMethodBySlug(slug: String!): PaymentMethod!
-  paymentMethodByCardNumber(number: String!): PaymentMethod!
-  paymentMethodsByIDs(ids: [ID!]!): [PaymentMethod!]!
-  paymentMethodsByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
-  paymentMethodsByOrganization(
-    organizationID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
-  paymentMethodsByBankCardType(
-    cardType: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
-  paymentMethodsByMethodKind(
-    paymentMethodKind: PaymentMethodType!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
-  paymentMethodsActive(
-    isActive: Boolean!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
-  paymentMethodsByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [PaymentMethod!]!
+  paymentMethod(paymentMethodID: ID!): PaymentMethod
   paymentMethods(
     pagination: PaginationInput,
     sort: SortInput,
@@ -90,16 +62,13 @@ extend type Query {
 }
 
 type Mutation {
-  createPaymentMethod(input: PaymentMethodInput!): PaymentMethod!
-  updatePaymentMethodDetails(paymentMethodID: ID!, input: PaymentMethodInput!):PaymentMethod!
-  updatePaymentMethod(paymentMethodID: ID!, input: PaymentMethodInput!): PaymentMethod!
+  createPaymentMethod(input: CreatePaymentMethodInput!): PaymentMethod!
+  updatePaymentMethod(paymentMethodID: ID!, input: UpdatePaymentMethodInput!): PaymentMethod!
   deletePaymentMethod(paymentMethodID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   paymentMethodAdded: PaymentMethod!
-  paymentMethodListing: PaymentMethod!
-  paymentMethodDetails: PaymentMethod!
   paymentMethodUpdated: PaymentMethod!
   paymentMethodDeleted: PaymentMethod!
 }

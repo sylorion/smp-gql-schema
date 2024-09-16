@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/ServiceMedia.graphql.js
 
 type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -16,11 +16,19 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
   deletedAt: DateTime
 }
 
-input ServiceMediaInput {
-  serviceMediaID: ID
+input CreateServiceMediaInput {
   authorID: ID!
   mediaID: ID!
   serviceID: ID!
+  legend: String
+  listingPosition: Int
+  state: ObjectStatus
+}
+
+input UpdateServiceMediaInput {
+  authorID: ID!
+  mediaID: ID
+  serviceID: ID
   legend: String
   listingPosition: Int
   state: ObjectStatus
@@ -36,12 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  createServiceMedia(input: ServiceMediaInput!): ServiceMedia!
-  updateServiceMedia(serviceMediaID: ID!, input: ServiceMediaInput!): ServiceMedia!
+  createServiceMedia(input: CreateServiceMediaInput!): ServiceMedia!
+  updateServiceMedia(serviceMediaID: ID!, input: UpdateServiceMediaInput!): ServiceMedia!
   deleteServiceMedia(serviceMediaID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   serviceMediaAdded: ServiceMedia!
   serviceMediaUpdated: ServiceMedia!
   serviceMediaDeleted: ServiceMedia!

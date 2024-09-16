@@ -1,9 +1,6 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/ResetPassword.graphql.js
 
-input ForgotPasswordInput {
-  email: String!
-}
 
 input ResetPasswordInput {
   token: String!
@@ -16,7 +13,6 @@ type PasswordResetResponse {
 }
 
 type Mutation {
-  forgotPassword(input: ForgotPasswordInput!): PasswordResetResponse
   resetPassword(input: ResetPasswordInput!): PasswordResetResponse!
 }
 

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/Discount.graphql.js
 
 type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -42,7 +42,6 @@ input CreateDiscountInput {
 }
 
 input UpdateDiscountInput {
-  discountID: ID!
   authorID: ID!
   description: String
   discountCode: String
@@ -57,11 +56,6 @@ input UpdateDiscountInput {
   state: ObjectStatus
 }
 
-type MutationResponse {
-  success: Boolean!
-  message: String
-  discount: Discount
-}
 
 extend type Query {
   discount(discountID: ID!): Discount

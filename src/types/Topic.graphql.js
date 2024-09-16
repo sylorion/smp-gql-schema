@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Topic.graphql.js
 
 type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -9,8 +9,6 @@ type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   title: String
   description: String
   parentTopicID: ID 
-  # To design criteria as a hierarchical graph, 
-  # higher is the level more accurate is the topic
   level: Int
   state: ObjectStatus
   createdAt: DateTime
@@ -18,9 +16,17 @@ type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   deletedAt: DateTime
 }
 
-input TopicInput {
-  topicID: ID
-  authorID: ID
+input CreateTopicInput {
+  authorID: ID!
+  title: String!
+  description: String!
+  parentTopicID: ID
+  level: Int
+  state: ObjectStatus
+}
+
+input UpdateTopicInput {
+  authorID: ID!
   title: String
   description: String
   parentTopicID: ID
@@ -38,13 +44,13 @@ extend type Query {
 }
 
 type Mutation {
-  createTopic(input: TopicInput!): Topic!
-  updateTopic(topicID: ID!, input: TopicInput!): Topic!
+  createTopic(input: CreateTopicInput!): Topic!
+  updateTopic(topicID: ID!, input: UpdateTopicInput!): Topic!
   deleteTopic(topicID: ID!): MutationResponse!
 }
 
-type Subscription {
-  topicAdded:   Topic!
+extend type Subscription {
+  topicAdded: Topic!
   topicUpdated: Topic!
   topicDeleted: Topic!
 }

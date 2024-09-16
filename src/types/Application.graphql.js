@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/Application.graphql.js
 
 type Application {
@@ -21,8 +21,8 @@ type Application {
 }
 
 input CreateApplicationInput {
-  authorID: ID
-  title: String
+  authorID: ID!
+  title: String!
   description: String
   officialName: String
   developerID: ID
@@ -34,7 +34,6 @@ input CreateApplicationInput {
 }
 
 input UpdateApplicationInput {
-  applicationID: ID!
   authorID: ID!
   title: String
   description: String
@@ -45,12 +44,6 @@ input UpdateApplicationInput {
   isOfficialApp: Boolean
   appConfiguration: String
   state: ObjectStatus
-}
-
-type MutationResponse {
-  success: Boolean!
-  message: String
-  application: Application
 }
 
 extend type Query {

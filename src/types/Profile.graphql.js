@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Profile.graphql.js
 
 type Profile {
@@ -21,12 +21,7 @@ type Profile {
   deletedAt: DateTime
 }
 
-extend type User {
-  profile: Profile!
-}
-
-input ProfileInput {
-  profileID: ID
+input CreateProfileInput {
   firstName: String
   lastName: String
   dateOfBirth: Date
@@ -40,48 +35,24 @@ input ProfileInput {
   state: ObjectStatus
 }
 
-extend input UserInput {
-  profile: ProfileInput
+input UpdateProfileInput {
+  profileID: ID!
+  firstName: String
+  lastName: String
+  dateOfBirth: Date
+  gender: ProfileGender
+  nationality: String
+  phoneNumber: String
+  locationID: ID
+  idCardNumber: String
+  passportNumber: String
+  socialSecurityNumber: String
+  state: ObjectStatus
 }
 
 extend type Query {
   profile(profileID: ID!): Profile
-  profileByID(profileID: ID!): Profile
-  profileByUUID(uuid: String!): Profile!
-  profileBySlug(slug: String!): Profile!
-  profileByIDs(ids: [ID!]!): [Profile!]!
-  profilesByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Profile!]!
-  profilesByCountry(
-    country: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Profile!]!
-  profilesByCity(
-    city: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Profile!]!
-  profileByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Profile!]!
-    profilesByLocation(
-    lonlat: [String!]!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Profile!]!
-
-    profiles(
+  profiles(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -89,12 +60,12 @@ extend type Query {
 }
 
 type Mutation {
-  createProfile(input: ProfileInput!): Profile!
-  updateProfile(profileID: ID!, input: ProfileInput!): Profile!
+  createProfile(input: CreateProfileInput!): Profile!
+  updateProfile(profileID: ID!, input: UpdateProfileInput!): Profile!
   deleteProfile(profileID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   profileAdded: Profile!
   profileUpdated: Profile!
   profileDeleted: Profile!

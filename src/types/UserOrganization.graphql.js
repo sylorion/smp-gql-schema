@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/UserOrganization.graphql.js
 
 type UserOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -16,9 +16,17 @@ type UserOrganization implements ServicesEntity & ServicesNavigableEntity & Serv
   deletedAt: DateTime
 }
 
-input UserOrganizationInput {
-  userOrganizationID: ID
-  authorID: ID
+input CreateUserOrganizationInput {
+  authorID: ID!
+  legend: String
+  userID: ID!
+  roleID: ID!
+  organizationID: ID!
+  state: ObjectStatus
+}
+
+input UpdateUserOrganizationInput {
+  authorID: ID!
   legend: String
   userID: ID
   roleID: ID
@@ -36,13 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  createUserOrganization(input: UserOrganizationInput!): UserOrganization!
-  updateUserOrganization(userOrganizationID: ID!, input: UserOrganizationInput!): UserOrganization!
+  createUserOrganization(input: CreateUserOrganizationInput!): UserOrganization!
+  updateUserOrganization(userOrganizationID: ID!, input: UpdateUserOrganizationInput!): UserOrganization!
   deleteUserOrganization(userOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription {
-  userOrganizationLinsting: UserOrganization!
+extend type Subscription {
   userOrganizationAdded: UserOrganization!
   userOrganizationUpdated: UserOrganization!
   userOrganizationDeleted: UserOrganization!

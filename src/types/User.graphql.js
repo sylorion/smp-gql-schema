@@ -1,9 +1,7 @@
-
-
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/User.graphql.js
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable  {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   userID: ID!
   uniqRef: String
   slug: String
@@ -14,7 +12,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   userKind: UserType
   lastLogin: DateTime
   twoFactorEnabled: Boolean
-  loginDuration: Int # durée en seconde de lq validité d'un token
+  loginDuration: Int
   rsaPublicKey: String
   state: ObjectStatus
   createdAt: DateTime
@@ -22,10 +20,18 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
+input CreateUserInput {
+  username: String!
+  email: String!
+  passwordHash: String!
+  plan: String
+  userKind: UserType
+  twoFactorEnabled: Boolean
+  rsaPublicKey: String
+  state: ObjectStatus
+}
 
-
-input UserInput {
-  userID: ID
+input UpdateUserInput {
   username: String
   email: String
   passwordHash: String
@@ -39,29 +45,6 @@ input UserInput {
 
 extend type Query {
   user(userID: ID!): User!
-  userByIDs(ids: [ID!]!): [User!]!
-  userByUUID(uuid: String!): User!
-  userBySlug(slug: String!): User!
-  userByUsername(username: String!): User!
-  userByEmail(email: String!): User!
-  usersByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [User!]!
-  usersByUsernames(
-    usernames: [String!]!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [User!]!
-  usersByEmails(
-    emails: [String!]!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [User!]!
   users(
     pagination: PaginationInput,
     sort: SortInput,
@@ -70,14 +53,12 @@ extend type Query {
 }
 
 type Mutation { 
-  createUser(input: UserInput!): User
-  updateUser(userID: ID!, input: UserInput!): User!
+  createUser(input: CreateUserInput!): User!
+  updateUser(userID: ID!, input: UpdateUserInput!): User!
   deleteUser(userID: ID!): MutationResponse!
 }
 
-type Subscription {
-  userListing: User!
-  userDetails: User!
+extend type Subscription {
   userAdded: User!
   userUpdated: User!
   userDeleted: User!

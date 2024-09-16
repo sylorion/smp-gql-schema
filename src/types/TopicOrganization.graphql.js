@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/TopicOrganization.graphql.js
 
 type TopicOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -13,8 +13,13 @@ type TopicOrganization implements ServicesEntity & ServicesNavigableEntity & Ser
   deletedAt: DateTime
 }
 
-input TopicOrganizationInput {
-  topicOrganizationID: ID
+input CreateTopicOrganizationInput {
+  topicID: ID!
+  organizationID: ID!
+  state: ObjectStatus
+}
+
+input UpdateTopicOrganizationInput {
   topicID: ID
   organizationID: ID
   state: ObjectStatus
@@ -30,12 +35,12 @@ extend type Query {
 }
 
 type Mutation {
-  createTopicOrganization(input: TopicOrganizationInput!): TopicOrganization!
-  updateTopicOrganization(topicOrganizationID: ID!, input: TopicOrganizationInput!): TopicOrganization!
+  createTopicOrganization(input: CreateTopicOrganizationInput!): TopicOrganization!
+  updateTopicOrganization(topicOrganizationID: ID!, input: UpdateTopicOrganizationInput!): TopicOrganization!
   deleteTopicOrganization(topicOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   topicOrganizationAdded: TopicOrganization!
   topicOrganizationUpdated: TopicOrganization!
   topicOrganizationDeleted: TopicOrganization!

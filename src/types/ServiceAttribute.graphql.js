@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/ServiceAttribute.graphql.js
 
 type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -15,16 +15,19 @@ type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & Serv
   deletedAt: DateTime
 }
 
-extend type Service {
-  attributes: [ServiceAttribute!]!
-}
-
-input ServiceAttributeInput {
-  serviceAttributeID: ID 
+input CreateServiceAttributeInput {
   authorID: ID!
   attributeName: String!
   attributeValue: String!
   serviceID: ID!
+  state: ObjectStatus
+}
+
+input UpdateServiceAttributeInput {
+  authorID: ID!
+  attributeName: String
+  attributeValue: String
+  serviceID: ID
   state: ObjectStatus
 }
 
@@ -38,12 +41,12 @@ extend type Query {
 }
 
 type Mutation {
-  createServiceAttribute(input: ServiceAttributeInput!): ServiceAttribute!
-  updateServiceAttribute(serviceAttributeID: ID!, input: ServiceAttributeInput!): ServiceAttribute!
+  createServiceAttribute(input: CreateServiceAttributeInput!): ServiceAttribute!
+  updateServiceAttribute(serviceAttributeID: ID!, input: UpdateServiceAttributeInput!): ServiceAttribute!
   deleteServiceAttribute(serviceAttributeID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   serviceAttributeAdded: ServiceAttribute!
   serviceAttributeUpdated: ServiceAttribute!
   serviceAttributeDeleted: ServiceAttribute!

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Transaction.graphql.js
 
 type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -17,14 +17,22 @@ type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesS
   deletedAt: DateTime
 }
 
-input TransactionInput {
-  transactionID: ID
-  buyerUserID: ID
-  sellerOrganizationID: ID
+input CreateTransactionInput {
+  buyerUserID: ID!
+  sellerOrganizationID: ID!
   invoiceID: ID
-  totalAmount: Int
+  totalAmount: Int!
   dealMediaProofID: ID
   transactionDateTime: DateTime
+  state: ObjectStatus
+}
+
+input UpdateTransactionInput {
+  # buyerUserID: ID
+  sellerOrganizationID: ID
+  # invoiceID: ID
+  # totalAmount: Int
+  dealMediaProofID: ID
   state: ObjectStatus
 }
 
@@ -38,14 +46,13 @@ extend type Query {
 }
 
 type Mutation {
-  createTransaction(input: TransactionInput!): Transaction!
-  updateTransaction(transactionID: ID!, input: TransactionInput!): Transaction!
+  createTransaction(input: CreateTransactionInput!): Transaction!
+  updateTransaction(transactionID: ID!, input: UpdateTransactionInput!): Transaction!
   deleteTransaction(transactionID: ID!): MutationResponse!
 }
 
-type Subscription {
-  transactionListing:   Transaction!
-  transactionAdded:   Transaction!
+extend type Subscription {
+  transactionAdded: Transaction!
   transactionUpdated: Transaction!
   transactionDeleted: Transaction!
 }

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/TagOrganization.graphql.js
 
 type TagOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -13,8 +13,13 @@ type TagOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
   deletedAt: DateTime
 }
 
-input TagOrganizationInput {
-  tagOrganizationID: ID
+input CreateTagOrganizationInput {
+  tagID: ID!
+  organizationID: ID!
+  state: ObjectStatus
+}
+
+input UpdateTagOrganizationInput {
   tagID: ID
   organizationID: ID
   state: ObjectStatus
@@ -30,12 +35,12 @@ extend type Query {
 }
 
 type Mutation {
-  createTagOrganization(input: TagOrganizationInput!): TagOrganization!
-  updateTagOrganization(tagOrganizationID: ID!, input: TagOrganizationInput!): TagOrganization!
+  createTagOrganization(input: CreateTagOrganizationInput!): TagOrganization!
+  updateTagOrganization(tagOrganizationID: ID!, input: UpdateTagOrganizationInput!): TagOrganization!
   deleteTagOrganization(tagOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   tagOrganizationAdded: TagOrganization!
   tagOrganizationUpdated: TagOrganization!
   tagOrganizationDeleted: TagOrganization!

@@ -1,5 +1,5 @@
-export default `
-# src/graphql/types/UserToken.graphql
+export default /* GraphQL */ `
+# src/graphql/types/UserToken.graphql.js
 
 type UserToken {
   userTokenID: ID!
@@ -14,7 +14,7 @@ type UserToken {
   deletedAt: DateTime
 }
 
-input UserTokenInput {
+input CreateUserTokenInput {
   userID: ID!
   applicationID: ID
   platform: String
@@ -23,22 +23,32 @@ input UserTokenInput {
   newTokenGeneratedAt: DateTime
 }
 
+input UpdateUserTokenInput {
+  applicationID: ID
+  platform: String
+  token: String
+  expiresIn: Int
+  newTokenGeneratedAt: DateTime
+}
+
 extend type Query {
   userToken(userTokenID: ID!): UserToken
-  userTokens: [UserToken!]!
+  userTokens(
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [UserToken!]!
 }
 
 type Mutation {
-  createUserToken(input: UserTokenInput!): UserToken!
-  updateUserToken(userTokenID: ID!, input: UserTokenInput!): UserToken!
+  createUserToken(input: CreateUserTokenInput!): UserToken!
+  updateUserToken(userTokenID: ID!, input: UpdateUserTokenInput!): UserToken!
   deleteUserToken(userTokenID: ID!): Boolean!
 }
 
 extend type Subscription {
-  userTokenListing: UserToken!
-  userTokenDetails: UserToken!
   userTokenAdded: UserToken!
   userTokenUpdated: UserToken!
   userTokenDeleted: UserToken!
 }
-`
+`;

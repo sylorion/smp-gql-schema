@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/PaymentConfig.graphql.js
 
 type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -15,9 +15,16 @@ type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & Service
   deletedAt: DateTime
 }
 
-input PaymentConfigInput {
-  paymentConfigID: ID
-  authorID: ID
+input CreatePaymentConfigInput {
+  authorID: ID!
+  paymentMethodID: ID
+  partnerTokenAuthDetails: JSON
+  paymentConfigDetails: JSON
+  state: ObjectStatus
+}
+
+input UpdatePaymentConfigInput {
+  authorID: ID!
   paymentMethodID: ID
   partnerTokenAuthDetails: JSON
   paymentConfigDetails: JSON
@@ -34,12 +41,12 @@ extend type Query {
 }
 
 type Mutation {
-  createPaymentConfig(input: PaymentConfigInput!): PaymentConfig!
-  updatePaymentConfig(paymentConfigID: ID!, input: PaymentConfigInput!): PaymentConfig!
+  createPaymentConfig(input: CreatePaymentConfigInput!): PaymentConfig!
+  updatePaymentConfig(paymentConfigID: ID!, input: UpdatePaymentConfigInput!): PaymentConfig!
   deletePaymentConfig(paymentConfigID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   paymentConfigAdded: PaymentConfig!
   paymentConfigUpdated: PaymentConfig!
   paymentConfigDeleted: PaymentConfig!

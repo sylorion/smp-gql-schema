@@ -1,5 +1,6 @@
-export default `
-# src/graphql/types/UserRole.graphql.j
+export default /* GraphQL */ `
+# src/graphql/types/UserRole.graphql.js
+
 type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   userRoleID: ID!
   uniqRef: String
@@ -14,10 +15,17 @@ type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   deletedAt: DateTime
 }
 
-input UserRoleInput {
-  userRoleID: ID
+input CreateUserRoleInput {
+  legend: String!
+  authorID: ID!
+  userID: ID!
+  roleID: ID!
+  state: ObjectStatus
+}
+
+input UpdateUserRoleInput {
   legend: String
-  authorID: ID
+  authorID: ID!
   userID: ID
   roleID: ID
   state: ObjectStatus
@@ -25,40 +33,6 @@ input UserRoleInput {
 
 extend type Query {
   userRole(userRoleID: ID!): UserRole!
-  userRoleByID(userRoleID: ID!): UserRole
-  userRoleByUUID(uuid: String!): UserRole!
-  userRoleBySlug(slug: String!): UserRole!
-  userRolesByIDs(ids: [ID!]!): [UserRole!]!
-  userRolesByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [UserRole!]!
-  userRolesByName(
-    name: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [UserRole!]!
-  userRolesByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [UserRole!]!
-  userRolesByUser(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [UserRole!]!
-  userRolesByRole(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Role!]!
   userRoles(
     pagination: PaginationInput,
     sort: SortInput,
@@ -67,14 +41,12 @@ extend type Query {
 }
 
 type Mutation {
-  createUserRole(input: UserRoleInput!): UserRole!
-  updateUserRole(userRoleID: ID!, input: UserRoleInput!): UserRole!
+  createUserRole(input: CreateUserRoleInput!): UserRole!
+  updateUserRole(userRoleID: ID!, input: UpdateUserRoleInput!): UserRole!
   deleteUserRole(userRoleID: ID!): MutationResponse!
 }
 
-type Subscription {
-  userRoleListing: UserRole!
-  userRoleDetails: UserRole!
+extend type Subscription {
   userRoleAdded: UserRole!
   userRoleUpdated: UserRole!
   userRoleDeleted: UserRole!

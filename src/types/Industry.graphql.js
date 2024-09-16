@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Industry.graphql.js
 
 type Industry {
@@ -7,26 +7,36 @@ type Industry {
   title: String
   description: String
   level: Int!
-  parentIndustryID: ID # of a potentiel parent hiearchy
+  slug: String
+  uniqRef: String
+  parentIndustryID: ID
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
 }
 
-input IndustryInput {
-  industryID: ID
-  authorID: ID
+input CreateIndustryInput {
+  authorID: ID!
+  title: String!
+  description: String!
+  level: Int!
+  parentIndustryID: ID
+  state: ObjectStatus
+}
+
+input UpdateIndustryInput {
+  authorID: ID!
   title: String
   description: String
   level: Int
-  parentIndustryID: ID # of a potentiel parent hiearchy
+  parentIndustryID: ID
   state: ObjectStatus
-} 
+}
 
 extend type Query {
   industry(industryID: ID!): Industry
-  industrys(
+  industries(
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
@@ -34,16 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  industryService(serviceID: ID!): Industry!
-  industryOrganization(organizationID: ID!): Industry!
-  createIndustry(input: IndustryInput!): Industry!
-  updateIndustry(industryID: ID!, input: IndustryInput!): Industry!
+  createIndustry(input: CreateIndustryInput!): Industry!
+  updateIndustry(industryID: ID!, input: UpdateIndustryInput!): Industry!
   deleteIndustry(industryID: ID!): MutationResponse!
-  unIndustryService(serviceID: ID!): Boolean!
-  unIndustryOrganization(organizationID: ID!): Boolean!
 }
 
-type Subscription {
+extend type Subscription {
   industryAdded: Industry!
   industryUpdated: Industry!
   industryDeleted: Industry!

@@ -1,8 +1,8 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/UserPreferences.graphql.js
 
 type UserPreferences implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
-  preferenceID: ID!
+  userPreferenceID: ID!
   uniqRef: String
   slug: String
   userID: ID
@@ -23,13 +23,27 @@ type UserPreferences implements ServicesEntity & ServicesNavigableEntity & Servi
   deletedAt: DateTime
 }
 
-input UserPreferencesInput {
-  preferenceID: ID
-  userID: ID
+input CreateUserPreferencesInput {
+  userID: ID!
+  lang: String!
+  timeZone: String
+  notificationPreferences: JSON
+  privacySettings: JSON
+  theme: Int
+  marketplaceConfig: JSON
+  defaultCurrency: String
+  defaultPaymentMethodID: ID
+  notificationFrequency: String
+  showRecommendations: Boolean
+  otherSettings: JSON
+  state: ObjectStatus
+}
+
+input UpdateUserPreferencesInput {
   lang: String
   timeZone: String
   notificationPreferences: JSON
-  privacySettings: JSON 
+  privacySettings: JSON
   theme: Int
   marketplaceConfig: JSON
   defaultCurrency: String
@@ -42,25 +56,6 @@ input UserPreferencesInput {
 
 extend type Query {
   userPreference(preferenceID: ID!): UserPreferences
-  userPreferencesByID(preferenceID: ID!): UserPreferences
-  userPreferencesByLang(
-    lang: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [UserPreferences!]!
-  userPreferencesByUserID(
-    userID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [UserPreferences!]!
-  userPreferencesByIDs(
-    ids: [ID!]!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [UserPreferences!]!
   userPreferences(
     pagination: PaginationInput,
     sort: SortInput,
@@ -69,19 +64,13 @@ extend type Query {
 }
 
 type Mutation {
-  createUserPreferences(input: UserPreferencesInput!): UserPreferences!
-  updateUserPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
-  updateUserNotificationPreferences(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
-  updateUserPrivacySettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
-  updateUserOtherSettings(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
-  updateMarketplaceConfig(preferenceID: ID!, input: UserPreferencesInput!): UserPreferences!
+  createUserPreferences(input: CreateUserPreferencesInput!): UserPreferences!
+  updateUserPreferences(preferenceID: ID!, input: UpdateUserPreferencesInput!): UserPreferences!
   deleteUserPreferences(preferenceID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   userPreferencesAdded: UserPreferences!
-  userPreferencesListing: UserPreferences!
-  userPreferencesDetails: UserPreferences!
   userPreferencesUpdated: UserPreferences!
   userPreferencesDeleted: UserPreferences!
 }

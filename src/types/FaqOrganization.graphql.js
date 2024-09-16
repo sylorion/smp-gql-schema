@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/FaqOrganization.graphql.js
 
 type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -7,7 +7,7 @@ type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
   slug: String
   authorID: ID
   order: ID
-  faqAnswerID: ID, 
+  faqAnswerID: ID
   faqQuestionID: ID
   organizationID: ID
   state: ObjectStatus
@@ -16,15 +16,23 @@ type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
   deletedAt: DateTime
 }
 
-input FaqOrganizationInput {
-  faqOrganizationID: ID
-  authorID: ID
+input CreateFaqOrganizationInput {
+  authorID: ID!
+  order: ID
+  faqAnswerID: ID
+  faqQuestionID: ID
+  organizationID: ID!
+  state: ObjectStatus
+}
+
+input UpdateFaqOrganizationInput {
+  authorID: ID!
   order: ID
   faqAnswerID: ID
   faqQuestionID: ID
   organizationID: ID
   state: ObjectStatus
-} 
+}
 
 extend type Query {
   faqOrganization(faqOrganizationID: ID!): FaqOrganization
@@ -36,12 +44,12 @@ extend type Query {
 }
 
 type Mutation {
-  createFaqOrganization(input: FaqOrganizationInput!): FaqOrganization!
-  updateFaqOrganization(faqOrganizationID: ID!, input: FaqOrganizationInput!): FaqOrganization!
+  createFaqOrganization(input: CreateFaqOrganizationInput!): FaqOrganization!
+  updateFaqOrganization(faqOrganizationID: ID!, input: UpdateFaqOrganizationInput!): FaqOrganization!
   deleteFaqOrganization(faqOrganizationID: ID!): MutationResponse!
 }
 
-type Subscription {
+extend type Subscription {
   faqOrganizationAdded: FaqOrganization!
   faqOrganizationUpdated: FaqOrganization!
   faqOrganizationDeleted: FaqOrganization!

@@ -1,7 +1,7 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Review.graphql.js
 
-type Review  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Review implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   reviewID: ID!
   uniqRef: String
   slug: String
@@ -17,8 +17,7 @@ type Review  implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-input ReviewInput {
-  reviewID: ID
+input CreateReviewInput {
   serviceID: ID
   organizationID: ID
   authorID: ID!
@@ -28,49 +27,18 @@ input ReviewInput {
   state: ObjectStatus
 }
 
+input UpdateReviewInput {
+  # serviceID: ID
+  # organizationID: ID
+  authorID: ID!
+  # criteriaID: ID
+  rating: Int
+  # commentID: ID
+  state: ObjectStatus
+}
+
 extend type Query {
   review(reviewID: ID!): Review
-  reviewByID(reviewID: ID!): Review
-  reviewByUUID(uuid: String!): Review!
-  reviewBySlug(slug: String!): Review!
-  reviewByService(serviceID: String!): Review!
-  reviewsByIDs(ids: [ID!]!): [Review!]!
-  reviewsByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!          
-  reviewsByOrganization(
-    organizationID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!
-  reviewsByService(
-    serviceID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!
-  reviewsByCriteria(
-    criteriaID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!
-  reviewsByComment(
-    commentID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!
-  reviewsByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Review!]!
   reviews(
     pagination: PaginationInput,
     sort: SortInput,
@@ -79,14 +47,12 @@ extend type Query {
 }
 
 type Mutation {
-  createReview(input: ReviewInput!): Review!
-  updateReview(reviewID: ID!, input: ReviewInput!): Review!
+  createReview(input: CreateReviewInput!): Review!
+  updateReview(reviewID: ID!, input: UpdateReviewInput!): Review!
   deleteReview(reviewID: ID!): MutationResponse!
 }
 
-type Subscription {
-  reviewListing: Review!
-  reviewDetails: Review!
+extend type Subscription {
   reviewAdded: Review!
   reviewUpdated: Review!
   reviewDeleted: Review!

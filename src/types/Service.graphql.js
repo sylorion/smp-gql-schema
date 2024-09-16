@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Service.graphql.js
 
 type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -33,16 +33,41 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   deletedAt: DateTime
 }
 
-input ServiceInput {
-  serviceID: ID
-  authorID: ID
+input CreateServiceInput {
+  authorID: ID!
+  title: String!
+  description: String!
+  mediaBannerID: ID
+  termsAndConditionsID: ID
+  parentServiceID: ID
+  topicID: ID
+  organizationID: ID
+  locationID: ID
+  paymentConfigID: ID
+  price: Int!
+  legalVatPercent: Int
+  lowerPrice: Int
+  upperPrice: Int
+  negotiable: Boolean
+  perimeter: Int
+  attributes: [ServiceAttributeInput]
+  supplyType: ServiceSupplyForm
+  uptakeForm: ServiceUptakeType
+  billingPlan: ServiceBillingPlan
+  onlineService: Boolean
+  advancedAttributes: String
+  state: ObjectStatus
+}
+
+input UpdateServiceInput {
+  authorID: ID!
   title: String
   description: String
   mediaBannerID: ID
   termsAndConditionsID: ID
   parentServiceID: ID
   topicID: ID
-  organizationID: ID
+  # organizationID: ID
   locationID: ID
   paymentConfigID: ID
   price: Int
@@ -63,6 +88,7 @@ input ServiceInput {
 input SearchServiceInput {
   searchTerm: String
 }
+
 extend type Query {
   service(serviceID: ID!): Service
   services(
@@ -71,21 +97,15 @@ extend type Query {
     filter: [FilterInput!]
   ): [Service!]!
   searchServices(input: SearchServiceInput!): [Service!]!
- 
-
-
 }
 
 type Mutation {
-  createService(input: ServiceInput!): Service!
-  updateServiceAttributes(serviceID: ID!, input: ServiceInput!): Service!
-  updateService(serviceID: ID!, input: ServiceInput!): Service!
+  createService(input: CreateServiceInput!): Service!
+  updateService(serviceID: ID!, input: UpdateServiceInput!): Service!
   deleteService(serviceID: ID!): MutationResponse!
 }
 
-type Subscription {
-  serviceListing: Service!
-  serviceDetail: Service!
+extend type Subscription {
   serviceAdded: Service!
   serviceUpdated: Service!
   serviceDeleted: Service!

@@ -1,5 +1,5 @@
 
-export default `
+export default /* GraphQL */`
 # src/graphql/types/Heartbeat.graphql.js
 type Heartbeat {
   lastPing: Date

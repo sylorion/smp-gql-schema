@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Comment.graphql.js
 
 type Comment implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -25,19 +25,11 @@ input CreateCommentInput {
 }
 
 input UpdateCommentInput {
-  commentID: ID!
   content: String!
   authorID: ID!
   serviceID: ID
   organizationID: ID
-  // feedback: Int il faut une mutation pour ajouter les likes directement dans le mu-reco
   state: ObjectStatus
-}
-
-type MutationResponse {
-  success: Boolean!
-  message: String
-  comment: Comment
 }
 
 extend type Query {
@@ -53,9 +45,10 @@ type Mutation {
   createComment(input: CreateCommentInput!): Comment!
   updateComment(commentID: ID!, input: UpdateCommentInput!): Comment!
   deleteComment(commentID: ID!): MutationResponse!
+  addFeedbackToComment(commentID: ID!, feedback: Int!): Comment!
 }
 
-type Subscription {
+extend type Subscription {
   commentAdded: Comment!
   commentUpdated: Comment!
   commentDeleted: Comment!

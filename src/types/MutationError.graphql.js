@@ -1,5 +1,5 @@
 
-export default `
+export default /* GraphQL */`
 # src/graphql/types/MutationError.graphql
 
 # Custom error type for handling potential errors during mutations
@@ -13,7 +13,7 @@ type MutationError {
 # For operation requiring a state only
 type MutationResponse {
   success: Boolean!
-  message: String!
+  message: String
   code: Int
 }
 `;

@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Role.graphql.js
 
 type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -15,39 +15,24 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   deletedAt: DateTime
 }
 
-input RoleInput {
-  roleID: ID 
+input CreateRoleInput {
+  authorID: ID!
+  roleName: String
+  description: String
+  permissions: JSON
+  state: ObjectStatus
+}
+
+input UpdateRoleInput {
   authorID: ID
   roleName: String
   description: String
-  permissions: String
+  permissions: JSON
   state: ObjectStatus
 }
 
 extend type Query {
   role(roleID: ID!): Role
-  roleByID(roleID: ID!): Role
-  roleByUUID(uuid: String!): Role!
-  roleBySlug(slug: String!): Role! 
-  rolesByIDs(ids: [ID!]!): [Role!]!
-  rolesByState(
-    state: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Role!]!
-  rolesByName(
-    name: String!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Role!]!
-  rolesByAuthor(
-    authorID: ID!
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-    ): [Role!]!
   roles(
     pagination: PaginationInput,
     sort: SortInput,
@@ -56,14 +41,12 @@ extend type Query {
 }
 
 type Mutation {
-  createRole(input: RoleInput!): Role!
-  updateRole(roleID: ID!, input: RoleInput!): Role!
+  createRole(input: CreateRoleInput!): Role!
+  updateRole(roleID: ID!, input: UpdateRoleInput!): Role!
   deleteRole(roleID: ID!): MutationResponse!
 }
 
-type Subscription {
-  roleListing: Role!
-  roleDetails: Role!
+extend type Subscription {
   roleAdded: Role!
   roleUpdated: Role!
   roleDeleted: Role!

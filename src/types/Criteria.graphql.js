@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */ `
 # src/graphql/types/Criteria.graphql.js
 
 type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -33,7 +33,6 @@ input CreateCriteriaInput {
 }
 
 input UpdateCriteriaInput {
-  criteriaID: ID!
   authorID: ID!
   title: String
   description: String

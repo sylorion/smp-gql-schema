@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/Documentation.graphql.js
 
 type Documentation implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -20,10 +20,10 @@ type Documentation implements ServicesEntity & ServicesNavigableEntity & Service
 }
 
 input CreateDocumentationInput {
-  authorID: ID
+  authorID: ID!
   serviceID: ID
   organizationID: ID
-  title: String
+  title: String!
   level: Int
   order: Int
   description: String
@@ -32,8 +32,7 @@ input CreateDocumentationInput {
 }
 
 input UpdateDocumentationInput {
-  documentationID: ID!
-  authorID: ID
+  authorID: ID!
   serviceID: ID
   organizationID: ID
   title: String

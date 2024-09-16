@@ -1,4 +1,4 @@
-export default `
+export default /* GraphQL */`
 # src/graphql/types/AuditLog.graphql.js
 
 type AuditLog implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -34,24 +34,18 @@ input CreateAuditLogInput {
 }
 
 input UpdateAuditLogInput {
-  auditLogID: ID!
-  actionType: AuditLogActionType
-  userID: ID
-  userIP: String
-  userOS: String
+  # actionType: AuditLogActionType
+  # userID: ID
+  # userIP: String
+  # userOS: String
   machineName: String
   applicationID: ID
   applicationVersion: String
-  actionDetails: String
-  clientDetails: String
+  # actionDetails: String
+  # clientDetails: String
   state: ObjectStatus
 }
 
-type MutationResponse {
-  success: Boolean!
-  message: String
-  auditLog: AuditLog
-}
 
 extend type Query {
   auditLog(auditLogID: ID!): AuditLog
