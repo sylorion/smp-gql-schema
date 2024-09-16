@@ -26,7 +26,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
-  advancedAttributes: Json
+  advancedAttributes: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -55,7 +55,7 @@ input CreateServiceInput {
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
-  advancedAttributes: Json
+  advancedAttributes: JSON
   state: ObjectStatus
 }
 
@@ -81,7 +81,7 @@ input UpdateServiceInput {
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
-  advancedAttributes: Json
+  advancedAttributes: JSON
   state: ObjectStatus
 }
 

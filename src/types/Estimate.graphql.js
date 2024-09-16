@@ -42,7 +42,7 @@ input CreateEstimateInput {
   commentaire: String
   negociatedPrice: Int
   discountID: ID
-  details: Json!
+  details: JSON!
   stage: EstimateStage
   state: ObjectStatus
 }
@@ -56,7 +56,7 @@ input UpdateEstimateInput {
   commentaire: String
   negociatedPrice: Int
   discountID: ID
-  details: Json
+  details: JSON
   stage: EstimateStage
   state: ObjectStatus
 }
