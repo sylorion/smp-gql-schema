@@ -14,6 +14,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   twoFactorEnabled: Boolean
   loginDuration: Int
   rsaPublicKey: String
+  profile: Profile
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -23,7 +24,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 input CreateUserInput {
   username: String!
   email: String!
-  passwordHash: String!
+  password: String!
   plan: String
   userKind: UserType
   twoFactorEnabled: Boolean
@@ -34,7 +35,7 @@ input CreateUserInput {
 input UpdateUserInput {
   username: String
   email: String
-  passwordHash: String
+  password: String
   plan: String
   profileID: Int
   userKind: UserType
