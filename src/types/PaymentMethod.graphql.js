@@ -23,7 +23,7 @@ type PaymentMethod implements ServicesEntity & ServicesNavigableEntity & Service
 }
 
 input CreatePaymentMethodInput {
-  authorID: ID!
+  
   organizationID: ID
   paymentMethodKind: PaymentMethodType!
   isActive: Boolean
@@ -38,7 +38,7 @@ input CreatePaymentMethodInput {
 }
 
 input UpdatePaymentMethodInput {
-  authorID: ID!
+  
   organizationID: ID
   paymentMethodKind: PaymentMethodType
   isActive: Boolean
@@ -67,9 +67,5 @@ type Mutation {
   deletePaymentMethod(paymentMethodID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  paymentMethodAdded: PaymentMethod!
-  paymentMethodUpdated: PaymentMethod!
-  paymentMethodDeleted: PaymentMethod!
-}
+
 `;

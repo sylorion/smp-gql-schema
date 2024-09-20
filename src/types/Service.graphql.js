@@ -34,7 +34,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 }
 
 input CreateServiceInput {
-  authorID: ID!
+  
   title: String!
   description: String!
   mediaBannerID: ID
@@ -60,14 +60,13 @@ input CreateServiceInput {
 }
 
 input UpdateServiceInput {
-  authorID: ID!
+  
   title: String
   description: String
   mediaBannerID: ID
   termsAndConditionsID: ID
   parentServiceID: ID
   topicID: ID
-  # organizationID: ID
   locationID: ID
   paymentConfigID: ID
   price: Int
@@ -105,9 +104,5 @@ type Mutation {
   deleteService(serviceID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  serviceAdded: Service!
-  serviceUpdated: Service!
-  serviceDeleted: Service!
-}
+
 `;

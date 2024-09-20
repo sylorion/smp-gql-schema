@@ -5,7 +5,7 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   estimateID: ID!
   uniqRef: String
   slug: String
-  authorID: ID!
+  
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID
@@ -29,7 +29,7 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 }
 
 input CreateEstimateInput {
-  authorID: ID!
+  
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID
@@ -76,9 +76,5 @@ type Mutation {
   deleteEstimate(estimateID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  estimateAdded: Estimate!
-  estimateUpdated: Estimate!
-  estimateDeleted: Estimate!
-}
+
 `;

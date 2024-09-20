@@ -5,7 +5,7 @@ type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & Serv
   serviceAttributeID: ID!
   uniqRef: String
   slug: String
-  authorID: ID!
+  
   attributeName: String
   attributeValue: String
   serviceID: ID
@@ -16,7 +16,7 @@ type ServiceAttribute implements ServicesEntity & ServicesNavigableEntity & Serv
 }
 
 input CreateServiceAttributeInput {
-  authorID: ID!
+  
   attributeName: String!
   attributeValue: String!
   serviceID: ID!
@@ -24,7 +24,7 @@ input CreateServiceAttributeInput {
 }
 
 input UpdateServiceAttributeInput {
-  authorID: ID!
+  
   attributeName: String
   attributeValue: String
   serviceID: ID
@@ -46,9 +46,5 @@ type Mutation {
   deleteServiceAttribute(serviceAttributeID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  serviceAttributeAdded: ServiceAttribute!
-  serviceAttributeUpdated: ServiceAttribute!
-  serviceAttributeDeleted: ServiceAttribute!
-}
+
 `;

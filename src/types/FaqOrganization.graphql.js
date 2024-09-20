@@ -17,7 +17,7 @@ type FaqOrganization implements ServicesEntity & ServicesNavigableEntity & Servi
 }
 
 input CreateFaqOrganizationInput {
-  authorID: ID!
+  
   order: ID
   faqAnswerID: ID
   faqQuestionID: ID
@@ -26,7 +26,7 @@ input CreateFaqOrganizationInput {
 }
 
 input UpdateFaqOrganizationInput {
-  authorID: ID!
+  
   order: ID
   faqAnswerID: ID
   faqQuestionID: ID
@@ -49,9 +49,5 @@ type Mutation {
   deleteFaqOrganization(faqOrganizationID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  faqOrganizationAdded: FaqOrganization!
-  faqOrganizationUpdated: FaqOrganization!
-  faqOrganizationDeleted: FaqOrganization!
-}
+
 `;

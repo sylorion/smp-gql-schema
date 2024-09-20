@@ -18,7 +18,7 @@ type Comment implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 
 input CreateCommentInput {
   content: String!
-  authorID: ID!
+  
   serviceID: ID!
   organizationID: ID
   state: ObjectStatus
@@ -26,7 +26,7 @@ input CreateCommentInput {
 
 input UpdateCommentInput {
   content: String!
-  authorID: ID!
+  
   serviceID: ID
   organizationID: ID
   state: ObjectStatus
@@ -48,9 +48,5 @@ type Mutation {
   addFeedbackToComment(commentID: ID!, feedback: Int!): Comment!
 }
 
-extend type Subscription {
-  commentAdded: Comment!
-  commentUpdated: Comment!
-  commentDeleted: Comment!
-}
+
 `;

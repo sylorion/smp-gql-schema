@@ -16,7 +16,7 @@ type PaymentConfig implements ServicesEntity & ServicesNavigableEntity & Service
 }
 
 input CreatePaymentConfigInput {
-  authorID: ID!
+  
   paymentMethodID: ID
   partnerTokenAuthDetails: JSON
   paymentConfigDetails: JSON
@@ -24,7 +24,7 @@ input CreatePaymentConfigInput {
 }
 
 input UpdatePaymentConfigInput {
-  authorID: ID!
+  
   paymentMethodID: ID
   partnerTokenAuthDetails: JSON
   paymentConfigDetails: JSON
@@ -46,9 +46,5 @@ type Mutation {
   deletePaymentConfig(paymentConfigID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  paymentConfigAdded: PaymentConfig!
-  paymentConfigUpdated: PaymentConfig!
-  paymentConfigDeleted: PaymentConfig!
-}
+
 `;

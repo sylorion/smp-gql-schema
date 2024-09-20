@@ -35,11 +35,5 @@ type Mutation {
   deleteApplicationToken(applicationTokenID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  applicationTokenListing: ApplicationToken!
-  applicationTokenDetails: ApplicationToken!
-  applicationTokenAdded: ApplicationToken!
-  applicationTokenUpdated: ApplicationToken!
-  applicationTokenDeleted: ApplicationToken!
-}
+
 `;

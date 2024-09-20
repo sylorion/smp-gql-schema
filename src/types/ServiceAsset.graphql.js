@@ -8,7 +8,7 @@ type ServiceAsset implements ServicesEntity & ServicesNavigableEntity & Services
   assetID: ID
   serviceID: ID
   legend: String
-  authorID: ID!
+  
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -19,7 +19,7 @@ input CreateServiceAssetInput {
   assetID: ID!
   serviceID: ID!
   legend: String
-  authorID: ID!
+  
   state: ObjectStatus
 }
 
@@ -27,7 +27,7 @@ input UpdateServiceAssetInput {
   assetID: ID
   serviceID: ID
   legend: String
-  authorID: ID!
+  
   state: ObjectStatus
 }
 
@@ -46,9 +46,5 @@ type Mutation {
   deleteServiceAsset(serviceAssetID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  serviceAssetAdded: ServiceAsset!
-  serviceAssetUpdated: ServiceAsset!
-  serviceAssetDeleted: ServiceAsset!
-}
+
 `;

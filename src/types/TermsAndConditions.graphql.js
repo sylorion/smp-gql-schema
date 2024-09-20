@@ -5,7 +5,7 @@ type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & Se
   termsAndConditionsID: ID!
   uniqRef: String!
   slug: String!
-  authorID: ID!
+  
   organizationID: ID!
   tacContent: String
   state: ObjectStatus
@@ -15,14 +15,14 @@ type TermsAndConditions implements ServicesEntity & ServicesNavigableEntity & Se
 }
 
 input CreateTermsAndConditionsInput {
-  authorID: ID!
+  
   organizationID: ID!
   tacContent: String!
   state: ObjectStatus
 }
 
 input UpdateTermsAndConditionsInput {
-  authorID: ID!
+  
   organizationID: ID
   tacContent: String
   state: ObjectStatus
@@ -43,9 +43,5 @@ type Mutation {
   deleteTermsAndConditions(termsAndConditionsID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  termsAndConditionsAdded: TermsAndConditions!
-  termsAndConditionsUpdated: TermsAndConditions!
-  termsAndConditionsDeleted: TermsAndConditions!
-}
+
 `;

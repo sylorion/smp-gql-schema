@@ -25,7 +25,7 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
 
 input CreateAssetInput {
   title: String!
-  authorID: ID!
+  
   stockQuantity: Int
   organizationID: ID
   mediaID: ID
@@ -41,7 +41,7 @@ input CreateAssetInput {
 
 input UpdateAssetInput {
   title: String
-  authorID: ID!
+  
   stockQuantity: Int
   mediaID: ID
   description: String
@@ -75,11 +75,5 @@ type Mutation {
   deleteAsset(assetID: ID!): MutationResponse!
 }
 
-type Subscription {
-  assetListing: Asset!
-  assetDetails: Asset!
-  assetAdded: Asset!
-  assetUpdated: Asset!
-  assetDeleted: Asset!
-}
+
 `;

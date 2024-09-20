@@ -15,14 +15,14 @@ type Tag implements ServicesEntity & ServicesNavigableEntity & ServicesStatable 
 }
 
 input CreateTagInput {
-  authorID: ID!
+  
   value: String!
   topicID: ID
   state: ObjectStatus
 }
 
 input UpdateTagInput {
-  authorID: ID!
+  
   value: String
   topicID: ID
   state: ObjectStatus
@@ -43,10 +43,6 @@ type Mutation {
   deleteTag(tagID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  tagAdded: Tag!
-  tagUpdated: Tag!
-  tagDeleted: Tag!
-}
+
 `;
 

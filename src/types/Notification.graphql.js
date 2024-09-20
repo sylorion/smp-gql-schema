@@ -8,6 +8,9 @@ type Notification {
   message: String!
   readAt: DateTime
   link: String
+  state:ObjectStatus
+  slug: String
+  uniqRef: String
   type: NotificationType
   notificationTemplateID: ID
   createdAt: DateTime
@@ -18,6 +21,7 @@ type Notification {
 input CreateNotificationInput {
   userID: ID!
   title: String!
+  state: ObjectStatus
   message: String!
   notificationTemplateID: ID
   link: String
@@ -27,6 +31,7 @@ input UpdateNotificationInput {
   title: String
   message: String
   link: String
+  state: ObjectStatus
   type: NotificationType
 }
 
@@ -46,9 +51,5 @@ type Mutation {
   markNotificationAsRead(notificationID: ID!): Notification!
 }
 
-extend type Subscription {
-  notificationAdded: Notification!
-  notificationUpdated: Notification!
-  notificationDeleted: Notification!
-}
+
 `;

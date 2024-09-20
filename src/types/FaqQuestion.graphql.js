@@ -16,7 +16,7 @@ type FaqQuestion implements ServicesEntity & ServicesNavigableEntity & ServicesS
 }
 
 input CreateFaqQuestionInput {
-  authorID: ID!
+  
   topicID: ID!
   lang: String!
   question: String!
@@ -46,9 +46,5 @@ type Mutation {
   deleteFaqQuestion(faqQuestionID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  faqQuestionAdded: FaqQuestion!
-  faqQuestionUpdated: FaqQuestion!
-  faqQuestionDeleted: FaqQuestion!
-}
+
 `;

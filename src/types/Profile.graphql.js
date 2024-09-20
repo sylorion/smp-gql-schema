@@ -65,9 +65,5 @@ type Mutation {
   deleteProfile(profileID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  profileAdded: Profile!
-  profileUpdated: Profile!
-  profileDeleted: Profile!
-}
+
 `;

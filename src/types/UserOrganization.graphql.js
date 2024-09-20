@@ -17,7 +17,7 @@ type UserOrganization implements ServicesEntity & ServicesNavigableEntity & Serv
 }
 
 input CreateUserOrganizationInput {
-  authorID: ID!
+  
   legend: String
   userID: ID!
   roleID: ID!
@@ -26,7 +26,7 @@ input CreateUserOrganizationInput {
 }
 
 input UpdateUserOrganizationInput {
-  authorID: ID!
+  
   legend: String
   userID: ID
   roleID: ID
@@ -49,9 +49,5 @@ type Mutation {
   deleteUserOrganization(userOrganizationID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  userOrganizationAdded: UserOrganization!
-  userOrganizationUpdated: UserOrganization!
-  userOrganizationDeleted: UserOrganization!
-}
+
 `;

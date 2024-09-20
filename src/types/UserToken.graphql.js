@@ -46,9 +46,5 @@ type Mutation {
   deleteUserToken(userTokenID: ID!): Boolean!
 }
 
-extend type Subscription {
-  userTokenAdded: UserToken!
-  userTokenUpdated: UserToken!
-  userTokenDeleted: UserToken!
-}
+
 `;

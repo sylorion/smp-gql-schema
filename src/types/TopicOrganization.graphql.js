@@ -40,9 +40,5 @@ type Mutation {
   deleteTopicOrganization(topicOrganizationID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  topicOrganizationAdded: TopicOrganization!
-  topicOrganizationUpdated: TopicOrganization!
-  topicOrganizationDeleted: TopicOrganization!
-}
+
 `;

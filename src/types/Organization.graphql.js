@@ -117,9 +117,5 @@ type Mutation {
   deleteOrganization(organizationID: ID!): Boolean!
 }
 
-extend type Subscription {
-  organizationAdded: Organization!
-  organizationUpdated: Organization!
-  organizationDeleted: Organization!
-}
+
 `;

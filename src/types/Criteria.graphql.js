@@ -21,7 +21,7 @@ type Criteria implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 }
 
 input CreateCriteriaInput {
-  authorID: ID!
+  
   title: String!
   description: String
   parentID: ID
@@ -33,7 +33,7 @@ input CreateCriteriaInput {
 }
 
 input UpdateCriteriaInput {
-  authorID: ID!
+  
   title: String
   description: String
   parentID: ID
@@ -63,9 +63,5 @@ type Mutation {
   deleteCriteria(criteriaID: ID!): MutationResponse!
 }
 
-type Subscription {
-  criteriaAdded: Criteria!
-  criteriaUpdated: Criteria!
-  criteriaDeleted: Criteria!
-}
+
 `;

@@ -13,7 +13,7 @@ type Follow {
 }
 
 input CreateFollowInput {
-  authorID: ID!
+  
   followedID: ID!
   followedEntity: FollowableEntity!
   state: ObjectStatus
@@ -43,9 +43,5 @@ type Mutation {
   unFollowOrganization(organizationID: ID!): Boolean!
 }
 
-extend type Subscription {
-  followAdded: Follow!
-  followUpdated: Follow!
-  followDeleted: Follow!
-}
+
 `;

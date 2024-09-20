@@ -69,9 +69,5 @@ type Mutation {
   deleteUserPreferences(userPreferencesID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  userPreferencesAdded: UserPreferences!
-  userPreferencesUpdated: UserPreferences!
-  userPreferencesDeleted: UserPreferences!
-}
+
 `;

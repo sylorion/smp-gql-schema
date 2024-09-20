@@ -7,7 +7,7 @@ type Review implements ServicesEntity & ServicesNavigableEntity & ServicesStatab
   slug: String
   serviceID: ID
   organizationID: ID
-  authorID: ID!
+  
   criteriaID: ID
   rating: Int
   commentID: ID
@@ -20,7 +20,7 @@ type Review implements ServicesEntity & ServicesNavigableEntity & ServicesStatab
 input CreateReviewInput {
   serviceID: ID
   organizationID: ID
-  authorID: ID!
+  
   criteriaID: ID
   rating: Int
   commentID: ID
@@ -30,7 +30,7 @@ input CreateReviewInput {
 input UpdateReviewInput {
   # serviceID: ID
   # organizationID: ID
-  authorID: ID!
+  
   # criteriaID: ID
   rating: Int
   # commentID: ID
@@ -52,9 +52,5 @@ type Mutation {
   deleteReview(reviewID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  reviewAdded: Review!
-  reviewUpdated: Review!
-  reviewDeleted: Review!
-}
+
 `;

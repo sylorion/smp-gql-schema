@@ -5,7 +5,7 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
   serviceMediaID: ID!
   uniqRef: String
   slug: String
-  authorID: ID!
+  
   mediaID: ID!
   serviceID: ID!
   legend: String
@@ -17,7 +17,7 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
 }
 
 input CreateServiceMediaInput {
-  authorID: ID!
+  
   mediaID: ID!
   serviceID: ID!
   legend: String
@@ -26,7 +26,7 @@ input CreateServiceMediaInput {
 }
 
 input UpdateServiceMediaInput {
-  authorID: ID!
+  
   mediaID: ID
   serviceID: ID
   legend: String
@@ -49,9 +49,5 @@ type Mutation {
   deleteServiceMedia(serviceMediaID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  serviceMediaAdded: ServiceMedia!
-  serviceMediaUpdated: ServiceMedia!
-  serviceMediaDeleted: ServiceMedia!
-}
+
 `;

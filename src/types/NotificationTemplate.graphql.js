@@ -35,9 +35,4 @@ type Mutation {
   deleteNotificationTemplate(notificationTemplateID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  notificationTemplateAdded: NotificationTemplate!
-  notificationTemplateUpdated: NotificationTemplate!
-  notificationTemplateDeleted: NotificationTemplate!
-}
 `;

@@ -25,7 +25,6 @@ type Discount implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 }
 
 input CreateDiscountInput {
-  authorID: ID
   description: String
   discountCode: String
   discountValue: Int
@@ -42,7 +41,6 @@ input CreateDiscountInput {
 }
 
 input UpdateDiscountInput {
-  authorID: ID!
   description: String
   discountCode: String
   discountValue: Int
@@ -72,9 +70,5 @@ type Mutation {
   deleteDiscount(discountID: ID!): MutationResponse!
 }
 
-type Subscription {
-  discountAdded: Discount!
-  discountUpdated: Discount!
-  discountDeleted: Discount!
-}
+
 `;

@@ -36,7 +36,7 @@ input CreatePlaceInput {
 }
 
 input UpdatePlaceInput {
-  authorID: ID!
+  
   country: String
   region: String
   pstate: String
@@ -64,9 +64,5 @@ type Mutation {
   deletePlace(placeID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  placeAdded: Place!
-  placeUpdated: Place!
-  placeDeleted: Place!
-}
+
 `;

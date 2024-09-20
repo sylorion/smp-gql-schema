@@ -8,7 +8,7 @@ type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & Service
   legend: String
   assetID: ID
   estimateID: ID
-  authorID: ID!
+  
   mandadtry: Boolean
   initialPrice: Int
   quantity: Int
@@ -22,7 +22,7 @@ input CreateEstimateAssetInput {
   legend: String!
   assetID: ID!
   estimateID: ID!
-  authorID: ID!
+  
   mandadtry: Boolean
   initialPrice: Int
   quantity: Int
@@ -51,9 +51,5 @@ type Mutation {
   deleteEstimateAsset(estimateAssetID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  estimateAssetAdded: EstimateAsset!
-  estimateAssetUpdated: EstimateAsset!
-  estimateAssetDeleted: EstimateAsset!
-}
+
 `;

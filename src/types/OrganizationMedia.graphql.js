@@ -17,7 +17,7 @@ type OrganizationMedia implements ServicesEntity & ServicesNavigableEntity & Ser
 }
 
 input CreateOrganizationMediaInput {
-  authorID: ID!
+  
   mediaID: ID!
   organizationID: ID!
   legend: String
@@ -26,7 +26,7 @@ input CreateOrganizationMediaInput {
 }
 
 input UpdateOrganizationMediaInput {
-  authorID: ID!
+  
   mediaID: ID
   organizationID: ID
   legend: String
@@ -49,9 +49,5 @@ type Mutation {
   deleteOrganizationMedia(organizationMediaID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  organizationMediaAdded: OrganizationMedia!
-  organizationMediaUpdated: OrganizationMedia!
-  organizationMediaDeleted: OrganizationMedia!
-}
+
 `;

@@ -20,7 +20,7 @@ type Documentation implements ServicesEntity & ServicesNavigableEntity & Service
 }
 
 input CreateDocumentationInput {
-  authorID: ID!
+  
   serviceID: ID
   organizationID: ID
   title: String!
@@ -32,7 +32,7 @@ input CreateDocumentationInput {
 }
 
 input UpdateDocumentationInput {
-  authorID: ID!
+  
   serviceID: ID
   organizationID: ID
   title: String
@@ -64,9 +64,5 @@ type Mutation {
   deleteDocumentation(documentationID: ID!): MutationResponse!
 }
 
-type Subscription {
-  documentationAdded: Documentation!
-  documentationUpdated: Documentation!
-  documentationDeleted: Documentation!
-}
+
 `;

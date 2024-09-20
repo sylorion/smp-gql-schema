@@ -17,7 +17,7 @@ type Industry {
 }
 
 input CreateIndustryInput {
-  authorID: ID!
+  
   title: String!
   description: String!
   level: Int!
@@ -26,7 +26,7 @@ input CreateIndustryInput {
 }
 
 input UpdateIndustryInput {
-  authorID: ID!
+  
   title: String
   description: String
   level: Int
@@ -49,9 +49,5 @@ type Mutation {
   deleteIndustry(industryID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  industryAdded: Industry!
-  industryUpdated: Industry!
-  industryDeleted: Industry!
-}
+
 `;

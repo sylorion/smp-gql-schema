@@ -17,7 +17,7 @@ type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 
 input CreateUserRoleInput {
   legend: String!
-  authorID: ID!
+  
   userID: ID!
   roleID: ID!
   state: ObjectStatus
@@ -25,7 +25,7 @@ input CreateUserRoleInput {
 
 input UpdateUserRoleInput {
   legend: String
-  authorID: ID!
+  
   userID: ID
   roleID: ID
   state: ObjectStatus
@@ -46,9 +46,5 @@ type Mutation {
   deleteUserRole(userRoleID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  userRoleAdded: UserRole!
-  userRoleUpdated: UserRole!
-  userRoleDeleted: UserRole!
-}
+
 `;

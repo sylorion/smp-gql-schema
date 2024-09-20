@@ -5,7 +5,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   mediaID: ID!
   uniqRef: String
   slug: String
-  authorID: ID!
+  
   mediaType: MediaType
   legend: String
   summary: String
@@ -20,7 +20,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
 }
 
 input CreateMediaInput {
-  authorID: ID!
+  
   mediaType: MediaType
   legend: String
   summary: String
@@ -58,9 +58,4 @@ type Mutation {
   deleteMedia(mediaID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  mediaAdded: Media!
-  mediaUpdated: Media!
-  mediaDeleted: Media!
-}
 `;

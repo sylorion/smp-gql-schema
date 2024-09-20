@@ -17,7 +17,7 @@ type Topic implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
 }
 
 input CreateTopicInput {
-  authorID: ID!
+  
   title: String!
   description: String!
   parentTopicID: ID
@@ -26,7 +26,7 @@ input CreateTopicInput {
 }
 
 input UpdateTopicInput {
-  authorID: ID!
+  
   title: String
   description: String
   parentTopicID: ID
@@ -49,9 +49,5 @@ type Mutation {
   deleteTopic(topicID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  topicAdded: Topic!
-  topicUpdated: Topic!
-  topicDeleted: Topic!
-}
+
 `;

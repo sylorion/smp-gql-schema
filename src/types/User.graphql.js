@@ -22,7 +22,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 }
 
 input CreateUserInput {
-  username: String!
+  username: String
   email: String!
   password: String!
   plan: String
@@ -66,9 +66,5 @@ type Mutation {
   deleteUser(userID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  userAdded: User!
-  userUpdated: User!
-  userDeleted: User!
-}
+
 `;

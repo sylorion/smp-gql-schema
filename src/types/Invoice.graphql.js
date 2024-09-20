@@ -16,7 +16,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   emitDate: DateTime
   dueDate: DateTime
   digitalSignature: String
-  authorID: ID!
+  
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -25,7 +25,7 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 
 input CreateInvoiceInput {
   estimateID: ID
-  authorID: ID!
+  
   thirdPartyFees: Int
   sellerOrganizationID: ID
   servicesFees: Int
@@ -67,9 +67,5 @@ type Mutation {
   deleteInvoice(invoiceID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  invoiceAdded: Invoice!
-  invoiceUpdated: Invoice!
-  invoiceDeleted: Invoice!
-}
+
 `;

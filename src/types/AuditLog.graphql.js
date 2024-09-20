@@ -62,9 +62,5 @@ type Mutation {
   deleteAuditLog(auditLogID: ID!): MutationResponse!
 }
 
-type Subscription {
-  auditLogAdded: AuditLog!
-  auditLogUpdated: AuditLog!
-  auditLogDeleted: AuditLog!
-}
+
 `;

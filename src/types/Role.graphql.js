@@ -5,7 +5,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   roleID: ID!
   uniqRef: String!
   slug: String!
-  authorID: ID!
+  
   roleName: String
   description: String
   permissions: JSON
@@ -16,7 +16,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 }
 
 input CreateRoleInput {
-  authorID: ID!
+  
   roleName: String
   description: String
   permissions: JSON
@@ -46,9 +46,5 @@ type Mutation {
   deleteRole(roleID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  roleAdded: Role!
-  roleUpdated: Role!
-  roleDeleted: Role!
-}
+
 `;

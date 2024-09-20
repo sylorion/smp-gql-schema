@@ -17,7 +17,7 @@ type FaqService implements ServicesEntity & ServicesNavigableEntity & ServicesSt
 }
 
 input CreateFaqServiceInput {
-  authorID: ID!
+  
   order: ID
   faqAnswerID: ID!
   faqQuestionID: ID!
@@ -26,7 +26,7 @@ input CreateFaqServiceInput {
 }
 
 input UpdateFaqServiceInput {
-  authorID: ID!
+  
   order: ID
   faqAnswerID: ID
   faqQuestionID: ID
@@ -49,9 +49,4 @@ type Mutation {
   deleteFaqService(faqServiceID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  faqServiceAdded: FaqService!
-  faqServiceUpdated: FaqService!
-  faqServiceDeleted: FaqService!
-}
 `;

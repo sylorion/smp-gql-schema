@@ -17,7 +17,7 @@ type FaqAnswer implements ServicesEntity & ServicesNavigableEntity & ServicesSta
 }
 
 input CreateFaqAnswerInput {
-  authorID: ID!
+  
   topicID: ID!
   lang: String!
   answer: String!
@@ -49,9 +49,4 @@ type Mutation {
   deleteFaqAnswer(faqAnswerID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  faqAnswerAdded: FaqAnswer!
-  faqAnswerUpdated: FaqAnswer!
-  faqAnswerDeleted: FaqAnswer!
-}
 `;

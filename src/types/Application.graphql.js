@@ -5,7 +5,6 @@ type Application {
   applicationID: ID!
   uniqRef: String
   slug: String
-  authorID: ID
   title: String
   description: String
   officialName: String
@@ -21,7 +20,6 @@ type Application {
 }
 
 input CreateApplicationInput {
-  authorID: ID!
   title: String!
   description: String
   officialName: String
@@ -34,7 +32,6 @@ input CreateApplicationInput {
 }
 
 input UpdateApplicationInput {
-  authorID: ID!
   title: String
   description: String
   officialName: String
@@ -61,13 +58,5 @@ type Mutation {
   deleteApplication(applicationID: ID!): MutationResponse!
 }
 
-type Subscription {
-  # When appear to a search or listing
-  applicationListing: Application!
-  # When loaded for full details aka applicationbyid or slug
-  applicationDetails: Application!
-  applicationAdded: Application!
-  applicationUpdated: Application!
-  applicationDeleted: Application!
-}
+
 `;

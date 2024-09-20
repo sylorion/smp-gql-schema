@@ -51,9 +51,5 @@ type Mutation {
   deleteTransaction(transactionID: ID!): MutationResponse!
 }
 
-extend type Subscription {
-  transactionAdded: Transaction!
-  transactionUpdated: Transaction!
-  transactionDeleted: Transaction!
-}
+
 `;
