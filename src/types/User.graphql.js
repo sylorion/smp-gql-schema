@@ -13,8 +13,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   lastLogin: DateTime
   twoFactorEnabled: Boolean
   loginDuration: Int
-  rsaPublicKey: String
-  profile: Profile
+  rsaPublicKey: String 
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
