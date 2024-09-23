@@ -49,7 +49,13 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Application!]!
+  ): [Application!]!,
+  applicationBySlug(Slug: String!): Application,
+  applicationsByIDs(applicationIDs: [ID!]!): [Application!]!,
+  applicationsBySlugs(slugs: [String!]!): [Application!]!
+  applicationByUniqRef(UniqRef: String!): Application!
+  
+
 }
 
 type Mutation {

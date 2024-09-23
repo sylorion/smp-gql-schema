@@ -38,6 +38,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [ServiceAttribute!]!
+  serviceAttributeBySlug(Slug: String!): ServiceAttribute
+  serviceAttributesByIDs(serviceAttributeIDs: [ID!]!): [ServiceAttribute!]!
+  serviceAttributesBySlugs(slugs: [String!]!): [ServiceAttribute!]!
+  serviceAttributeByUniqRef(UniqRef: String!): ServiceAttribute
 }
 
 type Mutation {

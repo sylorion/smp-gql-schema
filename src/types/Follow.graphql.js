@@ -32,7 +32,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Follow!]!
+  ): [Follow!]!,
+  followBySlug(Slug: String!): Follow
+  followsByIDs(followIDs: [ID!]!): [Follow!]!
+  followsBySlugs(slugs: [String!]!): [Follow!]!
+  followByUniqRef(UniqRef: String!): Follow
 }
 
 type Mutation {

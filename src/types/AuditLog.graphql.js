@@ -54,6 +54,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [AuditLog!]!
+  auditLogBySlug(Slug: String!): AuditLog
+  auditLogsByIDs(auditLogIDs: [ID!]!): [AuditLog!]!
+  auditLogsBySlugs(slugs: [String!]!): [AuditLog!]!
+  auditLogByUniqRef(UniqRef: String!): AuditLog
 }
 
 type Mutation {

@@ -38,6 +38,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [PaymentConfig!]!
+  paymentConfigBySlug(Slug: String!): PaymentConfig
+  paymentConfigsByIDs(paymentConfigIDs: [ID!]!): [PaymentConfig!]!
+  paymentConfigsBySlugs(slugs: [String!]!): [PaymentConfig!]!
+  paymentConfigByUniqRef(UniqRef: String!): PaymentConfig
 }
 
 type Mutation {

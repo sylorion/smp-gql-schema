@@ -42,6 +42,12 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Notification!]!
+  notificationBySlug(Slug: String!): Notification
+  notificationsByIDs(notificationIDs: [ID!]!): [Notification!]!
+  notificationsBySlugs(slugs: [String!]!): [Notification!]!
+  notificationByUniqRef(UniqRef: String!): Notification
+  notificationsByUserID(userID: ID!): [Notification!]!
+  
 }
 
 type Mutation {

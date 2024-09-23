@@ -57,6 +57,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Profile!]!
+  profileBySlug(Slug: String!): Profile
+  profilesByIDs(profileIDs: [ID!]!): [Profile!]!
+  profilesBySlugs(slugs: [String!]!): [Profile!]!
+  profileByUniqRef(UniqRef: String!): Profile
 }
 
 type Mutation {

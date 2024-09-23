@@ -37,7 +37,12 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Role!]!
+  ): [Role!]!,
+  roleBySlug(Slug: String!): Role
+  rolesByIDs(roleIDs: [ID!]!): [Role!]!
+  rolesBySlugs(slugs: [String!]!): [Role!]!
+  roleByUniqRef(UniqRef: String!): Role
+
 }
 
 type Mutation {

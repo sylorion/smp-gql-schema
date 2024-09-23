@@ -38,7 +38,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Comment!]!
+  ): [Comment!]!,
+  commentBySlug(Slug: String!): Comment
+  commentsByIDs(commentIDs: [ID!]!): [Comment!]!
+  commentsBySlugs(slugs: [String!]!): [Comment!]!
+  commentByUniqRef(UniqRef: String!): Comment
 }
 
 type Mutation {

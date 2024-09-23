@@ -37,7 +37,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [FaqQuestion!]!
+  ): [FaqQuestion!]!,
+  faqQuestionBySlug(Slug: String!): FaqQuestion
+  faqQuestionsByIDs(faqQuestionIDs: [ID!]!): [FaqQuestion!]!
+  faqQuestionsBySlugs(slugs: [String!]!): [FaqQuestion!]!
+  faqQuestionByUniqRef(UniqRef: String!): FaqQuestion
 }
 
 type Mutation {

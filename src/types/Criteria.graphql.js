@@ -54,7 +54,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Criteria!]!
+  ): [Criteria!]!,
+  criteriaBySlug(Slug: String!): Criteria
+  criteriasByIDs(criteriaIDs: [ID!]!): [Criteria!]!
+  criteriasBySlugs(slugs: [String!]!): [Criteria!]!
+  criteriaByUniqRef(UniqRef: String!): Criteria
 }
 
 type Mutation {

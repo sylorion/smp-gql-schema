@@ -59,6 +59,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Invoice!]!
+  invoiceBySlug(Slug: String!): Invoice
+  invoicesByIDs(invoiceIDs: [ID!]!): [Invoice!]!
+  invoicesBySlugs(slugs: [String!]!): [Invoice!]!
+  invoiceByUniqRef(UniqRef: String!): Invoice
 }
 
 type Mutation {

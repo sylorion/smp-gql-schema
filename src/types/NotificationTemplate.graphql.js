@@ -27,6 +27,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [NotificationTemplate!]!
+  notificationTemplateBySlug(Slug: String!): NotificationTemplate
+  notificationTemplatesByIDs(notificationTemplateIDs: [ID!]!): [NotificationTemplate!]!
+  notificationTemplatesBySlugs(slugs: [String!]!): [NotificationTemplate!]!
+  notificationTemplateByUniqRef(UniqRef: String!): NotificationTemplate
 }
 
 type Mutation {

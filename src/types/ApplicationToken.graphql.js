@@ -26,7 +26,12 @@ input UpdateApplicationTokenInput {
 
 extend type Query {
   applicationToken(applicationTokenID: ID!): ApplicationToken
-  applicationTokens: [ApplicationToken!]!
+  applicationTokens: [ApplicationToken!]!,
+  applicationTokenBySlug(Slug: String!): ApplicationToken,
+  applicationTokensByIDs(applicationTokenIDs: [ID!]!): [ApplicationToken!]!,
+  applicationTokensBySlugs(slugs: [String!]!): [ApplicationToken!]!
+  applicationTokenByUniqRef(UniqRef: String!): ApplicationToken!
+
 }
 
 type Mutation {

@@ -38,6 +38,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [UserToken!]!
+  userTokenByToken(token: String!): UserToken
+  userTokensByUserIDs(userIDs: [ID!]!): [UserToken!]!
+  userTokensByApplicationIDs(applicationIDs: [ID!]!): [UserToken!]!
+  userTokensByPlatforms(platforms: [String!]!): [UserToken!]!
 }
 
 type Mutation {

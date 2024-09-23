@@ -44,6 +44,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Review!]!
+  reviewBySlug(Slug: String!): Review
+  reviewsByIDs(reviewIDs: [ID!]!): [Review!]!
+  reviewsBySlugs(slugs: [String!]!): [Review!]!
+  reviewByUniqRef(UniqRef: String!): Review
 }
 
 type Mutation {

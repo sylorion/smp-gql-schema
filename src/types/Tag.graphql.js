@@ -35,6 +35,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Tag!]!
+  tagBySlug(Slug: String!): Tag
+  tagsByIDs(tagIDs: [ID!]!): [Tag!]!
+  tagsBySlugs(slugs: [String!]!): [Tag!]!
+  tagByUniqRef(UniqRef: String!): Tag
 }
 
 type Mutation {

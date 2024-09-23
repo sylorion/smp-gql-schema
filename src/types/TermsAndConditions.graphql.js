@@ -35,6 +35,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [TermsAndConditions!]!
+  termsAndConditionsBySlug(Slug: String!): TermsAndConditions
+  termsAndConditionsByUniqRef(UniqRef: String!): TermsAndConditions
+  termsAndConditionsByOrganizationID(organizationID: ID!): TermsAndConditions
+  termsAndConditionsByOrganizationSlug(Slug: String!): TermsAndConditions
 }
 
 type Mutation {

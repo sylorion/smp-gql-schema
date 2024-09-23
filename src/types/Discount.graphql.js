@@ -61,7 +61,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Discount!]
+  ): [Discount!],
+  discountBySlug(Slug: String!): Discount
+  discountsByIDs(discountIDs: [ID!]!): [Discount!]
+  discountsBySlugs(slugs: [String!]!): [Discount!]
+  discountByUniqRef(UniqRef: String!): Discount
 }
 
 type Mutation {

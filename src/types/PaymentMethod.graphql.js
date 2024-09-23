@@ -59,6 +59,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [PaymentMethod!]!
+  paymentMethodBySlug(Slug: String!): PaymentMethod
+  paymentMethodsByIDs(paymentMethodIDs: [ID!]!): [PaymentMethod!]!
+  paymentMethodsBySlugs(slugs: [String!]!): [PaymentMethod!]!
+  paymentMethodByUniqRef(UniqRef: String!): PaymentMethod
 }
 
 type Mutation {

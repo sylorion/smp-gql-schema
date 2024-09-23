@@ -109,6 +109,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Organization!]!
+  organizationBySlug(Slug: String!): Organization
+  organizationsByIDs(organizationIDs: [ID!]!): [Organization!]!
+  organizationsBySlugs(slugs: [String!]!): [Organization!]!
+  organizationByUniqRef(UniqRef: String!): Organization
 }
 
 type Mutation {

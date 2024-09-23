@@ -40,7 +40,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [FaqService!]!
+  ): [FaqService!]!,
+  faqServiceBySlug(Slug: String!): FaqService
+  faqServicesByIDs(faqServiceIDs: [ID!]!): [FaqService!]!
+  faqServicesBySlugs(slugs: [String!]!): [FaqService!]!
+  faqServiceByUniqRef(UniqRef: String!): FaqService
 }
 
 type Mutation {

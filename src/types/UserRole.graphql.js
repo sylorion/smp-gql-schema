@@ -38,6 +38,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [UserRole!]!
+  userRoleBySlug(Slug: String!): UserRole!
+  userRolesByIDs(userRoleIDs: [ID!]!): [UserRole!]!
+  userRolesBySlugs(slugs: [String!]!): [UserRole!]!
+  userRoleByUniqRef(UniqRef: String!): UserRole!
 }
 
 type Mutation {

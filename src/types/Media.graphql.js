@@ -50,6 +50,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Media!]!
+  mediaBySlug(Slug: String!): Media
+  mediasByIDs(mediaIDs: [ID!]!): [Media!]!
+  mediasBySlugs(slugs: [String!]!): [Media!]!
+  mediaByUniqRef(UniqRef: String!): Media
 }
 
 type Mutation {

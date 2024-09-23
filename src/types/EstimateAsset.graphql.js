@@ -42,7 +42,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [EstimateAsset!]!
+  ): [EstimateAsset!]!,
+  estimateAssetBySlug(Slug: String!): EstimateAsset
+  estimateAssetsByIDs(estimateAssetIDs: [ID!]!): [EstimateAsset!]!
+  estimateAssetsBySlugs(slugs: [String!]!): [EstimateAsset!]!
+  estimateAssetByUniqRef(UniqRef: String!): EstimateAsset
 }
 
 type Mutation {

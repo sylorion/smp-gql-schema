@@ -40,7 +40,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Industry!]!
+  ): [Industry!]!,
+  industryBySlug(Slug: String!): Industry
+  industriesByIDs(industryIDs: [ID!]!): [Industry!]!
+  industriesBySlugs(slugs: [String!]!): [Industry!]!
+  industryByUniqRef(UniqRef: String!): Industry
 }
 
 type Mutation {

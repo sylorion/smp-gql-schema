@@ -96,6 +96,10 @@ extend type Query {
     filter: [FilterInput!]
   ): [Service!]!
   searchServices(input: SearchServiceInput!): [Service!]!
+  serviceBySlug(Slug: String!): Service
+  servicesByIDs(serviceIDs: [ID!]!): [Service!]!
+  servicesBySlugs(slugs: [String!]!): [Service!]!
+  serviceByUniqRef(UniqRef: String!): Service
 }
 
 type Mutation {

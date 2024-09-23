@@ -67,7 +67,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Estimate!]!
+  ): [Estimate!]!,
+  estimateBySlug(Slug: String!): Estimate
+  estimatesByIDs(estimateIDs: [ID!]!): [Estimate!]!
+  estimatesBySlugs(slugs: [String!]!): [Estimate!]!
+  estimateByUniqRef(UniqRef: String!): Estimate
 }
 
 type Mutation {

@@ -32,6 +32,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [TopicOrganization!]!
+  topicOrganizationBySlug(Slug: String!): TopicOrganization
+  topicOrganizationsByIDs(topicOrganizationIDs: [ID!]!): [TopicOrganization!]!
+  topicOrganizationsBySlugs(slugs: [String!]!): [TopicOrganization!]!
+  topicOrganizationByUniqRef(UniqRef: String!): TopicOrganization
 }
 
 type Mutation {

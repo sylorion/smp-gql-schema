@@ -56,6 +56,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Place!]!
+  placeBySlug(Slug: String!): Place
+  placesByIDs(placeIDs: [ID!]!): [Place!]!
+  placesBySlugs(slugs: [String!]!): [Place!]!
+  placeByUniqRef(UniqRef: String!): Place
 }
 
 type Mutation {

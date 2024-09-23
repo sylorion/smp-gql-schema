@@ -66,7 +66,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Asset!]!
+  ): [Asset!]!,
+  assetBySlug(Slug: String!): Asset,
+  assetsByIDs(assetIDs: [ID!]!): [Asset!]!,
+  assetsBySlugs(slugs: [String!]!): [Asset!]!
+  assetByUniqRef(UniqRef: String!): Asset
 }
 
 type Mutation {

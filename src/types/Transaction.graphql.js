@@ -43,6 +43,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [Transaction!]!
+  transactionBySlug(Slug: String!): Transaction
+  transactionsByIDs(transactionIDs: [ID!]!): [Transaction!]!
+  transactionsBySlugs(slugs: [String!]!): [Transaction!]!
+  transactionByUniqRef(UniqRef: String!): Transaction
 }
 
 type Mutation {

@@ -55,7 +55,11 @@ extend type Query {
     pagination: PaginationInput,
     sort: SortInput,
     filter: [FilterInput!]
-  ): [Documentation!]!
+  ): [Documentation!]!,
+  documentationBySlug(Slug: String!): Documentation
+  documentationsByIDs(documentationIDs: [ID!]!): [Documentation!]!
+  documentationsBySlugs(slugs: [String!]!): [Documentation!]!
+  documentationByUniqRef(UniqRef: String!): Documentation
 }
 
 type Mutation {

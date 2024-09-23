@@ -41,6 +41,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [OrganizationMedia!]!
+  organizationMediaBySlug(Slug: String!): OrganizationMedia
+  organizationMediasByIDs(organizationMediaIDs: [ID!]!): [OrganizationMedia!]!
+  organizationMediasBySlugs(slugs: [String!]!): [OrganizationMedia!]!
+  organizationMediaByUniqRef(UniqRef: String!): OrganizationMedias
 }
 
 type Mutation {

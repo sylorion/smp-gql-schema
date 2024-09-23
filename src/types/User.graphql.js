@@ -51,12 +51,13 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [User!]!
-  userBySlug(Slug: String!): User!
   userByUsername(Username: String!): User!
-  userByUniqRef(UniqRef: String!): User!
   userByEmail(Email: String!): User! 
+  userByUniqRef(UniqRef: String!): User!
   usersByIDs(userIDs: [ID!]!): [User!]! # This is a list of users
   usersBySlugs(slugs: [String!]!): [User!]! # This is a list of users
+  userBySlug(Slug: String!): User!
+
 
 }
 

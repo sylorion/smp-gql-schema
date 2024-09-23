@@ -41,6 +41,10 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [ServiceMedia!]!
+  serviceMediaBySlug(Slug: String!): ServiceMedia
+  serviceMediasByIDs(serviceMediaIDs: [ID!]!): [ServiceMedia!]!
+  serviceMediasBySlugs(slugs: [String!]!): [ServiceMedia!]!
+  serviceMediaByUniqRef(UniqRef: String!): ServiceMedia
 }
 
 type Mutation {
