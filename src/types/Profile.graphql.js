@@ -36,7 +36,6 @@ input CreateProfileInput {
 }
 
 input UpdateProfileInput {
-  profileID: ID!
   firstName: String
   lastName: String
   dateOfBirth: Date

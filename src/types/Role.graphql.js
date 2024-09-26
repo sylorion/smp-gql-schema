@@ -16,7 +16,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 }
 
 input CreateRoleInput {
-  
+  authorID: ID
   roleName: String
   description: String
   permissions: JSON
