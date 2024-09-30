@@ -50,7 +50,7 @@ input CreateServiceInput {
   upperPrice: Int
   negotiable: Boolean
   perimeter: Int
-  attributes: [ServiceAttributeInput]
+  attributes: [CreateServiceAttributeInput]
   supplyType: ServiceSupplyForm
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
@@ -60,7 +60,6 @@ input CreateServiceInput {
 }
 
 input UpdateServiceInput {
-  
   title: String
   description: String
   mediaBannerID: ID
@@ -75,7 +74,7 @@ input UpdateServiceInput {
   upperPrice: Int
   negotiable: Boolean
   perimeter: Int
-  attributes: [ServiceAttributeInput]
+  attributes: [UpdateServiceAttributeInput]
   supplyType: ServiceSupplyForm
   uptakeForm: ServiceUptakeType
   billingPlan: ServiceBillingPlan
