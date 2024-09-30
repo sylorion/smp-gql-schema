@@ -34,7 +34,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 }
 
 input CreateServiceInput {
-  authorID: ID
+  authorID: ID!
   title: String!
   description: String!
   mediaBannerID: ID
@@ -45,9 +45,9 @@ input CreateServiceInput {
   locationID: ID
   paymentConfigID: ID
   price: Int!
-  legalVatPercent: Int
-  lowerPrice: Int
-  upperPrice: Int
+  legalVatPercent: Int!
+  lowerPrice: Int!
+  upperPrice: Int!
   negotiable: Boolean
   perimeter: Int
   attributes: [CreateServiceAttributeInput]
@@ -56,7 +56,7 @@ input CreateServiceInput {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
-  state: ObjectStatus
+  state: ObjectStatus!
 }
 
 input UpdateServiceInput {
