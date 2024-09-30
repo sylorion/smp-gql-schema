@@ -34,7 +34,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 }
 
 input CreateServiceInput {
-  
+  authorID: ID
   title: String!
   description: String!
   mediaBannerID: ID
