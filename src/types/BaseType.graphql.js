@@ -6,6 +6,9 @@ scalar JSON
 scalar File
 scalar DateTime
 scalar Date
+scalar URL
+scalar Email
+scalar PhoneNumber
 
 interface ServicesEntity {
   uniqRef: String # Mostly hand generated ID except for mongodb data
