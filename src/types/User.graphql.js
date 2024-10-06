@@ -23,7 +23,7 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
 input CreateUserInput {
   username: String
   email: String!
-  password: String!
+  password: String! @exclude
   plan: String
   userKind: UserType
   twoFactorEnabled: Boolean
