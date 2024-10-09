@@ -1,5 +1,17 @@
 export default /* GraphQL */`
 # src/graphql/types/BaseType.graphql.js
+# Required for all subgraph schemas
+scalar link__Import
+
+directive @link(
+  url: String!,
+  import: [link__Import],
+) repeatable on SCHEMA
+
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@tag", "@shareable", "@key", "inacessible", "override"])
+  # @link(url: "https://myspecs.dev/myDirective/v1.0", import: ["@myDirective", { name: "@anotherDirective", as: "@hello" }])
+  # highlight-start
 
 scalar Date
 scalar JSON
@@ -19,21 +31,5 @@ interface ServicesNavigableEntity {
 interface ServicesStatable {
   state: ObjectStatus
 }
-directive @exclude on 
-FIELD_DEFINITION | INPUT_FIELD_DEFINITION 
-| UNION | INTERFACE | ENUM | OBJECT
-
-directive @secure(hash: string, comment: string) on 
-FIELD_DEFINITION | INPUT_FIELD_DEFINITION | UNION | INTERFACE | ENUM_VALUE 
-
-directive @transform(
-  type: String!
-  name: String
-  custom_type: String
-  repeated: Boolean
-  oneof: String
-  map_key: String
-  map_value: String
-) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION | ENUM_VALUE | SCALAR | UNION | INTERFACE | ENUM | INPUT_OBJECT | OBJECT
 
 `

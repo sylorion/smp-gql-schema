@@ -1,7 +1,7 @@
 export default /* GraphQL */ `
 # src/graphql/types/User.graphql.js
 
-type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key(fields: "userID uniqRef username email slug") {
   userID: ID!
   uniqRef: String
   slug: String
@@ -14,16 +14,16 @@ type User implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   twoFactorEnabled: Boolean
   loginDuration: Int
   rsaPublicKey: String 
-  state: ObjectStatus
+  state: ObjectStatus 
   createdAt: DateTime
-  updatedAt: DateTime
+  updatedAt: DateTime 
   deletedAt: DateTime
 }
 
 input CreateUserInput {
   username: String
   email: String!
-  password: String! @exclude
+  password: String! 
   plan: String
   userKind: UserType
   twoFactorEnabled: Boolean
