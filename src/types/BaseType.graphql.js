@@ -1,4 +1,4 @@
-export default /* GraphQL */`
+export default /* GraphQL */ `
 # src/graphql/types/BaseType.graphql.js
 # Required for all subgraph schemas
 scalar link__Import
@@ -11,7 +11,20 @@ directive @link(
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@tag", "@shareable", "@key", "inacessible", "override"])
   # @link(url: "https://myspecs.dev/myDirective/v1.0", import: ["@myDirective", { name: "@anotherDirective", as: "@hello" }])
-  # highlight-start
+
+  directive @authorization(
+    roles:  [[SMPAuthzRole!]!]!, 
+    scopes: [[SMPAuthzScope!]!]!, 
+    else:   SMPAuthzFailure
+  ) on FIELD_DEFINITION | OBJECT | INTERFACE | SCALAR | ENUM
+
+  scalar SMPAuthzRole
+  scalar SMPAuthzScope
+  enum SMPAuthzFailure { 
+    THROW, 
+    INFO, 
+    WARN,
+    }
 
 scalar Date
 scalar JSON

@@ -4,8 +4,10 @@ export default /* GraphQL */ `
 
 type ApplicationToken {
   applicationTokenID: ID!
-  applicationID: ID!
-  key: String!
+  applicationID: ID
+  usedApplicationID: ID
+  platform: String
+  token: String!
   slug: String
   uniqRef: String
   isActive: Boolean!
@@ -23,15 +25,23 @@ type ApplicationAccessTokenRefreshResponse {
 
 type ApplicationDetails {
   applicationID: ID!
+  appID: String!
   uniqRef: String
   slug: String
-  title: String
-  description: String
+  title: String 
   officialName: String
   developerID: ID
-  authKey: String
+  authKey: String!
+  description: String
+  name: String
+  email: String
+  logo: String
+  url: String
   plan: String
-  appConfiguration: JSON
+  isOfficialApp: Boolean
+  appConfiguration: String
+  developerID: Int
+  authorID: Int
   state: ObjectStatus
   createdAt: DateTime!
   updatedAt: DateTime 
