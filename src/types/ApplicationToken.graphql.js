@@ -39,8 +39,7 @@ type ApplicationDetails {
   url: String
   plan: String
   isOfficialApp: Boolean
-  appConfiguration: String
-  developerID: Int
+  appConfiguration: String 
   authorID: Int
   state: ObjectStatus
   createdAt: DateTime!
