@@ -44,7 +44,7 @@ extend type Query {
   organizationMediaBySlug(Slug: String!): OrganizationMedia
   organizationMediasByIDs(organizationMediaIDs: [ID!]!): [OrganizationMedia!]!
   organizationMediasBySlugs(slugs: [String!]!): [OrganizationMedia!]!
-  organizationMediaByUniqRef(UniqRef: String!): OrganizationMedias
+  organizationMediaByUniqRef(UniqRef: String!): OrganizationMedia
 }
 
 type Mutation {
