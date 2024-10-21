@@ -125,7 +125,7 @@ extend type Query {
 type Mutation {
   createService(input: CreateServiceInput!): Service!
   updateService(serviceID: ID!, input: UpdateServiceInput!): Service!
-  deleteService(serviceID: ID!): Boolean!
+  deleteService(serviceID: ID!): MutationResponse!
 }
 
 

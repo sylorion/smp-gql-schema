@@ -76,7 +76,7 @@ extend type Query {
 type Mutation {
   createAsset(input: CreateAssetInput!): Asset!
   updateAsset(assetID: ID!, input: UpdateAssetInput!): Asset!
-  deleteAsset(assetID: ID!): Boolean!
+  deleteAsset(assetID: ID!): MutationResponse!
 }
 
 

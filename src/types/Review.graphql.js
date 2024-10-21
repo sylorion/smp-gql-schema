@@ -53,7 +53,7 @@ extend type Query {
 type Mutation {
   createReview(input: CreateReviewInput!): Review!
   updateReview(reviewID: ID!, input: UpdateReviewInput!): Review!
-  deleteReview(reviewID: ID!): Boolean!
+  deleteReview(reviewID: ID!): MutationResponse!
 }
 
 
