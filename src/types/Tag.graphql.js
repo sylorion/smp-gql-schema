@@ -44,7 +44,7 @@ extend type Query {
 type Mutation {
   createTag(input: CreateTagInput!): Tag!
   updateTag(tagID: ID!, input: UpdateTagInput!): Tag!
-  deleteTag(tagID: ID!): Boolean!
+  deleteTag(tagID: ID!): MutationResponse!
 }
 
 

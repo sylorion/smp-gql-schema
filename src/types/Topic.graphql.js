@@ -50,7 +50,7 @@ extend type Query {
 type Mutation {
   createTopic(input: CreateTopicInput!): Topic!
   updateTopic(topicID: ID!, input: UpdateTopicInput!): Topic!
-  deleteTopic(topicID: ID!): Boolean!
+  deleteTopic(topicID: ID!): MutationResponse!
 }
 
 

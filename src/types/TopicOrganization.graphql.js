@@ -41,7 +41,7 @@ extend type Query {
 type Mutation {
   createTopicOrganization(input: CreateTopicOrganizationInput!): TopicOrganization!
   updateTopicOrganization(topicOrganizationID: ID!, input: UpdateTopicOrganizationInput!): TopicOrganization!
-  deleteTopicOrganization(topicOrganizationID: ID!): Boolean!
+  deleteTopicOrganization(topicOrganizationID: ID!): MutationResponse!
 }
 
 

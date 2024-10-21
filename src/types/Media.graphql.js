@@ -59,7 +59,7 @@ extend type Query {
 type Mutation {
   createMedia(input: CreateMediaInput!): Media!
   updateMedia(mediaID: ID!, input: UpdateMediaInput!): Media!
-  deleteMedia(mediaID: ID!): Boolean!
+  deleteMedia(mediaID: ID!): MutationResponse!
 }
 
 `;
