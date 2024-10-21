@@ -50,7 +50,7 @@ extend type Query {
 type Mutation {
   createOrganizationMedia(input: CreateOrganizationMediaInput!): OrganizationMedia!
   updateOrganizationMedia(organizationMediaID: ID!, input: UpdateOrganizationMediaInput!): OrganizationMedia!
-  deleteOrganizationMedia(organizationMediaID: ID!): MutationResponse!
+  deleteOrganizationMedia(organizationMediaID: ID!): Boolean!
 }
 
 

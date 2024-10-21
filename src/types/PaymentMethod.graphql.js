@@ -68,7 +68,7 @@ extend type Query {
 type Mutation {
   createPaymentMethod(input: CreatePaymentMethodInput!): PaymentMethod!
   updatePaymentMethod(paymentMethodID: ID!, input: UpdatePaymentMethodInput!): PaymentMethod!
-  deletePaymentMethod(paymentMethodID: ID!): MutationResponse!
+  deletePaymentMethod(paymentMethodID: ID!): Boolean!
 }
 
 

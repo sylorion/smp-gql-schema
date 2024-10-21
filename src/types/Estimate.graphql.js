@@ -77,7 +77,7 @@ extend type Query {
 type Mutation {
   createEstimate(input: CreateEstimateInput!): Estimate!
   updateEstimate(estimateID: ID!, input: UpdateEstimateInput!): Estimate!
-  deleteEstimate(estimateID: ID!): MutationResponse!
+  deleteEstimate(estimateID: ID!): Boolean!
 }
 
 

@@ -52,7 +52,7 @@ extend type Query {
 type Mutation {
   createEstimateAsset(input: CreateEstimateAssetInput!): EstimateAsset!
   updateEstimateAsset(estimateAssetID: ID!, input: UpdateEstimateAssetInput!): EstimateAsset!
-  deleteEstimateAsset(estimateAssetID: ID!): MutationResponse!
+  deleteEstimateAsset(estimateAssetID: ID!): Boolean!
 }
 
 

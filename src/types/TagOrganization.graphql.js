@@ -41,7 +41,7 @@ extend type Query {
 type Mutation {
   createTagOrganization(input: CreateTagOrganizationInput!): TagOrganization!
   updateTagOrganization(tagOrganizationID: ID!, input: UpdateTagOrganizationInput!): TagOrganization!
-  deleteTagOrganization(tagOrganizationID: ID!): MutationResponse!
+  deleteTagOrganization(tagOrganizationID: ID!): Boolean!
 }
 
 

@@ -65,7 +65,7 @@ extend type Query {
 type Mutation {
   createProfile(input: CreateProfileInput!): Profile!
   updateProfile(profileID: ID!, input: UpdateProfileInput!): Profile!
-  deleteProfile(profileID: ID!): MutationResponse!
+  deleteProfile(profileID: ID!): Boolean!
 }
 
 

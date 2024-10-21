@@ -63,7 +63,7 @@ extend type Query {
 type Mutation { 
   createUser(input: CreateUserInput!): User!
   updateUser(userID: ID!, input: UpdateUserInput!): User!
-  deleteUser(userID: ID!): MutationResponse!
+  deleteUser(userID: ID!): Boolean!
 }
 
 

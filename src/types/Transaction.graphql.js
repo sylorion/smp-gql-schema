@@ -52,7 +52,7 @@ extend type Query {
 type Mutation {
   createTransaction(input: CreateTransactionInput!): Transaction!
   updateTransaction(transactionID: ID!, input: UpdateTransactionInput!): Transaction!
-  deleteTransaction(transactionID: ID!): MutationResponse!
+  deleteTransaction(transactionID: ID!): Boolean!
 }
 
 

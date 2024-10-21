@@ -53,7 +53,7 @@ extend type Query {
 type Mutation {
   createNotification(input: CreateNotificationInput!): Notification!
   updateNotification(notificationID: ID!, input: UpdateNotificationInput!): Notification!
-  deleteNotification(notificationID: ID!): MutationResponse!
+  deleteNotification(notificationID: ID!): Boolean!
   markNotificationAsRead(notificationID: ID!): Notification!
 }
 
