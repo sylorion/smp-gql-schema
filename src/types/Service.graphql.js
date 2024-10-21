@@ -1,7 +1,27 @@
 export default /* GraphQL */ `
 # src/graphql/types/Service.graphql.js
 
-type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+extend type Place @key(fields: "placeID") {
+  placeID: ID! @external  #  ce champ est géré par mu-location
+  uniqRef: String! @external 
+  slug: String! @external 
+  authorID: ID @external 
+  country: String @external 
+  region: String @external 
+  pstate: String @external 
+  city: String @external 
+  postalCode: String  @external 
+  placeKind: PlaceKind  @external 
+  addressLine1: String  @external 
+  addressLine2: String  @external 
+  coordinates: String  @external 
+  state: ObjectStatus  @external 
+  createdAt: DateTime  @external 
+  updatedAt: DateTime  @external 
+  deletedAt: DateTime  @external 
+}
+
+type Service  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key(fields: "serviceID"){
   serviceID: ID!
   uniqRef: String
   slug: String
@@ -15,6 +35,7 @@ type Service implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   topicID: ID
   organizationID: ID
   locationID: ID
+  location: Place @requires(fields: "locationID")  # locationID pour récupérer Place
   paymentConfigID: ID
   price: Int!
   legalVatPercent: Int
@@ -46,7 +67,7 @@ input CreateServiceInput {
   paymentConfigID: ID
   price: Int!
   legalVatPercent: Int!
-  lowerPrice: Int!
+  lowerPrice: Int! 
   upperPrice: Int!
   negotiable: Boolean
   perimeter: Int
@@ -56,7 +77,7 @@ input CreateServiceInput {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
-  state: ObjectStatus!
+  state: ObjectStatus !
 }
 
 input UpdateServiceInput {

@@ -1,7 +1,7 @@
 export default /* GraphQL */ `
 # src/graphql/types/Place.graphql.js
 
-type Place implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Place  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key(fields: "placeID") {
   placeID: ID!
   uniqRef: String!
   slug: String!
@@ -65,7 +65,7 @@ extend type Query {
 type Mutation {
   createPlace(input: CreatePlaceInput!): Place!
   updatePlace(placeID: ID!, input: UpdatePlaceInput!): Place!
-  deletePlace(placeID: ID!): MutationResponse!
+  deletePlace(placeID: ID!): Boolean!
 }
 
 

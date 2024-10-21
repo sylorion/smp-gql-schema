@@ -7,7 +7,7 @@ type Role implements ServicesEntity & ServicesNavigableEntity & ServicesStatable
   slug: String!
   
   roleName: String
-  description: String
+  description: String 
   permissions: JSON
   state: ObjectStatus
   createdAt: DateTime

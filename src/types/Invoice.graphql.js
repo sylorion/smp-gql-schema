@@ -25,7 +25,6 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
 
 input CreateInvoiceInput {
   estimateID: ID
-  
   thirdPartyFees: Int
   sellerOrganizationID: ID
   servicesFees: Int
@@ -40,13 +39,7 @@ input CreateInvoiceInput {
 }
 
 input UpdateInvoiceInput {
-  thirdPartyFees: Int
-  servicesFees: Int
-  servicesVatPercent: Int
-  prestationsVatPercent: Int
-  totalAmount: Int
   paymentStatus: PaymentStatus
-  emitDate: DateTime
   dueDate: DateTime
   digitalSignature: String
   state: ObjectStatus
