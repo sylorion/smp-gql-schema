@@ -47,7 +47,7 @@ extend type Query {
 type Mutation {
   createServiceAsset(input: CreateServiceAssetInput!): ServiceAsset!
   updateServiceAsset(serviceAssetID: ID!, input: UpdateServiceAssetInput!): ServiceAsset!
-  deleteServiceAsset(serviceAssetID: ID!): MutationResponse!
+  deleteServiceAsset(serviceAssetID: ID!): Boolean!
 }
 
 

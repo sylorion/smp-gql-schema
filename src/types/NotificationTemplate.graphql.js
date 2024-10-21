@@ -36,7 +36,7 @@ extend type Query {
 type Mutation {
   createNotificationTemplate(input: CreateNotificationTemplateInput!): NotificationTemplate!
   updateNotificationTemplate(notificationTemplateID: ID!, input: UpdateNotificationTemplateInput!): NotificationTemplate!
-  deleteNotificationTemplate(notificationTemplateID: ID!): MutationResponse!
+  deleteNotificationTemplate(notificationTemplateID: ID!): Boolean!
 }
 
 `;

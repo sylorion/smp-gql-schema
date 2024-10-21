@@ -65,7 +65,7 @@ extend type Query {
 type Mutation {
   createDocumentation(input: CreateDocumentationInput!): Documentation!
   updateDocumentation(documentationID: ID!, input: UpdateDocumentationInput!): Documentation!
-  deleteDocumentation(documentationID: ID!): MutationResponse!
+  deleteDocumentation(documentationID: ID!): Boolean!
 }
 
 

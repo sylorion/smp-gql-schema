@@ -61,7 +61,7 @@ extend type Query {
 type Mutation {
   createInvoice(input: CreateInvoiceInput!): Invoice!
   updateInvoice(invoiceID: ID!, input: UpdateInvoiceInput!): Invoice!
-  deleteInvoice(invoiceID: ID!): MutationResponse!
+  deleteInvoice(invoiceID: ID!): Boolean!
 }
 
 

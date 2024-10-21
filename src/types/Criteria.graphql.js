@@ -64,7 +64,7 @@ extend type Query {
 type Mutation {
   createCriteria(input: CreateCriteriaInput!): Criteria!
   updateCriteria(criteriaID: ID!, input: UpdateCriteriaInput!): Criteria!
-  deleteCriteria(criteriaID: ID!): MutationResponse!
+  deleteCriteria(criteriaID: ID!): Boolean!
 }
 
 

@@ -51,7 +51,7 @@ extend type Query {
 type Mutation {
   createFaqAnswer(input: CreateFaqAnswerInput!): FaqAnswer!
   updateFaqAnswer(faqAnswerID: ID!, input: UpdateFaqAnswerInput!): FaqAnswer!
-  deleteFaqAnswer(faqAnswerID: ID!): MutationResponse!
+  deleteFaqAnswer(faqAnswerID: ID!): Boolean!
 }
 
 `;

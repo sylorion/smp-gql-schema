@@ -47,7 +47,7 @@ extend type Query {
 type Mutation {
   createPaymentConfig(input: CreatePaymentConfigInput!): PaymentConfig!
   updatePaymentConfig(paymentConfigID: ID!, input: UpdatePaymentConfigInput!): PaymentConfig!
-  deletePaymentConfig(paymentConfigID: ID!): MutationResponse!
+  deletePaymentConfig(paymentConfigID: ID!): Boolean!
 }
 
 

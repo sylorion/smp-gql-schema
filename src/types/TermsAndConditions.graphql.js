@@ -44,7 +44,7 @@ extend type Query {
 type Mutation {
   createTermsAndConditions(input: CreateTermsAndConditionsInput!): TermsAndConditions!
   updateTermsAndConditions(termsAndConditionsID: ID!, input: UpdateTermsAndConditionsInput!): TermsAndConditions!
-  deleteTermsAndConditions(termsAndConditionsID: ID!): MutationResponse!
+  deleteTermsAndConditions(termsAndConditionsID: ID!): Boolean!
 }
 
 

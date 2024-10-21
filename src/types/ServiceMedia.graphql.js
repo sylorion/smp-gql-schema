@@ -50,7 +50,7 @@ extend type Query {
 type Mutation {
   createServiceMedia(input: CreateServiceMediaInput!): ServiceMedia!
   updateServiceMedia(serviceMediaID: ID!, input: UpdateServiceMediaInput!): ServiceMedia!
-  deleteServiceMedia(serviceMediaID: ID!): MutationResponse!
+  deleteServiceMedia(serviceMediaID: ID!): Boolean!
 }
 
 

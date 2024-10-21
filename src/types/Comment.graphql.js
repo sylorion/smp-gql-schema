@@ -48,7 +48,7 @@ extend type Query {
 type Mutation {
   createComment(input: CreateCommentInput!): Comment!
   updateComment(commentID: ID!, input: UpdateCommentInput!): Comment!
-  deleteComment(commentID: ID!): MutationResponse!
+  deleteComment(commentID: ID!): Boolean!
   addFeedbackToComment(commentID: ID!, feedback: Int!): Comment!
 }
 

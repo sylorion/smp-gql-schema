@@ -74,7 +74,7 @@ type Mutation {
   refreshApplicationAccessToken(refreshToken: String!): ApplicationAccessTokenRefreshResponse
   applicationSignIn(applicationID: ID, applicationKey: String!): ApplicationLoginResponse!
   updateApplicationToken(applicationTokenID: ID!, input: UpdateApplicationTokenInput!): ApplicationToken!
-  deleteApplicationToken(applicationTokenID: ID!): MutationResponse!
+  deleteApplicationToken(applicationTokenID: ID!): Boolean!
 }
 
 

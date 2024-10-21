@@ -59,7 +59,7 @@ type Mutation {
   createApplication(input: CreateApplicationInput!): Application!
   applicationSignUP(input: CreateApplicationInput!): Application!
   updateApplication(applicationID: ID!, input: UpdateApplicationInput!): Application!
-  deleteApplication(applicationID: ID!): MutationResponse!
+  deleteApplication(applicationID: ID!): Boolean!
 }
 
 

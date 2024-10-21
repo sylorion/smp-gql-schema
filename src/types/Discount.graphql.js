@@ -71,7 +71,7 @@ extend type Query {
 type Mutation {
   createDiscount(input: CreateDiscountInput!): Discount!
   updateDiscount(discountID: ID!, input: UpdateDiscountInput!): Discount!
-  deleteDiscount(discountID: ID!): MutationResponse!
+  deleteDiscount(discountID: ID!): Boolean!
 }
 
 
