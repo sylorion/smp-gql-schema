@@ -63,7 +63,7 @@ extend type Query {
 type Mutation {
   createAuditLog(input: CreateAuditLogInput!): AuditLog!
   updateAuditLog(auditLogID: ID!, input: UpdateAuditLogInput!): AuditLog!
-  deleteAuditLog(auditLogID: ID!): Boolean!
+  deleteAuditLog(auditLogID: ID!): MutationResponse!
 }
 
 

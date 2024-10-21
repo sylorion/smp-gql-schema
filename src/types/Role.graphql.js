@@ -48,7 +48,7 @@ extend type Query {
 type Mutation {
   createRole(input: CreateRoleInput!): Role!
   updateRole(roleID: ID!, input: UpdateRoleInput!): Role!
-  deleteRole(roleID: ID!): Boolean!
+  deleteRole(roleID: ID!): MutationResponse!
 }
 
 

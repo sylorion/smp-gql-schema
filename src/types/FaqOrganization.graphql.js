@@ -50,7 +50,7 @@ extend type Query {
 type Mutation {
   createFaqOrganization(input: CreateFaqOrganizationInput!): FaqOrganization!
   updateFaqOrganization(faqOrganizationID: ID!, input: UpdateFaqOrganizationInput!): FaqOrganization!
-  deleteFaqOrganization(faqOrganizationID: ID!): Boolean!
+  deleteFaqOrganization(faqOrganizationID: ID!): MutationResponse!
 }
 
 

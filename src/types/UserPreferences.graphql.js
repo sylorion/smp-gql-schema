@@ -70,7 +70,7 @@ extend type Query {
 type Mutation {
   createUserPreferences(input: CreateUserPreferencesInput!): UserPreferences!
   updateUserPreferences(userPreferencesID: ID!, input: UpdateUserPreferencesInput!): UserPreferences!
-  deleteUserPreferences(userPreferencesID: ID!): Boolean!
+  deleteUserPreferences(userPreferencesID: ID!): MutationResponse!
 }
 
 

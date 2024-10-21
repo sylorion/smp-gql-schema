@@ -50,7 +50,7 @@ extend type Query {
 type Mutation {
   createIndustry(input: CreateIndustryInput!): Industry!
   updateIndustry(industryID: ID!, input: UpdateIndustryInput!): Industry!
-  deleteIndustry(industryID: ID!): Boolean!
+  deleteIndustry(industryID: ID!): MutationResponse!
 }
 
 
