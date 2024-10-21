@@ -43,11 +43,6 @@ input UpdateDocumentationInput {
   state: ObjectStatus
 }
 
-type MutationResponse {
-  success: Boolean!
-  message: String
-  documentation: Documentation
-}
 
 extend type Query {
   documentation(documentationID: ID!): Documentation

@@ -54,11 +54,6 @@ input UpdateAssetInput {
   state: ObjectStatus
 }
 
-type MutationResponse {
-  success: Boolean!
-  message: String
-  asset: Asset
-}
 
 extend type Query {
   asset(assetID: ID!): Asset

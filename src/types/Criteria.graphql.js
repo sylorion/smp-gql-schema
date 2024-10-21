@@ -42,11 +42,6 @@ input UpdateCriteriaInput {
   state: ObjectStatus
 }
 
-type MutationResponse {
-  success: Boolean!
-  message: String
-  criteria: Criteria
-}
 
 extend type Query {
   criteria(criteriaID: ID!): Criteria
