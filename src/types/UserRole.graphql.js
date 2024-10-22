@@ -17,7 +17,6 @@ type UserRole implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 
 input CreateUserRoleInput {
   legend: String!
-  
   userID: ID!
   roleID: ID!
   state: ObjectStatus
@@ -25,7 +24,6 @@ input CreateUserRoleInput {
 
 input UpdateUserRoleInput {
   legend: String
-  
   userID: ID
   roleID: ID
   state: ObjectStatus

@@ -61,7 +61,7 @@ extend type Query {
     sort: SortInput,
     filter: [FilterInput!]
   ): [UserPreferences!]!
-  userPreferenceBySlug(Slug: String!): UserPreferences
+  userPreferenceBySlug(slug: String!): UserPreferences
   userPreferencesByIDs(userPreferencesIDs: [ID!]!): [UserPreferences!]!
   userPreferencesBySlugs(slugs: [String!]!): [UserPreferences!]!
   userPreferenceByUniqRef(UniqRef: String!): UserPreferences
