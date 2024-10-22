@@ -42,9 +42,19 @@ extend type Query {
     filter: [FilterInput!]
   ): [UserOrganization!]!
   userOrganizationBySlug(slug: String!): UserOrganization
-  userOrganizationsByIDs(userOrganizationIDs: [ID!]!): [UserOrganization!]!
-  userOrganizationsBySlugs(slugs: [String!]!): [UserOrganization!]!
-  userOrganizationByUniqRef(uniqRef: String!): UserOrganization
+  userOrganizationsByIDs(userOrganizationIDs: [ID!]!,
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]): [UserOrganization!]!
+  userOrganizationsBySlugs(slugs: [String!]!,
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]): [UserOrganization!]!
+    userOrganizationByUniqRefs(uniqRefs: [String!]!,
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]): UserOrganization
+    userOrganizationByUniqRef(uniqRef: String!): UserOrganization
 }
 
 type Mutation {
