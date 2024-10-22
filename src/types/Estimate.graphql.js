@@ -71,7 +71,7 @@ extend type Query {
   estimateBySlug(Slug: String!): Estimate
   estimatesByIDs(estimateIDs: [ID!]!): [Estimate!]!
   estimatesBySlugs(slugs: [String!]!): [Estimate!]!
-  estimateByUniqRef(UniqRef: String!): Estimate
+  estimateByUniqRef(uniqRef: String!): Estimate
 }
 
 type Mutation {

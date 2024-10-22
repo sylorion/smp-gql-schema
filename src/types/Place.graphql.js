@@ -59,7 +59,7 @@ extend type Query {
   placeBySlug(Slug: String!): Place
   placesByIDs(placeIDs: [ID!]!): [Place!]!
   placesBySlugs(slugs: [String!]!): [Place!]!
-  placeByUniqRef(UniqRef: String!): Place
+  placeByUniqRef(uniqRef: String!): Place
 }
 
 type Mutation {

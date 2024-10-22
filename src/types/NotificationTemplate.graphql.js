@@ -30,7 +30,7 @@ extend type Query {
   notificationTemplateBySlug(Slug: String!): NotificationTemplate
   notificationTemplatesByIDs(notificationTemplateIDs: [ID!]!): [NotificationTemplate!]!
   notificationTemplatesBySlugs(slugs: [String!]!): [NotificationTemplate!]!
-  notificationTemplateByUniqRef(UniqRef: String!): NotificationTemplate
+  notificationTemplateByUniqRef(uniqRef: String!): NotificationTemplate
 }
 
 type Mutation {

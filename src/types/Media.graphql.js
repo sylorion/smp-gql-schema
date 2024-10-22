@@ -53,7 +53,7 @@ extend type Query {
   mediaBySlug(Slug: String!): Media
   mediasByIDs(mediaIDs: [ID!]!): [Media!]!
   mediasBySlugs(slugs: [String!]!): [Media!]!
-  mediaByUniqRef(UniqRef: String!): Media
+  mediaByUniqRef(uniqRef: String!): Media
 }
 
 type Mutation {

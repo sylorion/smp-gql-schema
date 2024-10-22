@@ -36,7 +36,7 @@ extend type Query {
   followBySlug(Slug: String!): Follow
   followsByIDs(followIDs: [ID!]!): [Follow!]!
   followsBySlugs(slugs: [String!]!): [Follow!]!
-  followByUniqRef(UniqRef: String!): Follow
+  followByUniqRef(uniqRef: String!): Follow
 }
 
 type Mutation {

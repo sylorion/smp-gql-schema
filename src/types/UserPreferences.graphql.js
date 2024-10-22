@@ -64,7 +64,7 @@ extend type Query {
   userPreferenceBySlug(slug: String!): UserPreferences
   userPreferencesByIDs(userPreferencesIDs: [ID!]!): [UserPreferences!]!
   userPreferencesBySlugs(slugs: [String!]!): [UserPreferences!]!
-  userPreferenceByUniqRef(UniqRef: String!): UserPreferences
+  userPreferenceByUniqRef(uniqRef: String!): UserPreferences
 }
 
 type Mutation {

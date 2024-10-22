@@ -44,7 +44,7 @@ extend type Query {
   userOrganizationBySlug(slug: String!): UserOrganization
   userOrganizationsByIDs(userOrganizationIDs: [ID!]!): [UserOrganization!]!
   userOrganizationsBySlugs(slugs: [String!]!): [UserOrganization!]!
-  userOrganizationByUniqRef(UniqRef: String!): UserOrganization
+  userOrganizationByUniqRef(uniqRef: String!): UserOrganization
 }
 
 type Mutation {

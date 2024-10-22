@@ -39,7 +39,7 @@ extend type Query {
   userRoleBySlug(Slug: String!): UserRole!
   userRolesByIDs(userRoleIDs: [ID!]!): [UserRole!]!
   userRolesBySlugs(slugs: [String!]!): [UserRole!]!
-  userRoleByUniqRef(UniqRef: String!): UserRole!
+  userRoleByUniqRef(uniqRef: String!): UserRole!
 }
 
 type Mutation {

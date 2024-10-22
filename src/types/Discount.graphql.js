@@ -65,7 +65,7 @@ extend type Query {
   discountBySlug(Slug: String!): Discount
   discountsByIDs(discountIDs: [ID!]!): [Discount!]
   discountsBySlugs(slugs: [String!]!): [Discount!]
-  discountByUniqRef(UniqRef: String!): Discount
+  discountByUniqRef(uniqRef: String!): Discount
 }
 
 type Mutation {

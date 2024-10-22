@@ -41,7 +41,7 @@ extend type Query {
   paymentConfigBySlug(Slug: String!): PaymentConfig
   paymentConfigsByIDs(paymentConfigIDs: [ID!]!): [PaymentConfig!]!
   paymentConfigsBySlugs(slugs: [String!]!): [PaymentConfig!]!
-  paymentConfigByUniqRef(UniqRef: String!): PaymentConfig
+  paymentConfigByUniqRef(uniqRef: String!): PaymentConfig
 }
 
 type Mutation {

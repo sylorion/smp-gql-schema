@@ -44,7 +44,7 @@ extend type Query {
   industryBySlug(Slug: String!): Industry
   industriesByIDs(industryIDs: [ID!]!): [Industry!]!
   industriesBySlugs(slugs: [String!]!): [Industry!]!
-  industryByUniqRef(UniqRef: String!): Industry
+  industryByUniqRef(uniqRef: String!): Industry
 }
 
 type Mutation {

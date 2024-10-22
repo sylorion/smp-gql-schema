@@ -46,7 +46,7 @@ extend type Query {
   transactionBySlug(Slug: String!): Transaction
   transactionsByIDs(transactionIDs: [ID!]!): [Transaction!]!
   transactionsBySlugs(slugs: [String!]!): [Transaction!]!
-  transactionByUniqRef(UniqRef: String!): Transaction
+  transactionByUniqRef(uniqRef: String!): Transaction
 }
 
 type Mutation {

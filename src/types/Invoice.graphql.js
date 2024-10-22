@@ -55,7 +55,7 @@ extend type Query {
   invoiceBySlug(Slug: String!): Invoice
   invoicesByIDs(invoiceIDs: [ID!]!): [Invoice!]!
   invoicesBySlugs(slugs: [String!]!): [Invoice!]!
-  invoiceByUniqRef(UniqRef: String!): Invoice
+  invoiceByUniqRef(uniqRef: String!): Invoice
 }
 
 type Mutation {

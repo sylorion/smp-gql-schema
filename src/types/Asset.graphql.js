@@ -65,7 +65,7 @@ extend type Query {
   assetBySlug(Slug: String!): Asset,
   assetsByIDs(assetIDs: [ID!]!): [Asset!]!,
   assetsBySlugs(slugs: [String!]!): [Asset!]!
-  assetByUniqRef(UniqRef: String!): Asset
+  assetByUniqRef(uniqRef: String!): Asset
 }
 
 type Mutation {

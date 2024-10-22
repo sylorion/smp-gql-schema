@@ -52,7 +52,7 @@ extend type Query {
   applicationBySlug(Slug: String!): Application,
   applicationsByIDs(applicationIDs: [ID!]!): [Application!]!,
   applicationsBySlugs(slugs: [String!]!): [Application!]!
-  applicationByUniqRef(UniqRef: String!): Application!  
+  applicationByUniqRef(uniqRef: String!): Application!  
 }
 
 type Mutation {

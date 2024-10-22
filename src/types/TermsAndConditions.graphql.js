@@ -36,7 +36,7 @@ extend type Query {
     filter: [FilterInput!]
   ): [TermsAndConditions!]!
   termsAndConditionsBySlug(Slug: String!): TermsAndConditions
-  termsAndConditionsByUniqRef(UniqRef: String!): TermsAndConditions
+  termsAndConditionsByUniqRef(uniqRef: String!): TermsAndConditions
   termsAndConditionsByOrganizationID(organizationID: ID!): TermsAndConditions
   termsAndConditionsByOrganizationSlug(Slug: String!): TermsAndConditions
 }

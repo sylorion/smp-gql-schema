@@ -119,7 +119,7 @@ extend type Query {
   serviceBySlug(Slug: String!): Service
   servicesByIDs(serviceIDs: [ID!]!): [Service!]!
   servicesBySlugs(slugs: [String!]!): [Service!]!
-  serviceByUniqRef(UniqRef: String!): Service
+  serviceByUniqRef(uniqRef: String!): Service
 }
 
 type Mutation {

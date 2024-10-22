@@ -59,7 +59,7 @@ extend type Query {
   profileBySlug(Slug: String!): Profile
   profilesByIDs(profileIDs: [ID!]!): [Profile!]!
   profilesBySlugs(slugs: [String!]!): [Profile!]!
-  profileByUniqRef(UniqRef: String!): Profile
+  profileByUniqRef(uniqRef: String!): Profile
 }
 
 type Mutation {

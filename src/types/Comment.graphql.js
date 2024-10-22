@@ -42,7 +42,7 @@ extend type Query {
   commentBySlug(Slug: String!): Comment
   commentsByIDs(commentIDs: [ID!]!): [Comment!]!
   commentsBySlugs(slugs: [String!]!): [Comment!]!
-  commentByUniqRef(UniqRef: String!): Comment
+  commentByUniqRef(uniqRef: String!): Comment
 }
 
 type Mutation {

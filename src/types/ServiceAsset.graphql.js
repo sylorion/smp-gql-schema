@@ -41,7 +41,7 @@ extend type Query {
   serviceAssetBySlug(Slug: String!): ServiceAsset
   serviceAssetsByIDs(serviceAssetIDs: [ID!]!): [ServiceAsset!]!
   serviceAssetsBySlugs(slugs: [String!]!): [ServiceAsset!]!
-  serviceAssetByUniqRef(UniqRef: String!): ServiceAsset
+  serviceAssetByUniqRef(uniqRef: String!): ServiceAsset
 }
 
 type Mutation {

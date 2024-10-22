@@ -44,7 +44,7 @@ extend type Query {
   faqAnswerBySlug(Slug: String!): FaqAnswer
   faqAnswersByIDs(faqAnswerIDs: [ID!]!): [FaqAnswer!]!
   faqAnswersBySlugs(slugs: [String!]!): [FaqAnswer!]!
-  faqAnswerByUniqRef(UniqRef: String!): FaqAnswer
+  faqAnswerByUniqRef(uniqRef: String!): FaqAnswer
 
 }
 

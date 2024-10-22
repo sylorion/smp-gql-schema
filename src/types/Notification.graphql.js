@@ -45,7 +45,7 @@ extend type Query {
   notificationBySlug(Slug: String!): Notification
   notificationsByIDs(notificationIDs: [ID!]!): [Notification!]!
   notificationsBySlugs(slugs: [String!]!): [Notification!]!
-  notificationByUniqRef(UniqRef: String!): Notification
+  notificationByUniqRef(uniqRef: String!): Notification
   notificationsByUserID(userID: ID!): [Notification!]!
   
 }

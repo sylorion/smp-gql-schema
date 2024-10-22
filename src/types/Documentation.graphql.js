@@ -54,7 +54,7 @@ extend type Query {
   documentationBySlug(Slug: String!): Documentation
   documentationsByIDs(documentationIDs: [ID!]!): [Documentation!]!
   documentationsBySlugs(slugs: [String!]!): [Documentation!]!
-  documentationByUniqRef(UniqRef: String!): Documentation
+  documentationByUniqRef(uniqRef: String!): Documentation
 }
 
 type Mutation {

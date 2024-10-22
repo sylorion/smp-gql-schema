@@ -41,7 +41,7 @@ extend type Query {
   roleBySlug(Slug: String!): Role
   rolesByIDs(roleIDs: [ID!]!): [Role!]!
   rolesBySlugs(slugs: [String!]!): [Role!]!
-  roleByUniqRef(UniqRef: String!): Role
+  roleByUniqRef(uniqRef: String!): Role
 
 }
 

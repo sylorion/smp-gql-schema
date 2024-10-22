@@ -66,7 +66,7 @@ extend type Query {
   applicationTokenBySlug(Slug: String!): ApplicationToken,
   applicationTokensByIDs(applicationTokenIDs: [ID!]!): [ApplicationToken!]!,
   applicationTokensBySlugs(slugs: [String!]!): [ApplicationToken!]!
-  applicationTokenByUniqRef(UniqRef: String!): ApplicationToken!
+  applicationTokenByUniqRef(uniqRef: String!): ApplicationToken!
 }
 
 type Mutation {

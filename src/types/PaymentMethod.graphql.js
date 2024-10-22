@@ -62,7 +62,7 @@ extend type Query {
   paymentMethodBySlug(Slug: String!): PaymentMethod
   paymentMethodsByIDs(paymentMethodIDs: [ID!]!): [PaymentMethod!]!
   paymentMethodsBySlugs(slugs: [String!]!): [PaymentMethod!]!
-  paymentMethodByUniqRef(UniqRef: String!): PaymentMethod
+  paymentMethodByUniqRef(uniqRef: String!): PaymentMethod
 }
 
 type Mutation {

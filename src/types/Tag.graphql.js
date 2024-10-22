@@ -38,7 +38,7 @@ extend type Query {
   tagBySlug(Slug: String!): Tag
   tagsByIDs(tagIDs: [ID!]!): [Tag!]!
   tagsBySlugs(slugs: [String!]!): [Tag!]!
-  tagByUniqRef(UniqRef: String!): Tag
+  tagByUniqRef(uniqRef: String!): Tag
 }
 
 type Mutation {

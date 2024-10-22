@@ -41,7 +41,7 @@ extend type Query {
   faqQuestionBySlug(Slug: String!): FaqQuestion
   faqQuestionsByIDs(faqQuestionIDs: [ID!]!): [FaqQuestion!]!
   faqQuestionsBySlugs(slugs: [String!]!): [FaqQuestion!]!
-  faqQuestionByUniqRef(UniqRef: String!): FaqQuestion
+  faqQuestionByUniqRef(uniqRef: String!): FaqQuestion
 }
 
 type Mutation {

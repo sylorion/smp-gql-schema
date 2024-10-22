@@ -44,7 +44,7 @@ extend type Query {
   serviceMediaBySlug(Slug: String!): ServiceMedia
   serviceMediasByIDs(serviceMediaIDs: [ID!]!): [ServiceMedia!]!
   serviceMediasBySlugs(slugs: [String!]!): [ServiceMedia!]!
-  serviceMediaByUniqRef(UniqRef: String!): ServiceMedia
+  serviceMediaByUniqRef(uniqRef: String!): ServiceMedia
 }
 
 type Mutation {

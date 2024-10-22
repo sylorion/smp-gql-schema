@@ -57,7 +57,7 @@ extend type Query {
   auditLogBySlug(Slug: String!): AuditLog
   auditLogsByIDs(auditLogIDs: [ID!]!): [AuditLog!]!
   auditLogsBySlugs(slugs: [String!]!): [AuditLog!]!
-  auditLogByUniqRef(UniqRef: String!): AuditLog
+  auditLogByUniqRef(uniqRef: String!): AuditLog
 }
 
 type Mutation {

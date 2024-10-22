@@ -47,7 +47,7 @@ extend type Query {
   reviewBySlug(Slug: String!): Review
   reviewsByIDs(reviewIDs: [ID!]!): [Review!]!
   reviewsBySlugs(slugs: [String!]!): [Review!]!
-  reviewByUniqRef(UniqRef: String!): Review
+  reviewByUniqRef(uniqRef: String!): Review
 }
 
 type Mutation {

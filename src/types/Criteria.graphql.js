@@ -53,7 +53,7 @@ extend type Query {
   criteriaBySlug(Slug: String!): Criteria
   criteriasByIDs(criteriaIDs: [ID!]!): [Criteria!]!
   criteriasBySlugs(slugs: [String!]!): [Criteria!]!
-  criteriaByUniqRef(UniqRef: String!): Criteria
+  criteriaByUniqRef(uniqRef: String!): Criteria
 }
 
 type Mutation {
