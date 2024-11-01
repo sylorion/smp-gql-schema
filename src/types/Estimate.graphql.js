@@ -5,7 +5,6 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   estimateID: ID!
   uniqRef: String
   slug: String
-  
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID
@@ -14,8 +13,9 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   expirationTimeLeft: Int # in seconds
   referencePrice: Int
   previewPrice: Int
+  authorID: ID
   proposedPrice: Int
-  commentaire: String
+  comment: String
   negociatedPrice: Int
   discountID: ID
   details: JSON
@@ -39,7 +39,7 @@ input CreateEstimateInput {
   referencePrice: Int
   previewPrice: Int
   proposedPrice: Int
-  commentaire: String
+  comment: String
   negociatedPrice: Int
   discountID: ID
   details: JSON!
@@ -53,7 +53,7 @@ input UpdateEstimateInput {
   expirationDueDate: Date
   expirationTimeLeft: Int
   proposedPrice: Int
-  commentaire: String
+  comment: String
   negociatedPrice: Int
   discountID: ID
   details: JSON

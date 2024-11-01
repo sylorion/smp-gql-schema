@@ -16,7 +16,6 @@ type Invoice implements ServicesEntity & ServicesNavigableEntity & ServicesStata
   emitDate: DateTime
   dueDate: DateTime
   digitalSignature: String
-  
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
