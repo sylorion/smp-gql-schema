@@ -18,7 +18,7 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
   commentaire: String
   negociatedPrice: Int
   discountID: ID
-  details: String
+  details: JSON
   propositionCount: Int
   lastProposition: ID
   stage: EstimateStage
