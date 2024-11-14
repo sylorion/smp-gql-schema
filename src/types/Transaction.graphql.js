@@ -20,11 +20,11 @@ type Transaction implements ServicesEntity & ServicesNavigableEntity & ServicesS
 input CreateTransactionInput {
   buyerUserID: ID!
   sellerOrganizationID: ID!
-  invoiceID: ID
+  invoiceID: ID!
   totalAmount: Int!
   dealMediaProofID: ID
   transactionDateTime: DateTime
-  state: ObjectStatus
+  state: ObjectStatus!
 }
 
 input UpdateTransactionInput {
