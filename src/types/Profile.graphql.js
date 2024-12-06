@@ -12,6 +12,8 @@ type Profile {
   nationality: String
   phoneNumber: String
   locationID: ID
+  userID: ID
+  authorID: ID
   idCardNumber: String
   passportNumber: String
   socialSecurityNumber: String
@@ -29,6 +31,7 @@ input CreateProfileInput {
   nationality: String
   phoneNumber: String
   locationID: ID
+  authorID: ID!
   idCardNumber: String
   passportNumber: String
   socialSecurityNumber: String
@@ -67,6 +70,5 @@ type Mutation {
   updateProfile(profileID: ID!, input: UpdateProfileInput!): Profile!
   deleteProfile(profileID: ID!): MutationResponse!
 }
-
 
 `;
