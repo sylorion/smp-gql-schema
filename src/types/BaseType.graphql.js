@@ -33,7 +33,7 @@ directive @link(
 ) repeatable on SCHEMA
 
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@tag", "@shareable", "@key", "inacessible", "override"])
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@tag", "@shareable", "@key", "@inacessible", "@override"])
   # @link(url: "https://myspecs.dev/myDirective/v1.0", import: ["@myDirective", { name: "@anotherDirective", as: "@hello" }])
 
   """
