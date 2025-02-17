@@ -33,7 +33,7 @@ directive @link(
 ) repeatable on SCHEMA
 
 extend schema
-@link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@composeDirective", "@tag", "@shareable", "@key", "@inaccessible", "@override"])  # @link(url: "https://myspecs.dev/myDirective/v1.0", import: ["@myDirective", { name: "@anotherDirective", as: "@hello" }])
+@link(url: "https://specs.apollo.dev/federation/v2.9", import: ["@composeDirective", "@tag", "@shareable", "@key", "@inaccessible", "@override"])  # @link(url: "https://myspecs.dev/myDirective/v1.0", import: ["@myDirective", { name: "@anotherDirective", as: "@hello" }])
 
   """
   The @authorization directive is used to specify access control rules for fields, objects, interfaces, scalars, and enums.
