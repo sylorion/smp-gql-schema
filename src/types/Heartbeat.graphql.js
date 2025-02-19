@@ -1,7 +1,7 @@
 
 export default /* GraphQL */`
 # src/graphql/types/Heartbeat.graphql.js
-type Heartbeat {
+type Heartbeat @shareable {
   lastPing: Date
   interval: Int
   timeOut: Int
