@@ -4,14 +4,14 @@ export default /* GraphQL */`
 
 # Custom error type for handling potential errors during mutations
 
-type MutationError {
+type MutationError @shareable {
   message: String!
   field: String
   code: Int
 }
 
 # For operation requiring a state only
-type MutationResponse {
+type MutationResponse @shareable {
   success: Boolean!
   message: String
   code: Int
