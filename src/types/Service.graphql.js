@@ -15,7 +15,6 @@ type Service  {
   topicID: ID
   organizationID: ID
   locationID: ID
-  location: Place 
   paymentConfigID: ID
   price: Int!
   legalVatPercent: Int
