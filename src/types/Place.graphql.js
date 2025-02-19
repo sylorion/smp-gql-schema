@@ -1,7 +1,7 @@
 export default /* GraphQL */ `
 # src/graphql/types/Place.graphql.js
 
-type Place  implements ServicesEntity & ServicesNavigableEntity & ServicesStatable @key(fields: "placeID") {
+type Place   {
   placeID: ID!
   uniqRef: String!
   slug: String!
