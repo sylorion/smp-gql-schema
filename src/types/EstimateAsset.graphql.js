@@ -9,7 +9,7 @@ type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & Service
   assetID: ID
   estimateID: ID
   
-  mandadtry: Boolean
+  mandatory: Boolean
   initialPrice: Int
   quantity: Int
   state: ObjectStatus
