@@ -8,8 +8,8 @@ type EstimateAsset implements ServicesEntity & ServicesNavigableEntity & Service
   legend: String
   assetID: ID
   estimateID: ID
-  
-  mandadtry: Boolean
+  price: Int
+  mandatory: Boolean
   initialPrice: Int
   quantity: Int
   state: ObjectStatus
