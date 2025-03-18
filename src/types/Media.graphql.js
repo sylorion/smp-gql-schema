@@ -7,7 +7,6 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   mediaID: ID!
   uniqRef: String
   slug: String
-  
   mediaType: MediaType
   legend: String
   summary: String
@@ -15,6 +14,8 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   finalName: String
   url: String
   size: String
+  entityID: ID!
+  entityName : String!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -22,19 +23,19 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
 }
 
 input CreateMediaInput {
-  
   mediaType: MediaType
   legend: String
   summary: String
   originalName: String
   finalName: String
+  entityID: ID
+  entityName : String
   url: String
   size: String
   state: ObjectStatus
 }
 
 input UpdateMediaInput {
-  authorID: ID
   # mediaType: MediaType
   legend: String
   summary: String
