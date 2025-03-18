@@ -7,6 +7,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   mediaID: ID!
   uniqRef: String
   slug: String
+  authorID: ID
   mediaType: MediaType
   legend: String
   summary: String
@@ -25,6 +26,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
 
 input CreateMediaInput {
   mediaType: MediaType
+  authorID: ID
   legend: String
   summary: String
   originalName: String
