@@ -15,7 +15,7 @@ type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   url: String
   size: String
   entityID: ID!
-  entityName : String!
+  entityName: String!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -29,7 +29,7 @@ input CreateMediaInput {
   originalName: String
   finalName: String
   entityID: ID
-  entityName : String
+  entityName: String
   url: String
   size: String
   state: ObjectStatus
