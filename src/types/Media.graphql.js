@@ -1,6 +1,8 @@
 export default /* GraphQL */ `
 # src/graphql/types/Media.graphql.js
 
+scalar Upload 
+
 type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   mediaID: ID!
   uniqRef: String
@@ -57,7 +59,7 @@ extend type Query {
 }
 
 type Mutation {
-  createMedia(input: CreateMediaInput!): Media!
+  createMedia(input: CreateMediaInput!, file: Upload!): Media!
   updateMedia(mediaID: ID!, input: UpdateMediaInput!): Media!
   deleteMedia(mediaID: ID!): MutationResponse!
 }
