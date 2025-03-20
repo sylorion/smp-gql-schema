@@ -26,6 +26,7 @@ input CreateUserInput {
   password: String! 
   plan: String
   userKind: UserType
+  profileID: ID
   twoFactorEnabled: Boolean
   rsaPublicKey: String
   state: ObjectStatus
@@ -36,7 +37,7 @@ input UpdateUserInput {
   email: String
   password: String
   plan: String
-  profileID: Int
+  profileID: ID
   userKind: UserType
   twoFactorEnabled: Boolean
   rsaPublicKey: String
