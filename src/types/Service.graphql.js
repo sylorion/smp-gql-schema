@@ -41,7 +41,7 @@ input CreateServiceInput {
   termsAndConditionsID: ID
   parentServiceID: ID
   topicID: ID
-  organizationID: ID
+  organizationID: ID!
   locationID: ID
   paymentConfigID: ID
   price: Int!

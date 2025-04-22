@@ -15,8 +15,8 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   quantity: Int
   stockQuantity: Int
   maxPerReservation: Int
-  conflictingAssets: String
-  applyableAssets: String
+  conflictingAssets: JSON
+  applyableAssets: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -34,8 +34,8 @@ input CreateAssetInput {
   legalVatPercent: Int
   quantity: Int!
   maxPerReservation: Int
-  conflictingAssets: String
-  applyableAssets: String
+  conflictingAssets: JSON
+  applyableAssets: JSON
   state: ObjectStatus!
 }
 
@@ -49,8 +49,8 @@ input UpdateAssetInput {
   legalVatPercent: Int
   quantity: Int
   maxPerReservation: Int
-  conflictingAssets: String
-  applyableAssets: String
+  conflictingAssets: JSON
+  applyableAssets: JSON
   state: ObjectStatus
 }
 
