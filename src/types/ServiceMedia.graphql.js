@@ -5,12 +5,11 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
   serviceMediaID: ID!
   uniqRef: String
   slug: String
-  
   mediaID: ID!
   serviceID: ID!
   legend: String
   listingPosition: Int
-  media: Media
+  media: Media @shareable
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

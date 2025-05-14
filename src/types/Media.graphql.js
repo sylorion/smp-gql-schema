@@ -1,21 +1,16 @@
 export default /* GraphQL */ `
 # src/graphql/types/Media.graphql.js
 
-type Media implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
+type Media @shareable {
   mediaID: ID!
-  uniqRef: String
-  slug: String
   authorID: ID
-  mediaType: MediaType
-  legend: String
-  summary: String
+  mediaType: String
   originalName: String
   finalName: String
   url: String
+  entityID: ID
+  entityName: String
   size: String
-  entityID: ID!
-  metadata: JSON
-  entityName: String!
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
