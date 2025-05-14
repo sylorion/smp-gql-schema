@@ -10,6 +10,7 @@ type ServiceMedia implements ServicesEntity & ServicesNavigableEntity & Services
   serviceID: ID!
   legend: String
   listingPosition: Int
+  media: Media
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime

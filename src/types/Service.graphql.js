@@ -27,6 +27,7 @@ type Service  {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
+  serviceMedias: [ServiceMedia!]
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
