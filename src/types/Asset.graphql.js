@@ -21,11 +21,24 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
+  medias: [AssetMedia!]
+}
+
+type AssetMedia {
+  assetMediaID: ID!
+  assetID: ID!
+  mediaID: ID!
+  listingPosition: Int!
+  legend: String
+  state: ObjectStatus
+  media: Media!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
 }
 
 input CreateAssetInput {
   title: String!
-  
   stockQuantity: Int
   organizationID: ID
   mediaID: ID
@@ -41,7 +54,6 @@ input CreateAssetInput {
 
 input UpdateAssetInput {
   title: String
-  
   stockQuantity: Int
   mediaID: ID
   description: String
@@ -54,6 +66,19 @@ input UpdateAssetInput {
   state: ObjectStatus
 }
 
+input CreateAssetMediaInput {
+  assetID: ID!
+  mediaID: ID!
+  listingPosition: Int!
+  legend: String
+  state: ObjectStatus!
+}
+
+input UpdateAssetMediaInput {
+  listingPosition: Int
+  legend: String
+  state: ObjectStatus
+}
 
 extend type Query {
   asset(assetID: ID!): Asset
@@ -66,12 +91,24 @@ extend type Query {
   assetsByIDs(assetIDs: [ID!]!): [Asset!]!,
   assetsBySlugs(slugs: [String!]!): [Asset!]!
   assetByUniqRef(uniqRef: String!): Asset
+  # AssetMedia queries
+  assetMedia(assetMediaID: ID!): AssetMedia
+  assetMedias(
+    pagination: PaginationInput,
+    sort: SortInput,
+    filter: [FilterInput!]
+  ): [AssetMedia!]!
+  assetMediasByIDs(assetMediaIDs: [ID!]!): [AssetMedia!]!
 }
 
 type Mutation {
   createAsset(input: CreateAssetInput!): Asset!
   updateAsset(assetID: ID!, input: UpdateAssetInput!): Asset!
   deleteAsset(assetID: ID!): MutationResponse!
+  # AssetMedia mutations
+  createAssetMedia(input: CreateAssetMediaInput!): AssetMedia!
+  updateAssetMedia(assetMediaID: ID!, input: UpdateAssetMediaInput!): AssetMedia!
+  deleteAssetMedia(assetMediaID: ID!): MutationResponse!
 }
 
 

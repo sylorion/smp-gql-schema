@@ -13,6 +13,7 @@ type Profile {
   phoneNumber: String
   locationID: ID
   userID: ID
+  profilePicture: Media
   authorID: ID
   idCardNumber: String
   passportNumber: String
