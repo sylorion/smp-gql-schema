@@ -5,7 +5,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   organizationID: ID!
   uniqRef: String!
   slug: String!
-  state: String
+  state: ObjectStatus
   authorID: ID
   ownerID: ID
   orgRef: String
@@ -42,7 +42,7 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
 }
 
 input OrganizationInput {
-  state: String
+  state: ObjectStatus
   authorID: ID
   ownerID: ID
   orgRef: String
@@ -75,15 +75,13 @@ input OrganizationInput {
 }
 
 type OrganizationResponse {
-  success: Boolean!
-  message: String
   organization: Organization
+  error: Error
 }
 
 type OrganizationsResponse {
-  success: Boolean!
-  message: String
   organizations: [Organization!]
+  error: Error
 }
 
 extend type Query {
@@ -98,6 +96,6 @@ extend type Query {
 extend type Mutation {
   createOrganization(input: OrganizationInput!): OrganizationResponse
   updateOrganization(organizationID: ID!, input: OrganizationInput!): OrganizationResponse
-  deleteOrganization(organizationID: ID!): MutationResponse
+  deleteOrganization(organizationID: ID!): OrganizationResponse
 }
 `;
