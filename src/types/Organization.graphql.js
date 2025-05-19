@@ -1,4 +1,3 @@
-
 export default /* GraphQL */ `
 # src/graphql/types/Organization.graphql.js
 
@@ -76,13 +75,15 @@ input OrganizationInput {
 }
 
 type OrganizationResponse {
+  success: Boolean!
+  message: String
   organization: Organization
-  error: Error
 }
 
 type OrganizationsResponse {
+  success: Boolean!
+  message: String
   organizations: [Organization!]
-  error: Error
 }
 
 extend type Query {
@@ -97,6 +98,6 @@ extend type Query {
 extend type Mutation {
   createOrganization(input: OrganizationInput!): OrganizationResponse
   updateOrganization(organizationID: ID!, input: OrganizationInput!): OrganizationResponse
-  deleteOrganization(organizationID: ID!): OrganizationResponse
+  deleteOrganization(organizationID: ID!): MutationResponse
 }
 `;
