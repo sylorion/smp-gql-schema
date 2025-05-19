@@ -75,13 +75,11 @@ input OrganizationInput {
 }
 
 type OrganizationResponse {
-  organization: Organization
-  error: Error
+  organization: Organization 
 }
 
 type OrganizationsResponse {
   organizations: [Organization!]
-  error: Error
 }
 
 extend type Query {
