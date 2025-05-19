@@ -34,9 +34,13 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   createdAt: DateTime
   updatedAt: DateTime
   # Media fields - IDs des OrganizationMedia
-  smallLogoMediaID: ID  # ID de l'OrganizationMedia pour le petit logo
-  bigLogoMediaID: ID    # ID de l'OrganizationMedia pour le grand logo
-  bannerMediaID: ID     # ID de l'OrganizationMedia pour la bannière
+  smallLogo: ID  # ID de l'OrganizationMedia pour le petit logo
+  bigLogo: ID    # ID de l'OrganizationMedia pour le grand logo
+  banner: ID     # ID de l'OrganizationMedia pour la bannière
+  # Media URLs
+  smallLogoUrl: String  # URL du petit logo
+  bigLogoUrl: String    # URL du grand logo
+  bannerUrl: String     # URL de la bannière
   # Relation avec OrganizationMedia
   organizationMedia: [OrganizationMedia!]
 }
@@ -69,9 +73,9 @@ input OrganizationInput {
   parentOrganizationID: ID
   advancedAttributes: JSON
   # Media fields - IDs des OrganizationMedia
-  smallLogoMediaID: ID
-  bigLogoMediaID: ID
-  bannerMediaID: ID
+  smallLogo: ID
+  bigLogo: ID
+  banner: ID
 }
 
 extend type Query {
