@@ -1,6 +1,5 @@
-import { gql } from "graphql-tag";
 
-export const Organization = gql`
+export default /* GraphQL */ `
 # src/graphql/types/Organization.graphql.js
 
 type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
@@ -100,5 +99,4 @@ extend type Mutation {
   updateOrganization(organizationID: ID!, input: OrganizationInput!): OrganizationResponse
   deleteOrganization(organizationID: ID!): OrganizationResponse
 }
-
 `;
