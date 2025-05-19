@@ -74,26 +74,18 @@ input OrganizationInput {
   bannerMediaID: ID
 }
 
-type OrganizationResponse {
-  organization: Organization 
-}
-
-type OrganizationsResponse {
-  organizations: [Organization!]
-}
-
 extend type Query {
-  organization(organizationID: ID!): OrganizationResponse
-  organizations(pagination: PaginationInput, sort: SortInput, filter: [FilterInput!]): OrganizationsResponse
-  organizationsByIDs(organizationIDs: [ID!]!): OrganizationsResponse
-  organizationsBySlugs(slugs: [String!]!): OrganizationsResponse
-  organizationByUniqRef(UniqRef: String!): OrganizationResponse
-  organizationBySlug(Slug: String!): OrganizationResponse
+  organization(organizationID: ID!): Organization
+  organizations(pagination: PaginationInput, sort: SortInput, filter: [FilterInput!]): [Organization!]!
+  organizationsByIDs(organizationIDs: [ID!]!): [Organization!]!
+  organizationsBySlugs(slugs: [String!]!): [Organization!]!
+  organizationByUniqRef(UniqRef: String!): Organization
+  organizationBySlug(Slug: String!): Organization
 }
 
 extend type Mutation {
-  createOrganization(input: OrganizationInput!): OrganizationResponse
-  updateOrganization(organizationID: ID!, input: OrganizationInput!): OrganizationResponse
-  deleteOrganization(organizationID: ID!): OrganizationResponse
+  createOrganization(input: OrganizationInput!): Organization
+  updateOrganization(organizationID: ID!, input: OrganizationInput!): Organization
+  deleteOrganization(organizationID: ID!): Organization
 }
 `;
