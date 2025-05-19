@@ -1,21 +1,21 @@
-export default /* GraphQL */ `
+import { gql } from "graphql-tag";
+
+export const Organization = gql`
 # src/graphql/types/Organization.graphql.js
 
 type Organization implements ServicesEntity & ServicesNavigableEntity & ServicesStatable {
   organizationID: ID!
-  uniqRef: String
-  slug: String
-  authorID: Int
-  ownerID: Int
+  uniqRef: String!
+  slug: String!
+  state: String
+  authorID: ID
+  ownerID: ID
   orgRef: String
-  sectorID: Int
+  sectorID: ID
   legalName: String
   brand: String
   sigle: String
-  smallLogoID: ID
-  bigLogoID: ID
-  bannerID: ID
-  oSize: OrganizationEconomicSizeKind
+  oSize: String
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
@@ -23,65 +23,36 @@ type Organization implements ServicesEntity & ServicesNavigableEntity & Services
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
-  capital: Int
+  capital: Float
   insuranceRef: String
   insuranceName: String
-  activityStartedAt: String
-  activityEndedAt: String
+  activityStartedAt: DateTime
+  activityEndedAt: DateTime
   description: String
   summary: String
   locationID: ID
   parentOrganizationID: ID
   advancedAttributes: JSON
-  state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
-  deletedAt: DateTime
+  # Media fields - IDs des OrganizationMedia
+  smallLogoMediaID: ID  # ID de l'OrganizationMedia pour le petit logo
+  bigLogoMediaID: ID    # ID de l'OrganizationMedia pour le grand logo
+  bannerMediaID: ID     # ID de l'OrganizationMedia pour la bannière
+  # Relation avec OrganizationMedia
+  organizationMedia: [OrganizationMedia!]
 }
 
-input CreateOrganizationInput {
-  authorID: Int!
-  ownerID: Int
+input OrganizationInput {
+  state: String
+  authorID: ID
+  ownerID: ID
   orgRef: String
-  sectorID: Int
-  legalName: String!
-  brand: String
-  sigle: String
-  smallLogoID: ID
-  bigLogoID: ID
-  bannerID: ID
-  oSize: OrganizationEconomicSizeKind
-  juridicForm: String
-  juridicCatLabel: String
-  juridicCatCode: String
-  currency: String
-  legalUniqIdentifier: String
-  vatNumber: String
-  communityVATNumber: String
-  capital: Int
-  insuranceRef: String
-  insuranceName: String
-  activityStartedAt: Int
-  activityEndedAt: Int
-  description: String!
-  summary: String
-  locationID: ID
-  parentOrganizationID: ID
-  advancedAttributes: JSON
-  state: ObjectStatus
-}
-
-input UpdateOrganizationInput {
-  ownerID: Int
-  orgRef: String
-  sectorID: Int
+  sectorID: ID
   legalName: String
   brand: String
   sigle: String
-  smallLogoID: ID
-  bigLogoID: ID
-  bannerID: ID
-  oSize: OrganizationEconomicSizeKind
+  oSize: String
   juridicForm: String
   juridicCatLabel: String
   juridicCatCode: String
@@ -89,37 +60,45 @@ input UpdateOrganizationInput {
   legalUniqIdentifier: String
   vatNumber: String
   communityVATNumber: String
-  capital: Int
+  capital: Float
   insuranceRef: String
   insuranceName: String
-  activityStartedAt: Int
-  activityEndedAt: Int
+  activityStartedAt: DateTime
+  activityEndedAt: DateTime
   description: String
   summary: String
   locationID: ID
   parentOrganizationID: ID
   advancedAttributes: JSON
-  state: ObjectStatus
+  # Media fields - IDs des OrganizationMedia
+  smallLogoMediaID: ID
+  bigLogoMediaID: ID
+  bannerMediaID: ID
+}
+
+type OrganizationResponse {
+  organization: Organization
+  error: Error
+}
+
+type OrganizationsResponse {
+  organizations: [Organization!]
+  error: Error
 }
 
 extend type Query {
-  organization(organizationID: ID!): Organization
-  organizations(
-    pagination: PaginationInput,
-    sort: SortInput,
-    filter: [FilterInput!]
-  ): [Organization!]!
-  organizationBySlug(Slug: String!): Organization
-  organizationsByIDs(organizationIDs: [ID!]!): [Organization!]!
-  organizationsBySlugs(slugs: [String!]!): [Organization!]!
-  organizationByUniqRef(uniqRef: String!): Organization
+  organization(organizationID: ID!): OrganizationResponse
+  organizations(pagination: PaginationInput, sort: SortInput, filter: [FilterInput!]): OrganizationsResponse
+  organizationsByIDs(organizationIDs: [ID!]!): OrganizationsResponse
+  organizationsBySlugs(slugs: [String!]!): OrganizationsResponse
+  organizationByUniqRef(UniqRef: String!): OrganizationResponse
+  organizationBySlug(Slug: String!): OrganizationResponse
 }
 
-type Mutation {
-  createOrganization(input: CreateOrganizationInput!): Organization!
-  updateOrganization(organizationID: ID!, input: UpdateOrganizationInput!): Organization!
-  deleteOrganization(organizationID: ID!): Boolean!
+extend type Mutation {
+  createOrganization(input: OrganizationInput!): OrganizationResponse
+  updateOrganization(organizationID: ID!, input: OrganizationInput!): OrganizationResponse
+  deleteOrganization(organizationID: ID!): OrganizationResponse
 }
-
 
 `;

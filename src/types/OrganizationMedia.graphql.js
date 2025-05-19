@@ -14,6 +14,8 @@ type OrganizationMedia implements ServicesEntity & ServicesNavigableEntity & Ser
   createdAt: DateTime
   updatedAt: DateTime
   deletedAt: DateTime
+  media: Media
+  organization: Organization
 }
 
 input CreateOrganizationMediaInput {
