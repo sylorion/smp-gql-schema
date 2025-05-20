@@ -13,6 +13,7 @@ type Profile {
   phoneNumber: String
   locationID: ID
   userID: ID
+  profilePictureID: ID
   profilePicture: Media
   authorID: ID
   idCardNumber: String
@@ -24,6 +25,7 @@ type Profile {
   deletedAt: DateTime
 }
 
+
 input CreateProfileInput {
   firstName: String
   lastName: String
@@ -32,6 +34,7 @@ input CreateProfileInput {
   nationality: String
   phoneNumber: String
   locationID: ID
+  profilePictureID: ID
   authorID: ID!
   idCardNumber: String
   passportNumber: String
@@ -47,6 +50,7 @@ input UpdateProfileInput {
   nationality: String
   phoneNumber: String
   locationID: ID
+  profilePictureID: ID
   idCardNumber: String
   passportNumber: String
   socialSecurityNumber: String
