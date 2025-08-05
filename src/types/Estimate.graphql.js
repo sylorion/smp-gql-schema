@@ -29,7 +29,6 @@ type Estimate implements ServicesEntity & ServicesNavigableEntity & ServicesStat
 }
 
 input CreateEstimateInput {
-  
   operatorUserID: ID
   buyerOrganizationID: ID
   sellerOrganizationID: ID

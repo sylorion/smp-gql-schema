@@ -17,6 +17,7 @@ type Asset implements ServicesEntity & ServicesNavigableEntity & ServicesStatabl
   maxPerReservation: Int
   conflictingAssets: JSON
   applyableAssets: JSON
+  details: JSON
   state: ObjectStatus
   createdAt: DateTime
   updatedAt: DateTime
@@ -49,6 +50,7 @@ input CreateAssetInput {
   maxPerReservation: Int
   conflictingAssets: JSON
   applyableAssets: JSON
+  details: JSON
   state: ObjectStatus!
 }
 
@@ -63,6 +65,7 @@ input UpdateAssetInput {
   maxPerReservation: Int
   conflictingAssets: JSON
   applyableAssets: JSON
+  details: JSON
   state: ObjectStatus
 }
 
