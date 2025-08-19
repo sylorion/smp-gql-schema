@@ -25,7 +25,7 @@ type ApplicationAccessTokenRefreshResponse {
 
 type ApplicationDetails {
   applicationID: ID!
-  appID: String!
+  appID: ID!
   uniqRef: String
   slug: String
   title: String 
@@ -40,7 +40,7 @@ type ApplicationDetails {
   plan: String
   isOfficialApp: Boolean
   appConfiguration: String 
-  authorID: Int
+  authorID: ID
   state: ObjectStatus
   createdAt: DateTime!
   updatedAt: DateTime 
