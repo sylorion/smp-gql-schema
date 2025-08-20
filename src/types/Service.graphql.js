@@ -27,6 +27,8 @@ type Service  {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
+  poweredByAgent: Boolean
+  agentConfiguration: JSON
   serviceMedias: [ServiceMedia!]
   state: ObjectStatus
   createdAt: DateTime
@@ -57,6 +59,8 @@ input CreateServiceInput {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
+  poweredByAgent: Boolean
+  agentConfiguration: JSON
   state: ObjectStatus !
 }
 
@@ -81,6 +85,8 @@ input UpdateServiceInput {
   billingPlan: ServiceBillingPlan
   onlineService: Boolean
   advancedAttributes: JSON
+  poweredByAgent: Boolean
+  agentConfiguration: JSON
   state: ObjectStatus
 }
 
@@ -100,6 +106,7 @@ extend type Query {
   servicesByIDs(serviceIDs: [ID!]!): [Service!]!
   servicesBySlugs(slugs: [String!]!): [Service!]!
   serviceByUniqRef(uniqRef: String!): Service
+  servicesByAgentID(agentID: String!): [Service!]!
 }
 
 type Mutation {
