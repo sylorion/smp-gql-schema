@@ -108,12 +108,4 @@ extend type Query {
   serviceByUniqRef(uniqRef: String!): Service
   servicesByAgentID(agentID: String!): [Service!]!
 }
-
-type Mutation {
-  createService(input: CreateServiceInput!): Service!
-  updateService(serviceID: ID!, input: UpdateServiceInput!): Service!
-  deleteService(serviceID: ID!): MutationResponse!
-}
-
-
 `;
