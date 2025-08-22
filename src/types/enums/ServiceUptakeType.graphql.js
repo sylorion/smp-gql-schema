@@ -4,5 +4,6 @@ enum ServiceUptakeType {
   instant
   periodic
   prestation
+  booking_required
 }
 `;
